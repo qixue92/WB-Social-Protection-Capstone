@@ -17,7 +17,7 @@
 *   			               BOX Globals
 *                   ===================================
 ********************************************************************************
- 	
+
 	drop	 _all
 	clear	 all
 	cls
@@ -26,16 +26,16 @@
 	set 	 memory  900m
 	
 	* Set the Dropbox Folder
-	if      "`c(os)'" == "Windows" global BOX "C:/Users/`c(username)'/Box/Capstone WB"
-	else if "`c(os)'" == "MacOSX"  global BOX "/Users/`c(username)'/Box/Capstone WB"
-	else                           global BOX "/home/`c(username)'/Box/Capstone WB"
+	if      "`c(os)'" == "Windows" global root "C:/Users/`c(username)'/Documents/GitHub/WB-Social-Protection-Capstone"
+	else if "`c(os)'" == "MacOSX"  global root "/Users/`c(username)'/Documents/GitHub/WB-Social-Protection-Capstone"
+	else                           global root "/home/`c(username)'/Documents/GitHub/WB-Social-Protection-Capstone"
 
 	* Set general project folders
-	global	raw			        "$BOX/02 raw data/raw"
-	global	imported	        "$BOX/02 raw data/imported"
-	global	output	            "$BOX/04 output"
-	global	cleaning			"$BOX/03 data cleaning"
-	global  cleaned             "$BOX/05 clean data"
+	global	raw			        "$root/02 raw data/raw"
+	global	imported	        "$root/02 raw data/imported"
+	global	output	            "$root/04 output"
+	global	cleaning			"$root/03 data cleaning"
+	global  cleaned             "$root/05 clean data"
 
 	
 ********************************************************************************
@@ -65,7 +65,7 @@
 	 label data "Social Assistance Tracker"
 	 notes: Source: Main database_COVID-19 SPJ TRACKER_as of 2021 Dec 9.
 
-	 save "$clean/Main_database_Dec", replace	 
+	 save "$imported/Main_database_Dec", replace	 
 */
 
 *	=====================
