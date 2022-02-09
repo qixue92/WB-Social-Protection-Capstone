@@ -1,0 +1,311 @@
+---
+title: "World Bank Capstone Project Data Viz"
+author: "Qi Xue, Neha Dagaonkar,James Hawkins"
+date: "11/2/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+install.packages("here")
+install.packages("reshape")
+install.packages("data.table")
+install.packages("formattable")
+
+library(tidyverse)
+library(haven)
+library(here)
+library(scales)
+library(reshape)
+library(reshape2)
+library(data.table)
+library(formattable)
+library(kableExtra)
+library(sjlabelled)
+```
+
+### Figure 1. Evolution in number of countries/territories and social protection measures
+```{r figure 1}
+# load output data
+figure1 <- read_dta(here("output/", "figure_1.dta")) %>% 
+  drop_na()
+
+# plot the graph
+figure1 %>% 
+   ggplot() + 
+   geom_col(aes(x = cum_month, y = cum_num_country), fill = "darkgoldenrod2") +
+   geom_line(aes(x = cum_month, y = cum_num_measure), color = "darkblue") +
+   theme_classic() +
+   labs(title = "Figure 1. Evolution in number of countries/territories and social protection measures",
+         x = "Number of new social protection measures",
+         y = "Number of countries/territories (bars)") +
+    theme(plot.title = element_text(face = "bold", size = 11, vjust = 1), 
+         axis.title.x = element_text(size = 9),
+         axis.title.y = element_text(size = 9))
+```
+### Figure 2: Composition of social protection response by components in regions and country income groups
+```{r figure 2}
+library(patchwork)
+
+# load output data1
+figure2_1 <- read_dta(here("output/", "figure_2_part1.dta")) %>% 
+  drop_na()
+
+# melt data
+melt_figure2_1 <- melt(figure2_1, id = c("region"))
+
+# plot the graph
+P1 <- melt_figure2_1 %>%
+  ggplot(aes(x = region, y = value, fill = variable)) +
+  geom_col(position = "fill", width = 0.6) +
+  scale_fill_manual(values = c("lightgrey", "navy", "darkgoldenrod2")) +
+  geom_text(aes(label = round(value, 1)), 
+            color = "white",
+            size = 2.5,
+            position = position_fill(vjust = 0.5)) +
+  scale_y_continuous(breaks = c(0.00, 0.25, 0.50, 0.75, 1.00),
+                     labels = c("0", "25%", "50%", "75%", "100%")) +
+  theme_minimal() +
+  labs(title = "Figure 2: Composition of social protection response by components in regions and country income groups",
+       x = "", y = "") +
+  theme(plot.title = element_text(face = "bold", size = 10, vjust = 1)) +
+  theme(legend.position = "none")
+
+# load output data2
+figure2_2 <- read_dta(here("output/", "figure_2_part2.dta")) %>% 
+  drop_na()
+
+# melt data
+melt_figure2_2 <- melt(figure2_2, id = c("income_group"))
+
+# plot the graph
+P2 <- melt_figure2_2 %>%
+  ggplot(aes(x = income_group, y = value, fill = variable)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = round(value, 1)), 
+            color = "white",
+            size = 2.5,
+            position = position_fill(vjust = 0.5)) +
+  theme_minimal() + 
+  labs(x = "", y = "") +
+  theme(plot.title = element_text(face = "bold", size = 11, vjust = 1)) +
+  theme(axis.text.y = element_blank(),
+        legend.position = "right",
+        legend.title = element_blank()) +
+  scale_fill_manual(breaks = c("pct_assitance", "pct_insurance", "pct_labor"),
+                      labels = c("Social assistance\n", "Social Insurance\n", "Labor market"),
+                      values = c("lightgrey", "navy", "darkgoldenrod2"))
+
+P1 + P2 + plot_layout(ncol = 2, width = c(2, 1))
+```
+### Table 1. Social Assistance Measures
+```{r table1}
+
+# define custom color
+customGreen0 = "#DeF7E9"
+customGreen = "#71CA97"
+
+# load output data1
+table1 <- read_dta(here("output/", "table_1.dta"))
+
+# get encoded labels
+labels <- get_labels(table1$sp_category_code)
+table1$sp_category_code <- map_chr(.x = table1$sp_category_code, .f = ~labels[.x])
+
+table1 <-table1 %>% 
+ mutate(`Social Protection Categories` = str_remove(sp_category_code,"[1-9].[1-9]. "),
+         `Number of Measures` = N_of_measures,
+         `Number of Countries` = N_of_countries) %>% 
+  select(-sp_category_code, -N_of_measures, -N_of_countries) 
+
+
+# present the table
+formattable(table1,
+            align = c("l","c","c"), list(
+  sp_category_code = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  num_projects_category = color_tile(customGreen, customGreen0),
+  num_country_category = color_tile(customGreen, customGreen0)))
+```
+
+#Table 2. 
+```{r table2}
+
+# define custom color
+customGreen0 = "#DeF7E9"
+customGreen = "#71CA97"
+customRed = "#ff7f7f"
+
+# load output data
+table2 <- read_dta(here("output/", "table_2.dta")) %>% 
+  drop_na() 
+
+# get encoded labels
+labels <- get_labels(table2$sp_category_code)
+table2$sp_category_code <- map_chr(.x = table2$sp_category_code, .f = ~labels[.x])
+
+# present the table
+formattable(table2,
+            align = c("l","c","c"), list(
+  sp_category_code = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  num_projects_category = color_tile(customGreen, customGreen0),
+  num_country_category = color_tile(customGreen, customGreen0)))
+  
+  
+  labs(title = paste("Table 2. Social Insurance Measures"))
+```
+#Table 3. 
+```{r table3}
+# load output data
+table3 <- read_dta(here("output/", "table_3.dta")) %>% 
+  drop_na() 
+
+# get encoded labels
+labels <- get_labels(table3$sp_category_code)
+table3$sp_category_code <- map_chr(.x = table3$sp_category_code, .f = ~labels[.x])
+
+# present the table
+formattable(table3,
+            align = c("l","c","c"), list(
+  sp_category_code = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  num_projects_category = color_tile(customGreen, customGreen0),
+  num_country_category = color_tile(customGreen, customGreen0)))
+  
+  
+  labs(title = paste("Table 3. Labour Market Measures"))
+```
+#Table 4. 
+```{r table4}
+# load output data
+table4 <- read_dta(here("output/","table_4.dta")) %>% 
+  select(c(`sp_category_code`, `Planned`, `Ongoing`, `Ended`)) %>%
+  drop_na() 
+
+# get encoded labels
+labels <- get_labels(table4$sp_category_code)
+table4$sp_category_code <- map_chr(.x = table4$sp_category_code, .f = ~labels[.x])
+
+# formalize table
+table4 <-table4 %>% 
+  mutate(`Social Protection Categories` = str_remove(sp_category_code,"[1-9].[1-9]. "),
+         `Programs Planned` = Planned,
+         `Programs Ongoing` = Ongoing,
+         `Programs Ended` = Ended) %>% 
+  select(-sp_category_code, -Planned, -Ongoing, -Ended) 
+
+
+# present the table
+formattable(table4,
+            align = c("l","c","c"), list(
+  sp_category_code = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  Planned = color_tile(customGreen, customGreen0),
+  Ongoing = color_tile(customGreen, customGreen0),
+  Ended = color_tile(customGreen, customGreen0)))
+  
+  
+  labs(title = paste("Table 4. State in social assistance implementation"))
+```
+#Table 7
+```{r table7}
+# load output data
+table7 <- read_dta(here("output/","table_7.dta")) %>% 
+    select(c(`inc_grp_code`, `exp_plan_num_usd1`, `exp_plan_num_usd2`,`exp_plan_num_usd3`, `total_expenditure`, `expenditure_per_capita`)) %>%
+  drop_na() 
+
+# get encoded labels
+labels <- get_labels(table7$inc_grp_code)
+table7$inc_grp_code <- map_chr(.x = table7$inc_grp_code, .f = ~labels[.x])
+
+# formalize table
+table7 <-table7 %>% 
+  mutate(`Countries by Income Group` = inc_grp_code,
+         `Social Assistance` = exp_plan_num_usd1,
+         `Social Insurance` = exp_plan_num_usd2,
+         `Labor Markets` = exp_plan_num_usd3,
+         `total Spending (USD)` = total_expenditure,
+         `Spending pc (average $/capita)` = expenditure_per_capita) %>% 
+  select(-inc_grp_code, -exp_plan_num_usd1, -exp_plan_num_usd2, -exp_plan_num_usd3, -total_expenditure, -expenditure_per_capita) 
+
+
+# present the table
+formattable(table7,
+            align = c("l","c","c","c","c","c"), list(
+  inc_grp_code = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  exp_plan_num_usd1 = color_tile(customGreen, customGreen0),
+  exp_plan_num_usd2 = color_tile(customGreen, customGreen0),
+  exp_plan_num_usd3 = color_tile(customGreen, customGreen0), 
+  total_expenditure = color_tile(customGreen, customGreen0),
+  expenditure_per_capita = color_tile(customGreen, customGreen0)))
+  
+  
+  labs(title = paste("Table 7. Spending by social protection component - country income group (USD)"))
+```
+
+### Pie chart
+```{r pie chart in excel}
+
+# load output data
+figure9.1 <- read_dta(here("output/", "Table_9.dta")) %>% 
+  drop_na() 
+
+# get encode labels
+labels9.1 <- get_labels(figure9.1$sp_area)
+figure9.1$sp_area <- map_chr(.x = figure9.1$measure_fraction, .f = ~labels[.x])
+
+# plot the graph
+
+ggplot(figure9.1, aes(x = "", y = measure_fraction, fill = sp_area)) +
+  geom_col(stat = "identity", color = "blue") +
+  geom_label(aes(label = labels9.1), color = c(1,2,3),
+            position = position_stack(vjust = 0.3),
+            show.legend = FALSE) +
+  guides(fill = guide_legend(title = "Protection Measures")) +
+  scale_fill_viridis_d() +
+  coord_polar("y",start = 0) + 
+  theme_void()
+```
+```
+
+```
+
+### Pie chart
+```{r pie chart in excel}
+
+# load output data
+figure9.1 <- read_dta(here("output/", "Table_9.dta")) %>% 
+  drop_na() 
+
+# get encode labels
+labels9.1 <- get_labels(figure9.1$sp_area)
+figure9.1$sp_area <- map_chr(.x = figure9.1$measure_fraction, .f = ~labels[.x])
+
+ggplot(figure9.1[1:10, ], aes("", measure_fraction, fill = sp_area)) +
+    geom_bar(width = 1, size = 1, color = "white", stat = "identity") +
+    coord_polar("y") +
+    geom_text(aes(label = paste0(round(measure_fraction), "%")), 
+              position = position_stack(vjust = 0.5)) +
+    labs(x = NULL, y = NULL, fill = NULL, 
+         title = "Social Protection Measure") +
+    guides(fill = guide_legend(reverse = TRUE)) +
+    scale_fill_manual(values = c("#ffd700", "#bcbcbc", "#ffa500")) +
+    theme_classic() +
+    theme(axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank(),
+          plot.title = element_text(hjust = 0.5, color = "#666666"))
+```
+facet_grid(cols = vars(When))
+
+
+
+
+
+
+

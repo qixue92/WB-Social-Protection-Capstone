@@ -1,0 +1,568 @@
+---
+title: "World Bank Capstone Project Data Viz"
+author: "Qi Xue, Neha Dagaonkar, James Hawkins"
+date: "11/2/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(haven)
+library(here)
+library(scales)
+library(reshape)
+library(reshape2)
+library(data.table)
+library(formattable)
+library(kableExtra)
+library(sjlabelled)
+library(ggalt)
+```
+
+### Figure 1. Evolution in number of countries/territories and social protection measures
+```{r figure 1}
+# load output data
+figure1 <- read_dta(here("output/", "figure_1.dta")) %>% 
+  drop_na()
+
+# plot the graph
+figure1 %>% 
+   ggplot() + 
+   geom_col(aes(x = cum_month, y = cum_num_country), fill = "darkgoldenrod2") +
+     geom_text(aes(x = cum_month, y = cum_num_country,
+                   label = cum_num_country), 
+                   vjust = - 1, size = 2.5) +
+   geom_line(aes(x = cum_month, y = cum_num_measure/4), color = "darkblue") +
+     # geom_text(aes(x = cum_month, y = cum_num_measure/4,
+     #               label = cum_num_measure),
+     #               vjust = - 1, size = 2.5) +
+     scale_y_continuous(sec.axis = sec_axis(~.*4, name = "Number of new social protection measures")) +
+     # scale_x_continuous(labels = c("May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020", "Nov2020", "Dec2020",
+     #                               "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021",
+     #                               "Sep2021", "Oct2021", "Nov2021", "Dec2021")) +
+   theme_minimal() +
+   labs(title = "Figure 1. Evolution in number of countries/territories and social protection measures",
+         x = "Number of months since Mar 2020",
+         y = "Number of countries/territories (bars)") +
+    theme(plot.title = element_text(face = "bold", size = 11, vjust = 2), 
+         axis.title.x = element_text(size = 9),
+         axis.title.y = element_text(size = 9))
+
+ggsave(here("output/data_viz", "figure_1.png"))
+```
+
+### Figure 2: Composition of social protection response by components in regions and country income groups
+```{r figure 2, fig.width = 7, fig.height = 4}
+library(patchwork)
+
+# load output data1
+figure2_1 <- read_dta(here("output/", "figure_2_part1.dta")) %>% 
+  drop_na()
+
+# melt data
+melt_figure2_1 <- reshape2::melt(figure2_1, id = c("region"))
+
+# plot the graph
+P1 <- melt_figure2_1 %>%
+  ggplot(aes(x = region, y = value, fill = variable)) +
+  geom_col(position = "fill", width = 0.6) +
+  scale_fill_manual(values = c("lightgrey", "navy", "darkgoldenrod2")) +
+  geom_text(aes(label = round(value, 1)), 
+            color = "white",
+            size = 2.5,
+            position = position_fill(vjust = 0.5)) +
+  scale_y_continuous(breaks = c(0.00, 0.25, 0.50, 0.75, 1.00),
+                     labels = c("0", "25%", "50%", "75%", "100%")) +
+  theme_minimal() +
+  labs(title = "Figure 2: Composition of social protection response by components in regions and country income groups",
+       x = "", y = "") +
+  theme(plot.title = element_text(face = "bold", size = 10, vjust = 1)) +
+  theme(legend.position = "none")
+
+# load output data2
+figure2_2 <- read_dta(here("output/", "figure_2_part2.dta")) %>% 
+  drop_na()
+
+# melt data
+melt_figure2_2 <- reshape2::melt(figure2_2, id = c("income_group"))
+
+# plot the graph
+P2 <- melt_figure2_2 %>%
+  ggplot(aes(x = income_group, y = value, fill = variable)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = round(value, 1)), 
+            color = "white",
+            size = 2.5,
+            position = position_fill(vjust = 0.5)) +
+  theme_minimal() + 
+  labs(x = "", y = "") +
+  theme(plot.title = element_text(face = "bold", size = 11, vjust = 1, hjust = -0.5)) +
+  theme(axis.text.y = element_blank(),
+        legend.position = "right",
+        legend.title = element_blank()) +
+  scale_fill_manual(breaks = c("pct_assistance", "pct_insurance", "pct_labor"),
+                    labels = c("Social Assistance\n", "Social Insurance\n", "Labor Market"),
+                    values = c("lightgrey", "navy", "darkgoldenrod2"))
+
+P1 + P2 + plot_layout(ncol = 2, width = c(2, 1))
+
+ggsave(here("output/data_viz", "Figure_2.png"))
+```
+### Table 1. Social assistance measures
+```{r table1, fig.width = 3}
+
+# load output data1
+table1 <- read_dta(here("output/", "table_1.dta"))
+
+# get encode labels
+labels <- get_labels(table1$sp_category_code)
+table1$sp_category_code <- map_chr(.x = table1$sp_category_code, .f = ~labels[.x])
+
+# formalize table
+table1 <-table1 %>% 
+  mutate(`Social Protection Categories` = str_remove(sp_category_code,"[1].[1-9]. "),
+         `Number of Measures` = N_of_measures,
+         `Number of Countries` = N_of_countries) %>% 
+  select(-sp_category_code, -N_of_measures, -N_of_countries) 
+
+# present the table
+formattable(table1,
+            align = c("l","c","c"), list(
+  `Social Protection Categories` = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  `Number of Measures` = color_tile("#DeF7E9", "#82d58c"),
+  `Number of Countries` = color_tile("lightblue", "lightblue3")))
+
+# alternatively, using the length of bar to indicate numbers
+# formattable(table3,
+#             align = c("l","c","c"), list(
+#   `Social Protection Categories` = formatter("span", 
+#                                style = ~ style(color = "grey", font.weight = "bold")), 
+#    area(col = c(`Number of Measures`, `Number of Countries`)) ~ normalize_bar("pink", 0.2)))
+```
+
+### Table 2. Social insurance programs
+```{r table2}
+
+# load output data
+table2 <- read_dta(here("output/", "table_2.dta")) %>% 
+  drop_na() 
+
+# get encode labels
+labels <- get_labels(table2$sp_category_code)
+table2$sp_category_code <- map_chr(.x = table2$sp_category_code, .f = ~labels[.x])
+
+# formalize table
+table2 <-table2 %>% 
+  mutate(`Social Protection Categories` = str_remove(sp_category_code,"[1-9].[1-9]. "),
+         `Number of Measures` = N_of_measures,
+         `Number of Countries` = N_of_countries) %>% 
+  select(-sp_category_code, -N_of_measures, -N_of_countries) 
+
+# present the table
+formattable(table2,
+            align = c("l","c","c"), list(
+  `Social Protection Categories` = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  `Number of Measures` = color_tile("#DeF7E9", "#82d58c"),
+  `Number of Countries` = color_tile("lightblue", "lightblue3")))
+```
+
+### Table 3. Active Labor market and labor regulations
+```{r table3}
+
+# load output data
+table3 <- read_dta(here("output/", "table_3.dta")) %>% 
+  drop_na() 
+
+# get encode labels
+labels <- get_labels(table3$sp_category_code)
+table3$sp_category_code <- map_chr(.x = table3$sp_category_code, .f = ~labels[.x])
+
+# formalize table
+table3 <- table3 %>% 
+  mutate(`Social Protection Categories` = str_remove(sp_category_code,"[3].[1-9]. "),
+         `Number of Measures` = N_of_measures,
+         `Number of Countries` = N_of_countries) %>% 
+  select(-sp_category_code, -N_of_measures, -N_of_countries) 
+
+# present the table
+formattable(table3,
+            align = c("l","c","c"), list(
+  `Social Protection Categories` = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  `Number of Measures` = color_tile("#DeF7E9", "#82d58c"),
+  `Number of Countries` = color_tile("lightblue", "lightblue3")))
+```
+
+### Table 4. State in social assistance implementation
+```{r table4}
+
+# load output data
+table4 <- read_dta(here("output/","table_4.dta")) %>% 
+  select(c(`sp_category_code`, `Planned`, `Ongoing`, `Ended`)) %>%
+  drop_na() 
+
+# get encoded labels
+labels <- get_labels(table4$sp_category_code)
+table4$sp_category_code <- map_chr(.x = table4$sp_category_code, .f = ~labels[.x])
+
+# formalize table
+table4 <-table4 %>% 
+  mutate(`Social Protection Categories` = str_remove(sp_category_code,"[1-9].[1-9]. "),
+         `Programs Planned` = Planned,
+         `Programs Ongoing` = Ongoing,
+         `Programs Ended` = Ended) %>% 
+  select(-sp_category_code, -Planned, -Ongoing, -Ended) 
+
+# present the table
+formattable(table4,
+            align = c("l","c","c"), list(
+  sp_category_code = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  `Programs Planned` = color_tile("#DeF7E9", "#82d58c"),
+  `Programs Ongoing` = color_tile("lightblue", "lightblue3"),
+  `Programs Ended` = color_tile("pink", "pink3")))
+  
+#labs(title = paste("Table 4. State in social assistance implementation"))
+```
+
+### Figure 3. Generosity of cash transfer size relative to pre-COVID level
+```{r figure 3, fig.width = 9, fig.height = 5.5}
+
+# load output data
+figure3 <- read_dta(here("output/", "figure_3.dta")) %>% 
+  drop_na()
+
+# combine label
+figure3$combined <- 
+  paste(figure3$country_name, figure3$program_name, sep = " (")
+
+figure3$combined <-
+  paste(figure3$combined, ")", sep = "")
+
+figure3 <- figure3 %>% 
+  mutate(combined = str_remove(combined, " \\(\\)"))
+
+# plot the graph
+figure3 %>% 
+  mutate(combined = forcats::fct_reorder(.x = sa_transfer,
+                                         .f = combined)) %>% 
+  ggplot() +
+  geom_col(aes(x = combined, y = sa_transfer),
+           fill = "darkgoldenrod2") +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Figure 3. Generosity of cash transfer size relative to pre-COVID level",
+       y = "% increase in transfer size from pre-covid level",
+       x = "") +
+  # geom_text(aes(x = combined, y = sa_transfer,
+  #               label = round(sa_transfer*100, 2)),
+  #               hjust = -0.5, size = 3) +
+  scale_y_continuous(breaks = 0:4,
+                     labels = scales::percent) +
+  theme(plot.title = element_text(face = "bold", size = 11, vjust = 1),
+        axis.title.x = element_text(size = 10))
+
+ggsave(here("output/data_viz", "figure_3.png"))
+```
+
+### Table 5. Adaption of cash transfer program
+```{r table 5}
+
+# load output data
+table5 <- read_dta(here("output/", "table_5.dta")) %>% 
+  drop_na() 
+```
+
+### Figure 4. Duration in cash transfer programs
+```{r figire 4}
+
+# load output data
+figure4 <- read_dta(here("output/", "figure_4.dta")) %>% 
+  drop_na() 
+
+# create month column
+figure4 <- figure4 %>% 
+  mutate(month = ifelse(duration <= 1, "month", "months"))
+
+# paste months
+figure4 <- figure4 %>% 
+  mutate(duration_month = paste(figure4$duration, figure4$month))
+
+# plot the graph
+figure4 %>% 
+  ggplot() +
+  geom_col(aes(x = factor(duration_month, 
+                          levels = c("0 month", "1 month", 
+                                     "2 months", "3 months",
+                                     "4 months", "5 months", 
+                                     "6 months", "7 months",
+                                     "8 months", "9 months")), 
+              y = num_projects), 
+              fill = "lightblue3", 
+              width = 0.6) +
+  coord_flip() +
+  theme_light() +
+  geom_vline(xintercept = 3.84, color = "red",
+             show.legend = "Average") + # name is not showing up
+  labs(title = "Figure 4. Duration in cash transfer programs",
+       y = "Number of cash transfer schemes",
+       x = "") +
+  scale_y_continuous(breaks = 0: 20) +
+  theme(plot.title = element_text(face = "bold", size = 11, vjust = 1.5, hjust = 0.5),
+         axis.title.x = element_text(size = 10))
+
+ggsave(here("output/data_viz", "figure_4.png"))
+```
+
+### Figure 5. Planned versus actual coverage rates for top 50 programs
+```{r figure 5, fig.width = 9.5, fig.height = 5.5}
+
+# load data
+figure5 <- read_dta(here("output/", "figure_5.dta")) %>%
+    mutate(name = str_remove(program_name,"[0-9][0-9]. ")) %>% 
+    mutate(name = str_remove(name,"[0-9]. "))# remove number in program name
+
+# paste program name to country name
+figure5$combined <- 
+  paste(figure5$country_name, figure5$name, sep = " (")
+
+figure5$combined <-
+  paste(figure5$combined, ")", sep = "")
+
+# plot the data
+figure5 %>% 
+  mutate(combined = forcats::fct_reorder(.x = sa_app,
+                                         .f = combined)) %>% 
+  ggplot() +
+  geom_segment(aes(y = combined, yend = combined, 
+                   x = 0, xend = .5), 
+               color="#b2b2b2", size = 0.1) +
+  geom_dumbbell(aes(y = combined, x = sa_app, xend = sa_ppp),
+                size = 1, color = "#b2b2b2", alpha = 0.8,
+                size_x = 2.5, size_xend = 2.5, 
+                colour_x = "navy", colour_xend = "darkgoldenrod2", 
+                show.legend = TRUE) +
+  theme_bw() +
+  scale_color_manual(name = "", values = c("navy", "darkgoldenrod2")) +
+  #theme_minimal() +
+  labs(title = "Figure 5. Planned versus actual coverage rates for top 50 programs",
+       x = "", y = "") +
+  theme(plot.title = element_text(face = "bold", size = 11, vjust = 2), 
+        axis.title.x = element_text(size = 9),
+        axis.title.y = element_text(size = 9))
+
+ggsave(here("output/data_viz", "figure_5.png"))
+```
+
+### Table 6. Number of social assistance and cash transfer beneficiaries (planned and actual)
+```{r table 6}
+
+# load output data
+table6 <- read_dta(here("output/", "table_6.dta"))
+
+# rename var name
+table6 <- table6 %>% 
+   mutate(`Planned number of individuals` = prettyNum(ben_totals0, big.mark = ','),
+          `Planned number of inviduals as % of the World's population` = round(ben_percent0, 2),
+          `Actual number of individuals` = prettyNum(ben_totals1,big.mark = ','),
+          `Actual number of inviduals as % of the World's population` = round(ben_percent1, 2)) %>% 
+  select(-ben_totals0, -ben_totals1, -ben_percent0, -ben_percent1) 
+
+# get encode labels 
+labels <- get_labels(table6$y)
+table6$y <- map_chr(.x = table6$y, .f = ~labels[.x])
+
+# present the table
+formattable(table6,
+            align = c("l","c","c"), list(
+   y = formatter("span", style = ~ style(color = "grey", font.weight = "bold")),
+   `Planned number of individuals` = color_tile("#DeF7E9", "#82d58c"),
+   `Actual number of individuals` = color_tile("lightblue", "lightblue3")))
+```
+
+### Figure 6. Top 10 cash transfer program by actual coverage (million people)
+```{r figure 6, fig.width = 8, fig.height = 3}
+
+# load output data
+figure6 <- read_dta(here("output/", "figure_6.dta")) %>% 
+   drop_na() 
+
+# combine label
+figure6$combined <- 
+  paste(figure6$country_name, figure6$program_name, sep = " (")
+
+figure6$combined <-
+  paste(figure6$combined, ")", sep = "")
+
+figure6 <- figure6 %>% 
+  mutate(combined = str_remove(combined, " \\(\\)"),
+        combined = str_remove(combined,"[1][0-9]. "))
+
+# plot the graph
+figure6 %>% 
+  mutate(ben_actual_m = ben_actual/1000000) %>% 
+  mutate(combined = forcats::fct_reorder(.x = ben_actual_m, .f = combined)) %>% 
+  ggplot() +
+  geom_col(aes(x = ben_actual_m, y = combined),
+           fill = "darkgoldenrod2",
+           width = 0.4) +
+  theme_minimal() +
+  labs(title = "Figure 6. Top 10 cash transfer program by actual coverage (million people)",
+       y = "",
+       x = "") +
+   theme(plot.title = element_text(face = "bold", size = 11, vjust = 1, hjust = 1))
+
+ggsave(here("output/data_viz", "figure_6.png"))
+```
+
+### Figure 7. Top 10 cash transfer programs by actual coverage (% population)
+```{r figure 7, fig.width = 7, fig.height = 3}
+
+# load output data
+figure7 <- read_dta(here("output/", "figure_7.dta")) %>% 
+  drop_na() 
+
+# get encode labels
+# labels7 <- get_labels(figure7$sa_policy_adap2)
+# figure7$sa_policy_adap2 <- map_chr(.x = figure7$sa_policy_adap2, .f = ~labels[.x])
+
+# remove numbers from label
+# figure7 <- figure7 %>% 
+  # mutate(sa_policy_adap2 = str_remove(sa_policy_adap2,"[1-9].[1-9]. "))
+
+# combine label
+figure7$combined <- 
+  paste(figure7$country_name, figure7$sa_policy_adap, sep = " (")
+
+figure7$combined <-
+  paste(figure7$combined, ")", sep = "")
+
+# plot the graph
+figure7 %>% 
+  mutate(combined = forcats::fct_reorder(.x = sa_app,
+                                         .f = combined)) %>% 
+  ggplot() +
+  geom_col(aes(x = combined, y = sa_app),
+           fill = "darkgoldenrod2",
+           width = 0.4) +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Figure 7. Top 10 cash transfer programs by actual coverage (% population)",
+       y = "% of population covered by program",
+       x = "") +
+  theme(plot.title = element_text(face = "bold", size = 11, vjust = 1, hjust = 1.2),
+        axis.title.x = element_text(size = 10))
+
+ggsave(here("output/data_viz", "figure_7.png"))
+```
+
+### Figure 8. Scale up rates of cash transfer relative to pre-COVID level
+```{r figure 8}
+
+# load output data
+figure8 <- read_dta(here("output/", "figure_8.dta")) %>% 
+  drop_na() 
+
+# plot the graph
+figure8 %>% 
+  mutate(country_name = forcats::fct_reorder(.f = country_name,
+                                             .x = rate_scaleup)) %>% 
+  ggplot() +
+  geom_col(aes(x = country_name, y = rate_scaleup),
+           fill = "lightblue3",
+           width = 0.5) +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Figure 8. Scale up rates of cash transfer relative to pre-COVID level",
+       y = "% increase in transfer size from pre-covid level",
+       x = "") +
+  theme(plot.title = element_text(face = "bold", size = 11, vjust = 1, hjust = 0),
+        axis.title.x = element_text(size = 10)) 
+
+ggsave(here("output/data_viz", "figure_8.png"))
+```
+### Table 7. Spending by social protection component and region group (USD)
+```{r table7}
+
+options(scipen = 99)
+
+# load output data
+table7 <- read_dta(here("output/","table_7.dta")) %>% 
+    select(c(`inc_grp_code`, `exp_plan_num_usd1`, `exp_plan_num_usd2`,`exp_plan_num_usd3`, `total_expenditure`, `expenditure_per_capita`)) %>%
+  drop_na() %>% 
+  mutate(total_expenditure = round(total_expenditure, 2))
+
+# get encoded labels
+labels <- get_labels(table7$inc_grp_code)
+table7$inc_grp_code <- map_chr(.x = table7$inc_grp_code, .f = ~labels[.x])
+
+# formalize table
+table7 <-table7 %>% 
+  mutate(`Countries by Income Group` = inc_grp_code,
+         `Social Assistance` = exp_plan_num_usd1,
+         `Social Insurance` = exp_plan_num_usd2,
+         `Labor Markets` = exp_plan_num_usd3,
+         `Total Spending (USD)` = round(total_expenditure, 2),
+         `Spending pc (average $/capita)` = expenditure_per_capita) %>% 
+  select(-inc_grp_code, -exp_plan_num_usd1, -exp_plan_num_usd2, -exp_plan_num_usd3, -total_expenditure, -expenditure_per_capita) 
+
+# present the table
+formattable(table7,
+            align = c("l","c","c","c","c","c"), list(
+  inc_grp_code = formatter("span", 
+                               style = ~ style(color = "grey", font.weight = "bold")), 
+  `Social Assistance` = color_tile("#DeF7E9", "#82d58c"),
+  `Social Insurance` = color_tile("#DeF7E9", "#82d58c"),
+  `Labor Markets` = color_tile("#DeF7E9", "#82d58c"), 
+  `Total Spending (USD)` = color_tile("lightblue", "lightblue3"),
+  `Spending pc (average $/capita)` = color_tile("lightblue", "lightblue3")))
+  
+# labs(title = paste("Table 7. Spending by social protection component - country income group (USD)"))
+```
+
+### Pie chart
+```{r pie chart in excel, eval = FALSE, include = FALSE}
+
+# load output data
+figure9.1 <- read_dta(here("output/", "figure_9.dta")) %>% 
+  drop_na() 
+
+# get encode labels
+labels9 <- get_labels(figure9.1$sp_area)
+figure9.1$sp_area <- map_chr(.x = figure9$sp_area, .f = ~labels[.x])
+
+# remove numbers from label
+figure7 <- figure7 %>% 
+  mutate(sa_policy_adap2 = str_remove(sa_policy_adap2,"[1-9].[1-9]. "))
+
+# combine label
+figure7$combined <- 
+  paste(figure7$country_name, figure7$sa_policy_adap2, sep = " (")
+
+figure7$combined <-
+  paste(figure7$combined, ")", sep = "")
+
+# plot the graph
+figure7 %>% 
+  mutate(combined = forcats::fct_reorder(.x = sa_app,
+                                         .f = combined)) %>% 
+  ggplot() +
+  geom_col(aes(x = combined, y = sa_app),
+           fill = "darkgoldenrod2",
+           width = 0.4) +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Figure 7. Top 10 cash transfer programs by actual coverage (% population)",
+       y = "% of population covered by program",
+       x = "") +
+  theme(plot.title = element_text(face = "bold", size = 11, vjust = 1, hjust = 1.2),
+        axis.title.x = element_text(size = 10))
+
+ggsave(here("output/data_viz", "figure_9.png"))
+```
