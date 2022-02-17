@@ -1,15 +1,10 @@
-
 .DS_Store
-.DS_Store
+*.dta
+*.xlsx
+02 raw data/.DS_Store
+02 raw data/imported/Main_database_Dec.dta
 03 data cleaning/.DS_Store
+05 cleaned data/cleaned_main_database_Dec.dta
 06 data viz/.Rproj.user/.DS_Store
 06 data viz/.DS_Store
-.DS_Store
-02 raw data/.DS_Store
-02 raw data/.DS_Store
-02 raw data/.DS_Store
-.DS_Store
-.DS_Store
-*.xlsx
-*.icloud
-*.xlsx
+
