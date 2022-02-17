@@ -1,5 +1,6 @@
 .DS_Store
 *.dta
+*.xlsx
 02 raw data/.DS_Store
 02 raw data/imported/Main_database_Dec.dta
 03 data cleaning/.DS_Store
