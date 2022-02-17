@@ -6,7 +6,8 @@
 			 Gavin Hawkins (jgh73@georgetown.edu)
 			 
 * Date created: Jan 28, 2022
-* Description: This file is created to set up globals for the Social Assistance Tracker.
+* Description: This file is created to filter the Social Assistance Tracker with
+			   regard to programs targeted informal sector.
 
 * Update 1: add new dataset, Dec 9 - "import new dataset" 
 * Update 2: add new do-file, Dec 11- "add clean var do-file"
