@@ -1,15 +1,16 @@
 /*******************************************************************************
-* File name: Import Informal Definition
+* File name: Import Informal Sector Data
 
 * Author(s): Qi Xue (qx61@georgetown.edu)
              Neha Dagaonkar (nd569@georgetown.edu)
 			 Gavin Hawkins (jgh73@georgetown.edu)
 			 
 * Date created: Feb 26, 2022
-* Description: This file is created to merge the Informal definition with the existing tracker.
+* Description: This file is created to import Informal Sector Data and merge it 
+			   with the Main Database - Tracker.
 
-* Update 1: add new dataset, Dec 9 - "import new dataset" 
-* Update 2: add new do-file, Dec 11- "add clean var do-file"
+* Update 1: import dataset, Feb 26, 2022 - "import new dataset" 
+* Update 2: 
 ********************************************************************************/
 
 
@@ -62,13 +63,17 @@
 *                   =====================================
 ********************************************************************************
 
-	/* meger information definition with the main data base
-
+	* meger with the main data
 	use "Main_database_Dec.dta", clear
 
 	merge m:m program_id using "Informal Sector Workder.dta", update replace force
 	
-	cf _all using "Informal Sector Workder.dta"*/
+	* save merged data	
+	compress
+	
+	save "$cleaned/merged_Main_database_Feb.dta", replace
+	
+		label data "Merged datasets including Main Dataset and Informal Sector Targeted Programs"
+		notes: Source: Main Database_V16 and Informal Sector Workder_V16 Global Tracker_as of Feb 2022.
 	
 	
-

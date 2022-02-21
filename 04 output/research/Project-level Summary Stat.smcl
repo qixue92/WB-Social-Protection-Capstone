@@ -1,0 +1,724 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level Summary Stat.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}19 Feb 2022, 21:54:22
+{txt}
+{com}.         
+.         * using data
+.         use "$imported/Informal Sector Workder.dta", clear
+{txt}(Informal Sector Workder_V16 Global Tracker)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         * ====================
+.         * 1_General Information
+.         * ====================
+.         
+.         * region
+.         tab region, missing
+
+     {txt}region {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+            {c |}{res}          1        1.03        1.03
+{txt}        EAS {c |}{res}         26       26.80       27.84
+{txt}        ECS {c |}{res}         14       14.43       42.27
+{txt}        LCN {c |}{res}         22       22.68       64.95
+{txt}        MEA {c |}{res}         13       13.40       78.35
+{txt}        SAS {c |}{res}          6        6.19       84.54
+{txt}        SSF {c |}{res}         15       15.46      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * informal
+.         *rename Column3 informal_type
+.         tab informal_type, missing
+{err}variable {bf}informal_type{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         * informal
+.         rename Column3 informal_type
+{res}{txt}
+{com}.         tab informal_type, missing
+
+      {txt}Column3 {c |}      Freq.     Percent        Cum.
+{hline 14}{c +}{hline 35}
+    including {c |}{res}         69       71.13       71.13
+{txt}only informal {c |}{res}         28       28.87      100.00
+{txt}{hline 14}{c +}{hline 35}
+        Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * sp_sub_category
+.         tab sp_sub_category, missing
+
+                    {txt}sp_sub_category {c |}      Freq.     Percent        Cum.
+{hline 36}{c +}{hline 35}
+                                    {c |}{res}          1        1.03        1.03
+{txt}1.1.1. Unconditional cash transfers {c |}{res}         92       94.85       95.88
+{txt}  1.2.1. Conditional cash transfers {c |}{res}          3        3.09       98.97
+{txt}          1.6.2. Cash for services  {c |}{res}          1        1.03      100.00
+{txt}{hline 36}{c +}{hline 35}
+                              Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * benefit_new
+.         tab benefit_new ,missing
+
+                            {txt}benefit_new {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}          1        1.03        1.03
+{txt}0. Adaptation or new benefit of a pre.. {c |}{res}         16       16.49       17.53
+{txt}                                 1. New {c |}{res}         80       82.47      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * benefit_temp
+.         tab benefit_temp, missing
+
+              {txt}benefit_temp {c |}      Freq.     Percent        Cum.
+{hline 27}{c +}{hline 35}
+                           {c |}{res}          6        6.19        6.19
+{txt}                1. One-off {c |}{res}         39       40.21       46.39
+{txt}2. Temporary (not one-off) {c |}{res}         48       49.48       95.88
+{txt}              3. Permanent {c |}{res}          2        2.06       97.94
+{txt} 3. Temporary to Permanent {c |}{res}          1        1.03       98.97
+{txt} 4. Temporary to Permanent {c |}{res}          1        1.03      100.00
+{txt}{hline 27}{c +}{hline 35}
+                     Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * updated_status
+.         tab updated_status, missing
+
+           {txt}updated_status {c |}      Freq.     Percent        Cum.
+{hline 26}{c +}{hline 35}
+                          {c |}{res}         28       28.87       28.87
+{txt}       2. Started/Ongoing {c |}{res}          9        9.28       38.14
+{txt}                 3. Ended {c |}{res}         45       46.39       84.54
+{txt}5. Could not be confimred {c |}{res}         15       15.46      100.00
+{txt}{hline 26}{c +}{hline 35}
+                    Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * ben_unit_plan
+.         tab ben_unit_plan, missing
+
+ {txt}ben_unit_plan {c |}      Freq.     Percent        Cum.
+{hline 15}{c +}{hline 35}
+               {c |}{res}         30       30.93       30.93
+{txt}  1. Household {c |}{res}         22       22.68       53.61
+{txt}2. Individuals {c |}{res}         45       46.39      100.00
+{txt}{hline 15}{c +}{hline 35}
+         Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * financing_source
+.         tab financing_source, missing
+
+            {txt}financing_source {c |}      Freq.     Percent        Cum.
+{hline 29}{c +}{hline 35}
+                             {c |}{res}         71       73.20       73.20
+{txt}                   1. Public {c |}{res}         13       13.40       86.60
+{txt}       1. Public, 2. Private {c |}{res}          1        1.03       87.63
+{txt}1. Public, 4. International  {c |}{res}          3        3.09       90.72
+{txt}                  2. Private {c |}{res}          3        3.09       93.81
+{txt}           4. International  {c |}{res}          6        6.19      100.00
+{txt}{hline 29}{c +}{hline 35}
+                       Total {c |}{res}         97      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         * sa_policy_adap
+.         tab sa_policy_adap, missing
+
+                         {txt}sa_policy_adap {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}          1        1.03        1.03
+{txt}1.1.Vertical expansion (multiple paym.. {c |}{res}          1        1.03        2.06
+{txt}       1.2.Vertical expansion (one-off) {c |}{res}          1        1.03        3.09
+{txt}1.3.Vertical expansion & admin simpli.. {c |}{res}          1        1.03        4.12
+{txt}2.1.Horizontal expansion (Existing pr.. {c |}{res}          4        4.12        8.25
+{txt}2.3.Horizontal expansion (new targete.. {c |}{res}         41       42.27       50.52
+{txt}2.5.Horizontal expansion (new targete.. {c |}{res}         44       45.36       95.88
+{txt}3.1.Horizontal expansion & vertical e.. {c |}{res}          4        4.12      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         97      100.00
+{txt}
+{com}.                 * gen new var to reduce dimensions of measuring
+.                 gen expansion_type = ""
+{txt}(97 missing values generated)
+
+{com}.                 replace expansion_type = "Vertical" if strmatch(sa_policy_adap, "*Vertical*")
+{txt}variable {bf}{res}expansion_type{sf}{txt} was {bf}{res}str1{sf}{txt} now {bf}{res}str8{sf}
+{txt}(3 real changes made)
+
+{com}.                 replace expansion_type = "Horizontal" if strmatch(sa_policy_adap, "*Horizontal*")
+{txt}variable {bf}{res}expansion_type{sf}{txt} was {bf}{res}str8{sf}{txt} now {bf}{res}str10{sf}
+{txt}(93 real changes made)
+
+{com}.         * tab expansion type
+.         tab expansion_type, missing
+
+{txt}expansion_t {c |}
+        ype {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+            {c |}{res}          1        1.03        1.03
+{txt} Horizontal {c |}{res}         93       95.88       96.91
+{txt}   Vertical {c |}{res}          3        3.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         97      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         * rural vs urban
+.         tab sa_location, missing
+
+                        {txt}sa_location {c |}      Freq.     Percent        Cum.
+{hline 36}{c +}{hline 35}
+                                    {c |}{res}         77       79.38       79.38
+{txt}2.	Urban only (includes peri-urban) {c |}{res}          4        4.12       83.51
+{txt}                 3.	Rural and urban {c |}{res}         16       16.49      100.00
+{txt}{hline 36}{c +}{hline 35}
+                              Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * benefit type
+.         tab sa_b_type, missing
+
+          {txt}sa_b_type {c |}      Freq.     Percent        Cum.
+{hline 20}{c +}{hline 35}
+                    {c |}{res}         24       24.74       24.74
+{txt}            1. Cash {c |}{res}         70       72.16       96.91
+{txt}       2. Near cash {c |}{res}          2        2.06       98.97
+{txt}3. In-kind, 1. Cash {c |}{res}          1        1.03      100.00
+{txt}{hline 20}{c +}{hline 35}
+              Total {c |}{res}         97      100.00
+{txt}
+{com}.         
+.         * targeting method
+.         tab sa_targ_method, missing
+
+                         {txt}sa_targ_method {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}         48       49.48       49.48
+{txt}                         1.Geographical {c |}{res}          2        2.06       51.55
+{txt}                          2.Categorical {c |}{res}         28       28.87       80.41
+{txt}          2.Categorical, 4.Means/income {c |}{res}          5        5.15       85.57
+{txt}                         4.Means/income {c |}{res}          8        8.25       93.81
+{txt}                     5.Proxy means test {c |}{res}          1        1.03       94.85
+{txt}6.Self-targeting, 8.Other targeting m.. {c |}{res}          1        1.03       95.88
+{txt}     8.Other targeting method (specify) {c |}{res}          3        3.09       98.97
+{txt}https://www.ccadvog.com/cca/covid-19-.. {c |}{res}          1        1.03      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         97      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         
+.                 * generate dummy var for all subcategories
+.                 forvalues v = 1/27 {c -(}
+{txt}  2{com}.                         gen sa_targ_group_`v' = regexm(sa_targ_group, "`v'") == 1       
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                 * summarize subcategories (including repetitives)
+.                 fsum sa_targ_group_*
+
+{txt}{ralign 17: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 18}{c +}{hline 45}
+{ralign 17 : sa_targ_group_1} {c |}{res}{ralign 0:       97     0.11     0.32     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_2} {c |}{res}{ralign 0:       97     0.65     0.48     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_3} {c |}{res}{ralign 0:       97     0.18     0.38     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_4} {c |}{res}{ralign 0:       97     0.52     0.50     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_5} {c |}{res}{ralign 0:       97     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_6} {c |}{res}{ralign 0:       97     0.03     0.17     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_7} {c |}{res}{ralign 0:       97     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_8} {c |}{res}{ralign 0:       97     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_9} {c |}{res}{ralign 0:       97     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_10} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_11} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_12} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_13} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_14} {c |}{res}{ralign 0:       97     0.07     0.26     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_15} {c |}{res}{ralign 0:       97     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_16} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_17} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_18} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_19} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_20} {c |}{res}{ralign 0:       97     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_21} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_22} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_23} {c |}{res}{ralign 0:       97     0.16     0.37     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_24} {c |}{res}{ralign 0:       97     0.44     0.50     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_25} {c |}{res}{ralign 0:       97     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_26} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_27} {c |}{res}{ralign 0:       97     0.08     0.28     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 rename var a_targ_group_1 1.Children (under 15)
+{res}{err}syntax error
+    Syntax is
+        {bf:rename}  {it:oldname}    {it:newname}   [{bf:, renumber}[{bf:(}{it:#}{bf:)}] {bf:addnumber}[{bf:(}{it:#}{bf:)}] {bf:sort} ...]
+        {bf:rename (}{it:oldnames}{bf:) (}{it:newnames}{bf:)} [{bf:, renumber}[{bf:(}{it:#}{bf:)}] {bf:addnumber}[{bf:(}{it:#}{bf:)}] {bf:sort} ...]
+        {bf:rename}  {it:oldnames}              {bf:,} {{bf:upper}|{bf:lower}|{bf:proper}}
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 rename var sa_targ_group_1 1.Children (under 15)
+{res}{err}syntax error
+    Syntax is
+        {bf:rename}  {it:oldname}    {it:newname}   [{bf:, renumber}[{bf:(}{it:#}{bf:)}] {bf:addnumber}[{bf:(}{it:#}{bf:)}] {bf:sort} ...]
+        {bf:rename (}{it:oldnames}{bf:) (}{it:newnames}{bf:)} [{bf:, renumber}[{bf:(}{it:#}{bf:)}] {bf:addnumber}[{bf:(}{it:#}{bf:)}] {bf:sort} ...]
+        {bf:rename}  {it:oldnames}              {bf:,} {{bf:upper}|{bf:lower}|{bf:proper}}
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 rename var sa_targ_group_1 "1.Children (under 15)"
+{res}{err}syntax error
+    Syntax is
+        {bf:rename}  {it:oldname}    {it:newname}   [{bf:, renumber}[{bf:(}{it:#}{bf:)}] {bf:addnumber}[{bf:(}{it:#}{bf:)}] {bf:sort} ...]
+        {bf:rename (}{it:oldnames}{bf:) (}{it:newnames}{bf:)} [{bf:, renumber}[{bf:(}{it:#}{bf:)}] {bf:addnumber}[{bf:(}{it:#}{bf:)}] {bf:sort} ...]
+        {bf:rename}  {it:oldnames}              {bf:,} {{bf:upper}|{bf:lower}|{bf:proper}}
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 rename "var sa_targ_group_1" "1.Children (under 15)"
+{res}{err}syntax error
+    Syntax is
+        {bf:rename}  {it:oldname}    {it:newname}   [{bf:, renumber}[{bf:(}{it:#}{bf:)}] {bf:addnumber}[{bf:(}{it:#}{bf:)}] {bf:sort} ...]
+        {bf:rename (}{it:oldnames}{bf:) (}{it:newnames}{bf:)} [{bf:, renumber}[{bf:(}{it:#}{bf:)}] {bf:addnumber}[{bf:(}{it:#}{bf:)}] {bf:sort} ...]
+        {bf:rename}  {it:oldnames}              {bf:,} {{bf:upper}|{bf:lower}|{bf:proper}}
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 label var sa_targ_group_1 1.Children (under 15)"
+{err}invalid syntax
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 label var sa_targ_group_1 "1.Children (under 15)"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 * generate dummy var for all sub-categories
+.                 forvalues v = 1/5 {c -(}
+{txt}  2{com}.                         gen sa_payment_mecha_`v' = regexm(sa_payment_mecha, "`v'") == 1
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                 * summarize subcategories (including repetitives)
+.                 fsum sa_payment_mecha_*
+
+{txt}{ralign 19: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 20}{c +}{hline 45}
+{ralign 19 : sa_payment_mecha_1} {c |}{res}{ralign 0:       97     0.20     0.40     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_2} {c |}{res}{ralign 0:       97     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_3} {c |}{res}{ralign 0:       97     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_4} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_5} {c |}{res}{ralign 0:       97     0.15     0.36     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 fsum sa_payment_mecha_*
+
+{txt}{ralign 19: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 20}{c +}{hline 45}
+{ralign 19 : sa_payment_mecha_1} {c |}{res}{ralign 0:       97     0.20     0.40     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_2} {c |}{res}{ralign 0:       97     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_3} {c |}{res}{ralign 0:       97     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_4} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_5} {c |}{res}{ralign 0:       97     0.15     0.36     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. help fsum
+
+. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 fsum sa_payment_mecha_*, label
+
+{txt}{ralign 19: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 20}{c +}{hline 45}
+{ralign 19 : sa_payment_mecha_1} {c |}{res}{ralign 0:       97     0.20     0.40     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_2} {c |}{res}{ralign 0:       97     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_3} {c |}{res}{ralign 0:       97     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_4} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_5} {c |}{res}{ralign 0:       97     0.15     0.36     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 fsum sa_payment_mecha_*, label uselabel 
+{err}label and uselabel options can not be specified together
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 fsum sa_payment_mecha_*, uselabel 
+
+{txt}{ralign 19: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 20}{c +}{hline 45}
+{ralign 19 : sa_payment_mecha_1} {c |}{res}{ralign 0:       97     0.20     0.40     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_2} {c |}{res}{ralign 0:       97     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_3} {c |}{res}{ralign 0:       97     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_4} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}{ralign 19 : sa_payment_mecha_5} {c |}{res}{ralign 0:       97     0.15     0.36     0.00     1.00{space 0}}{ralign 0:{col 69}}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 fsum sa_payment_mecha_*, not 
+{err}option {bf:not} incorrectly specified
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+
+{search r(198), local:r(198);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 fsum sa_payment_mecha_* label
+{err}variable {bf}label{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 * label newly created dummy variables
+.                 label var sa_payment_instruments_1 "1.Fully functional account"
+{err}variable {bf}sa_payment_instruments_1{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 label var sa_payment_mecha_1 "1.Fully functional account"
+{txt}
+{com}.                 label var sa_payment_mecha_2 "2.Limited functional account"
+{txt}
+{com}.                 label var sa_payment_mecha_3 "3.Electronic non-account based"
+{txt}
+{com}.                 label var sa_payment_mecha_4 "4.Check or voucher"
+{txt}
+{com}.                 label var sa_payment_mecha_5 "5.Cash"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 fsum sa_payment_mecha_*, label
+
+{txt}{ralign 19: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 20}{c +}{hline 45}
+{ralign 19 : sa_payment_mecha_1} {c |}{res}{ralign 0:       97     0.20     0.40     0.00     1.00{space 0}}{ralign 0:{col 69}1.Fully functional account}
+{txt}{ralign 19 : sa_payment_mecha_2} {c |}{res}{ralign 0:       97     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 69}2.Limited functional account}
+{txt}{ralign 19 : sa_payment_mecha_3} {c |}{res}{ralign 0:       97     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 69}3.Electronic non-account based}
+{txt}{ralign 19 : sa_payment_mecha_4} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 69}4.Check or voucher}
+{txt}{ralign 19 : sa_payment_mecha_5} {c |}{res}{ralign 0:       97     0.15     0.36     0.00     1.00{space 0}}{ralign 0:{col 69}5.Cash}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 * label newly created dummy variables
+.                 label var sa_targ_group_1 "1.Children (under 15)"
+{txt}
+{com}.                 label var sa_targ_group_4 "4.Working age (16-64)"
+{txt}
+{com}.                 label var sa_targ_group_6 "6.Families"
+{txt}
+{com}.                 label var sa_targ_group_13 "13.Disabled"
+{txt}
+{com}.                 label var sa_targ_group_14 "14.Migrants"
+{txt}
+{com}.                 label var sa_targ_group_15 "15.COVID-19 risk group"
+{txt}
+{com}.                 label var sa_targ_group_17 "17.Frontline workers"
+{txt}
+{com}.                 label var sa_targ_group_20 "20.Unemployed"
+{txt}
+{com}.                 label var sa_targ_group_23 "23.Self-employed"
+{txt}
+{com}.                 label var sa_targ_group_24 "24.Informal sector workers"
+{txt}
+{com}.                 label var sa_targ_group_25 "25.Workers in non-standard form of employment"
+{txt}
+{com}.                 label var sa_targ_group_27 "27.Poor and vulnerable"
+{txt}
+{com}.                 label var sa_targ_group_28 "28.Other"
+{err}variable {bf}sa_targ_group_28{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. drop sa_targ_group_*
+
+. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 * generate dummy var for all subcategories
+.                 forvalues v = 1/28 {c -(}
+{txt}  2{com}.                         gen sa_targ_group_`v' = regexm(sa_targ_group, "`v'") == 1       
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                 
+.                 * label newly created dummy variables
+.                 label var sa_targ_group_1 "1.Children (under 15)"
+{txt}
+{com}.                 label var sa_targ_group_4 "4.Working age (16-64)"
+{txt}
+{com}.                 label var sa_targ_group_6 "6.Families"
+{txt}
+{com}.                 label var sa_targ_group_13 "13.Disabled"
+{txt}
+{com}.                 label var sa_targ_group_14 "14.Migrants"
+{txt}
+{com}.                 label var sa_targ_group_15 "15.COVID-19 risk group"
+{txt}
+{com}.                 label var sa_targ_group_17 "17.Frontline workers"
+{txt}
+{com}.                 label var sa_targ_group_20 "20.Unemployed"
+{txt}
+{com}.                 label var sa_targ_group_23 "23.Self-employed"
+{txt}
+{com}.                 label var sa_targ_group_24 "24.Informal sector workers"
+{txt}
+{com}.                 label var sa_targ_group_25 "25.Workers in non-standard form of employment"
+{txt}
+{com}.                 label var sa_targ_group_27 "27.Poor and vulnerable"
+{txt}
+{com}.                 label var sa_targ_group_28 "28.Other"
+{txt}
+{com}.                 
+.                 * summarize subcategories (including repetitives)
+.                 fsum sa_targ_group_*, label
+
+{txt}{ralign 17: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 18}{c +}{hline 45}
+{ralign 17 : sa_targ_group_1} {c |}{res}{ralign 0:       97     0.11     0.32     0.00     1.00{space 0}}{ralign 0:{col 67}1.Children (under 15)}
+{txt}{ralign 17 : sa_targ_group_2} {c |}{res}{ralign 0:       97     0.65     0.48     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_3} {c |}{res}{ralign 0:       97     0.18     0.38     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_4} {c |}{res}{ralign 0:       97     0.52     0.50     0.00     1.00{space 0}}{ralign 0:{col 67}4.Working age (16-64)}
+{txt}{ralign 17 : sa_targ_group_5} {c |}{res}{ralign 0:       97     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_6} {c |}{res}{ralign 0:       97     0.03     0.17     0.00     1.00{space 0}}{ralign 0:{col 67}6.Families}
+{txt}{ralign 17 : sa_targ_group_7} {c |}{res}{ralign 0:       97     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_8} {c |}{res}{ralign 0:       97     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_9} {c |}{res}{ralign 0:       97     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_10} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_11} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_12} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_13} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}13.Disabled}
+{txt}{ralign 17 : sa_targ_group_14} {c |}{res}{ralign 0:       97     0.07     0.26     0.00     1.00{space 0}}{ralign 0:{col 67}14.Migrants}
+{txt}{ralign 17 : sa_targ_group_15} {c |}{res}{ralign 0:       97     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}15.COVID-19 risk group}
+{txt}{ralign 17 : sa_targ_group_16} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_17} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}17.Frontline workers}
+{txt}{ralign 17 : sa_targ_group_18} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_19} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_20} {c |}{res}{ralign 0:       97     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 67}20.Unemployed}
+{txt}{ralign 17 : sa_targ_group_21} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_22} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_23} {c |}{res}{ralign 0:       97     0.16     0.37     0.00     1.00{space 0}}{ralign 0:{col 67}23.Self-employed}
+{txt}{ralign 17 : sa_targ_group_24} {c |}{res}{ralign 0:       97     0.44     0.50     0.00     1.00{space 0}}{ralign 0:{col 67}24.Informal sector workers}
+{txt}{ralign 17 : sa_targ_group_25} {c |}{res}{ralign 0:       97     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 67}25.Workers in non-standard form of employment}
+{txt}{ralign 17 : sa_targ_group_26} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}}
+{txt}{ralign 17 : sa_targ_group_27} {c |}{res}{ralign 0:       97     0.08     0.28     0.00     1.00{space 0}}{ralign 0:{col 67}27.Poor and vulnerable}
+{txt}{ralign 17 : sa_targ_group_28} {c |}{res}{ralign 0:       97     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 67}28.Other}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. drop sa_payment_instruments_*
+{err}variable sa_payment_instruments_* not found
+{txt}{search r(111), local:r(111);}
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         *** payment instruments
+.                 * generate dummy var for all sub-categories
+.                 forvalues v = 1/6 {c -(}
+{txt}  2{com}.                         gen sa_payment_instruments_`v' = regexm(sa_payment_instruments, "`v'")  == 1
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                         
+.                 * summarize subcategories (including repetitives)
+.                 label var sa_payment_instruments_1 "1.Debit card (general purpose)"
+{txt}
+{com}.                 label var sa_payment_instruments_3 "3.E-wallet or mobile banking"
+{txt}
+{com}.                 label var sa_payment_instruments_4 "4.Unique-cose based payment or OTP"
+{txt}
+{com}.                 label var sa_payment_instruments_6 "6.Other"
+{txt}
+{com}.                 
+. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 fsum sa_payment_instruments_*, label
+
+{txt}{ralign 25: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 26}{c +}{hline 45}
+{ralign 25 : sa_payment_instruments_1} {c |}{res}{ralign 0:       97     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 75}1.Debit card (general purpose)}
+{txt}{ralign 25 : sa_payment_instruments_2} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 75}}
+{txt}{ralign 25 : sa_payment_instruments_3} {c |}{res}{ralign 0:       97     0.10     0.31     0.00     1.00{space 0}}{ralign 0:{col 75}3.E-wallet or mobile banking}
+{txt}{ralign 25 : sa_payment_instruments_4} {c |}{res}{ralign 0:       97     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 75}4.Unique-cose based payment or OTP}
+{txt}{ralign 25 : sa_payment_instruments_5} {c |}{res}{ralign 0:       97     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 75}}
+{txt}{ralign 25 : sa_payment_instruments_6} {c |}{res}{ralign 0:       97     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 75}6.Other}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         * planned population
+.         destring ben_plan, replace force
+{txt}ben_plan: contains nonnumeric characters; {res}replaced {txt}as {res}long
+{txt}(37 missing values generated)
+{res}{txt}
+{com}.         gsort ben_plan
+{txt}
+{com}.         list country_name program_name ben_plan in 1/15 if !missing(ben_plan), table
+{txt}
+     {c TLC}{hline 32}{c -}{hline 104}{c -}{hline 10}{c TRC}
+     {c |} {res}                  country_name                                                                                             program_name   ben_plan {txt}{c |}
+     {c LT}{hline 32}{c -}{hline 104}{c -}{hline 10}{c RT}
+  1. {c |} {res}St. Vincent and the Grenadines                                                        Social support for vulnerable and affected people       1496 {txt}{c |}
+  2. {c |} {res}St. Vincent and the Grenadines                                                        Social support for vulnerable and affected people       1644 {txt}{c |}
+  3. {c |} {res}                       Grenada                                                                                                                1800 {txt}{c |}
+  4. {c |} {res}                       Lao PDR                                                                                             cash trasfer       6000 {txt}{c |}
+  5. {c |} {res}               North Macedonia                                                                                                      GMI      15500 {txt}{c |}
+     {c LT}{hline 32}{c -}{hline 104}{c -}{hline 10}{c RT}
+  6. {c |} {res}               North Macedonia                                                                                                               20000 {txt}{c |}
+  7. {c |} {res}           Trinidad and Tobago                                                                                    Income Support Grants      25000 {txt}{c |}
+  8. {c |} {res}                          Fiji                                                                                                               26000 {txt}{c |}
+  9. {c |} {res}                     Indonesia                                                                                   BAZNaS cash assistance      26086 {txt}{c |}
+ 10. {c |} {res}              Egypt, Arab Rep.                                Ministry of Manpower’s temporary cash assistance to casual labour workers      30000 {txt}{c |}
+     {c LT}{hline 32}{c -}{hline 104}{c -}{hline 10}{c RT}
+ 11. {c |} {res}                    Cape Verde   Special Regime for Small and Micro Enterprises, Special Regime for Small and Micro Enterprises (REMPE)      30000 {txt}{c |}
+ 12. {c |} {res}                      Malaysia                                                                Prihatin Rakyat Economic Stimulus Package      36677 {txt}{c |}
+ 13. {c |} {res}                       Moldova                                                                                                               39045 {txt}{c |}
+ 14. {c |} {res}                     Singapore                                                                             
+COVID-19 Driver Relief Fund      40000 {txt}{c |}
+ 15. {c |} {res}              Egypt, Arab Rep.                                Ministry of Manpower’s temporary cash assistance to casual labour workers      52000 {txt}{c |}
+     {c BLC}{hline 32}{c -}{hline 104}{c -}{hline 10}{c BRC}
+
+{com}. 
+{txt}end of do-file
+
+{com}. br ben_plan
+
+. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.                 label var ben_plan "Number of beneficiaries initially planned or announced"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         gsort ben_plan
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         gsort ben_plan
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/lt/4b32hgb14j9bcr3w0d_3flf80000gn/T//SD19117.000000"
+{txt}
+{com}.         sort ben_plan
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. sort ben_plan
+
+. gsort ben_plan
+
+. gsort ben_plan if !missing(ben_plan)
+{err}varlist required
+{txt}{search r(100), local:r(100);}
+
+{com}. gsort ben_plan
+
+. help sort
+
+. 
