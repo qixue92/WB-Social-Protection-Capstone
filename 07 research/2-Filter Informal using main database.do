@@ -6,8 +6,7 @@
 			 Gavin Hawkins (jgh73@georgetown.edu)
 			 
 * Date created: Jan 28, 2022
-* Description: This file is created to filter the Social Assistance Tracker with
-			   regard to programs targeted informal sector.
+* Description: This file is created to filter the merged dataset with regard to programs targeted informal sector.
 
 * Update 1: add new dataset, Dec 9 - "import new dataset" 
 * Update 2: add new do-file, Dec 11- "add clean var do-file"
@@ -51,7 +50,7 @@
 *	1) Use clean data
 *	=================
 
-    use "$cleaned/cleaned_main_database_Dec.dta", clear
+    use "$cleaned/merged_Main_database_Feb.dta", clear
 
 *	===================================
 *	2) filter data with informal sector
@@ -104,24 +103,13 @@
 	
 	* remove high-income countries
 	drop if income_group == "HIC"
-	
-	
-	
-********************************************************************************
-*                   =====================================
-*   			                 Data Cleaning
-*                   =====================================
-********************************************************************************
-	
-* Neha & Gavin, please start here.
 		
 	
 ********************************************************************************
 *                   =====================================
-*   	                        Save clean data
+*   	                        Save Filtered Data
 *                   =====================================
 ********************************************************************************	
 
-save "$cleaned/Informal_SP_projects.dta", replace
-
+	save "$cleaned/Filtered Informal Projects.dta", replace
 

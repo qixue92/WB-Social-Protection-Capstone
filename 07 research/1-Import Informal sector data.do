@@ -64,7 +64,7 @@
 ********************************************************************************
 
 	* meger with the main data
-	use "Main_database_Dec.dta", clear
+	use "$cleaned/cleaned_main_database_Dec", clear
 
 	merge m:m program_id using "Informal Sector Workder.dta", update replace force
 	
