@@ -51,7 +51,7 @@
 	use "$cleaned/3-Filtered Informal Projects.dta", clear
 	
 	* merge country-level variables
-	merge 1:1 country_name using "xxxxx.dta"
+	merge 1:1 country_name using "Macro_Data.dta"
 	
 	* save merged dataset
 	save "$cleaned/5.1-merged_country-level data.dta", replace
