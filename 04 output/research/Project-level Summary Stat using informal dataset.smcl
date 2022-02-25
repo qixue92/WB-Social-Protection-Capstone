@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using informal dataset.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}24 Feb 2022, 23:50:23
+ {txt}opened on:  {res}25 Feb 2022, 13:21:12
 {txt}
 {com}.         *log using "$output/research/Project-level summary stat using merged full dataset.smcl", replace
 .         
@@ -72,6 +72,22 @@
 {txt}{hline 27}{c +}{hline 35}
                      Total {c |}{res}         79      100.00
 {txt}
+{com}. 
+.                         * export table
+.                         asdoc tab region, save(region.doc) replace
+
+                    {txt}region {c |}      Freq.     Percent        Cum.
+{hline 27}{c +}{hline 35}
+       East Asia & Pacific {c |}{res}         18       23.08       23.08
+{txt}     Europe & Central Asia {c |}{res}         10       12.82       35.90
+{txt} Latin America & Caribbean {c |}{res}         17       21.79       57.69
+{txt}Middle East & North Africa {c |}{res}         12       15.38       73.08
+{txt}                South Asia {c |}{res}          6        7.69       80.77
+{txt}        Sub-Saharan Africa {c |}{res}         15       19.23      100.00
+{txt}{hline 27}{c +}{hline 35}
+                     Total {c |}{res}         78      100.00
+Click to Open File:  {browse "region.doc"}
+{txt}
 {com}.         
 .         * hhsize
 .         sum hhsize, detail
@@ -92,6 +108,15 @@
 {txt}99%    {res}        6              6       {txt}Kurtosis      {res}  2.91073
 {txt}
 {com}.         
+.                         * export table
+.                         asdoc sum hhsize, save(hhsize.doc) replace
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}hhsize {c |}{res}         50    4.231965    .8392724   2.458298          6
+Click to Open File:  {browse "hhsize.doc"}
+{txt}
+{com}.         
 .         * sp_sub_category
 .         tab sp_sub_category, missing
 
@@ -103,6 +128,19 @@
 {txt}          1.6.2. Cash for services  {c |}{res}          1        1.27      100.00
 {txt}{hline 36}{c +}{hline 35}
                               Total {c |}{res}         79      100.00
+{txt}
+{com}.         
+.                         * export table
+.                         asdoc tab sp_sub_category, save(sp_sub_category) replace
+
+                    {txt}sp_sub_category {c |}      Freq.     Percent        Cum.
+{hline 36}{c +}{hline 35}
+1.1.1. Unconditional cash transfers {c |}{res}         74       94.87       94.87
+{txt}  1.2.1. Conditional cash transfers {c |}{res}          3        3.85       98.72
+{txt}          1.6.2. Cash for services  {c |}{res}          1        1.28      100.00
+{txt}{hline 36}{c +}{hline 35}
+                              Total {c |}{res}         78      100.00
+Click to Open File:  {browse "sp_sub_category.doc"}
 {txt}
 {com}.         
 .         * updated_status
@@ -121,7 +159,21 @@
 {txt}{hline 26}{c +}{hline 35}
                     Total {c |}{res}         79      100.00
 {txt}
-{com}.         
+{com}.                         
+.                         * export table
+.                         asdoc tab updated_status, save(updated_status) replace
+
+           {txt}updated_status {c |}      Freq.     Percent        Cum.
+{hline 26}{c +}{hline 35}
+     1. Announced/Planned {c |}{res}          3        4.48        4.48
+{txt}       2. Started/Ongoing {c |}{res}         13       19.40       23.88
+{txt}                 3. Ended {c |}{res}         38       56.72       80.60
+{txt}5. Could not be confimred {c |}{res}         13       19.40      100.00
+{txt}{hline 26}{c +}{hline 35}
+                    Total {c |}{res}         67      100.00
+Click to Open File:  {browse "updated_status.doc"}
+{txt}
+{com}.                         
 .         * informal
 .         rename Column3 informal_type
 {res}{txt}
@@ -134,9 +186,25 @@
 {txt}{hline 14}{c +}{hline 35}
         Total {c |}{res}         79      100.00
 {txt}
+{com}.                         
+.                         * export table
+.                         asdoc tab informal_type, save(informal_type) replace                    
+
+      {txt}Column3 {c |}      Freq.     Percent        Cum.
+{hline 14}{c +}{hline 35}
+    including {c |}{res}         52       65.82       65.82
+{txt}only informal {c |}{res}         27       34.18      100.00
+{txt}{hline 14}{c +}{hline 35}
+        Total {c |}{res}         79      100.00
+Click to Open File:  {browse "informal_type.doc"}
+{txt}
 {com}.         
+. * =====*
+. * Binary
+. * =====*
+. 
 .         * benefit_new
-.         tab benefit_new ,missing
+.         tab benefit_new, missing
 
                             {txt}benefit_new {c |}      Freq.     Percent        Cum.
 {hline 40}{c +}{hline 35}
@@ -145,6 +213,18 @@
 {txt}                                 1. New {c |}{res}         63       79.75      100.00
 {txt}{hline 40}{c +}{hline 35}
                                   Total {c |}{res}         79      100.00
+{txt}
+{com}.         
+.                         * export table
+.                         asdoc tab benefit_new, save(binary_stat.doc) replace                    
+
+                            {txt}benefit_new {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+0. Adaptation or new benefit of a previ {c |}{res}         15       19.23       19.23
+{txt}                                 1. New {c |}{res}         63       80.77      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         78      100.00
+Click to Open File:  {browse "binary_stat.doc"}
 {txt}
 {com}.         
 .         * household or individual
@@ -157,6 +237,18 @@
 {txt}2. Individuals {c |}{res}         39       49.37      100.00
 {txt}{hline 15}{c +}{hline 35}
          Total {c |}{res}         79      100.00
+{txt}
+{com}.         
+.                         * export table
+.                         asdoc tab ben_unit_plan, save(binary_stat.doc) append
+
+ {txt}ben_unit_plan {c |}      Freq.     Percent        Cum.
+{hline 15}{c +}{hline 35}
+  1. Household {c |}{res}         21       35.00       35.00
+{txt}2. Individuals {c |}{res}         39       65.00      100.00
+{txt}{hline 15}{c +}{hline 35}
+         Total {c |}{res}         60      100.00
+Click to Open File:  {browse "binary_stat.doc"}
 {txt}
 {com}.         
 .         * benefit temp or one-off
@@ -286,6 +378,22 @@
 {txt}variable {bf}{res}expansion_type{sf}{txt} was {bf}{res}str8{sf}{txt} now {bf}{res}str10{sf}
 {txt}(76 real changes made)
 
+{com}.                 
+.                 * export table
+.                 asdoc tab sa_policy_adap, save(sa_policy_adap.doc) replace
+
+                         {txt}sa_policy_adap {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+1.1.Vertical expansion (multiple paymen {c |}{res}          1        1.28        1.28
+{txt}       1.2.Vertical expansion (one-off) {c |}{res}          1        1.28        2.56
+{txt}2.1.Horizontal expansion (Existing prog {c |}{res}          4        5.13        7.69
+{txt}2.3.Horizontal expansion (new targeted  {c |}{res}         36       46.15       53.85
+{txt}2.5.Horizontal expansion (new targeted  {c |}{res}         33       42.31       96.15
+{txt}3.1.Horizontal expansion & vertical exp {c |}{res}          3        3.85      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         78      100.00
+Click to Open File:  {browse "sa_policy_adap.doc"}
+{txt}
 {com}.         
 .         * tab expansion type
 .         tab expansion_type, missing
@@ -300,6 +408,18 @@
       Total {c |}{res}         79      100.00
 {txt}
 {com}.         
+.                 * export table
+.                 asdoc tab expansion_type, save(expansion_type.doc) replace
+
+   {txt}__000000 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+ Horizontal {c |}{res}         76       97.44       97.44
+{txt}   Vertical {c |}{res}          2        2.56      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         78      100.00
+Click to Open File:  {browse "expansion_type.doc"}
+{txt}
+{com}.         
 .         * rural vs urban
 .         tab sa_location, missing
 
@@ -310,6 +430,18 @@
 {txt}                 3.	Rural and urban {c |}{res}          8       10.13      100.00
 {txt}{hline 36}{c +}{hline 35}
                               Total {c |}{res}         79      100.00
+{txt}
+{com}.                 
+.                 * export table
+.                 asdoc tab sa_location, save(sa_location.doc) replace
+
+                        {txt}sa_location {c |}      Freq.     Percent        Cum.
+{hline 36}{c +}{hline 35}
+2.	Urban only (includes peri-urban) {c |}{res}          3       27.27       27.27
+{txt}                 3.	Rural and urban {c |}{res}          8       72.73      100.00
+{txt}{hline 36}{c +}{hline 35}
+                              Total {c |}{res}         11      100.00
+Click to Open File:  {browse "sa_location.doc"}
 {txt}
 {com}.         
 .         * benefit type
@@ -323,6 +455,19 @@
 {txt}3. In-kind, 1. Cash {c |}{res}          1        1.27      100.00
 {txt}{hline 20}{c +}{hline 35}
               Total {c |}{res}         79      100.00
+{txt}
+{com}.         
+.                 * export table
+.                 asdoc tab sa_b_type, save(sa_b_type.doc) replace
+
+          {txt}sa_b_type {c |}      Freq.     Percent        Cum.
+{hline 20}{c +}{hline 35}
+            1. Cash {c |}{res}         55       96.49       96.49
+{txt}       2. Near cash {c |}{res}          1        1.75       98.25
+{txt}3. In-kind, 1. Cash {c |}{res}          1        1.75      100.00
+{txt}{hline 20}{c +}{hline 35}
+              Total {c |}{res}         57      100.00
+Click to Open File:  {browse "sa_b_type.doc"}
 {txt}
 {com}.         
 .         *** indentification_instruments
@@ -669,18 +814,19 @@
      {c LT}{hline 15}{c -}{hline 104}{c -}{hline 10}{c RT}
   6. {c |} {res}  Philippines                                                            Abot Kamay ang Pagtulong (AKAP) First Tranche     250000 {txt}{c |}
   7. {c |} {res}      Georgia                                                        One-off for the informal sector and self-employed     248282 {txt}{c |}
-  8. {c |} {res}      Lesotho                                                   Child Grants Programme (CGP) and Old Age Pension (OAP)     200000 {txt}{c |}
-  9. {c |} {res}  Philippines                                                            Abot Kamay ang Pagtulong (AKAP) First Tranche     200000 {txt}{c |}
+  8. {c |} {res}  Philippines                                                            Abot Kamay ang Pagtulong (AKAP) First Tranche     200000 {txt}{c |}
+  9. {c |} {res}      Lesotho                                                   Child Grants Programme (CGP) and Old Age Pension (OAP)     200000 {txt}{c |}
  10. {c |} {res}     Malaysia                                                                Prihatin Rakyat Economic Stimulus Package     120000 {txt}{c |}
      {c LT}{hline 15}{c -}{hline 104}{c -}{hline 10}{c RT}
  11. {c |} {res}       Kosovo                                                                                                               82000 {txt}{c |}
  12. {c |} {res}     Thailand                                                                                                               81562 {txt}{c |}
  13. {c |} {res}        Ghana                                                                                        Covid Relief Fund      75000 {txt}{c |}
  14. {c |} {res}   Cape Verde   Special Regime for Small and Micro Enterprises, Special Regime for Small and Micro Enterprises (REMPE)      30000 {txt}{c |}
- 15. {c |} {res}        China                                                                                                                   0 {txt}{c |}
+ 15. {c |} {res}    St. Lucia                                                                                                                   0 {txt}{c |}
      {c BLC}{hline 15}{c -}{hline 104}{c -}{hline 10}{c BRC}
 
-{com}.         
+{com}. 
+.         
 .         destring ben_ind_actual, replace force
 {txt}ben_ind_actual already numeric; no {res}replace
 {txt}
@@ -691,17 +837,17 @@
 {txt}
 {com}.                 list country_name program_name ben_ind_actual in 1/15 if !missing(ben_ind_plan), table
 {txt}
-     {c TLC}{hline 13}{c -}{hline 47}{c -}{hline 10}{c TRC}
-     {c |} {res}country_n~e                                    program_name   ben_in~l {txt}{c |}
-     {c LT}{hline 13}{c -}{hline 47}{c -}{hline 10}{c RT}
-  1. {c |} {res}Philippines               Social Amelioration Program (SAP)   82720000 {txt}{c |}
-  2. {c |} {res}   Thailand                              No-one left behind   15000000 {txt}{c |}
-  4. {c |} {res}Philippines   Abot Kamay ang Pagtulong (AKAP) First Tranche    725,000 {txt}{c |}
-  6. {c |} {res}Philippines   Abot Kamay ang Pagtulong (AKAP) First Tranche    116,194 {txt}{c |}
-  9. {c |} {res}  Mauritius         Self-Employed Assistance Scheme (SEAS)           . {txt}{c |}
-     {c LT}{hline 13}{c -}{hline 47}{c -}{hline 10}{c RT}
- 11. {c |} {res}  St. Lucia                                                          . {txt}{c |}
-     {c BLC}{hline 13}{c -}{hline 47}{c -}{hline 10}{c BRC}
+     {c TLC}{hline 13}{c -}{hline 104}{c -}{hline 10}{c TRC}
+     {c |} {res}country_n~e                                                                                             program_name   ben_in~l {txt}{c |}
+     {c LT}{hline 13}{c -}{hline 104}{c -}{hline 10}{c RT}
+  1. {c |} {res}Philippines                                                                        Social Amelioration Program (SAP)   82720000 {txt}{c |}
+  2. {c |} {res}   Thailand                                                                                       No-one left behind   15000000 {txt}{c |}
+  4. {c |} {res}Philippines                                                            Abot Kamay ang Pagtulong (AKAP) First Tranche    725,000 {txt}{c |}
+  6. {c |} {res}Philippines                                                            Abot Kamay ang Pagtulong (AKAP) First Tranche    116,194 {txt}{c |}
+ 10. {c |} {res} Cape Verde   Special Regime for Small and Micro Enterprises, Special Regime for Small and Micro Enterprises (REMPE)          . {txt}{c |}
+     {c LT}{hline 13}{c -}{hline 104}{c -}{hline 10}{c RT}
+ 13. {c |} {res}      China                                                                                                                   . {txt}{c |}
+     {c BLC}{hline 13}{c -}{hline 104}{c -}{hline 10}{c BRC}
 
 {com}.         
 .         /* actual coverage - how different from ben_ind_actual?
@@ -786,7 +932,7 @@ saved
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using informal dataset.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}24 Feb 2022, 23:50:23
+ {txt}closed on:  {res}25 Feb 2022, 13:21:13
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

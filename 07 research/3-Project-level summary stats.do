@@ -39,6 +39,8 @@
 	global	output	            "$root/04 output"
 	global	cleaning			"$root/03 data cleaning"
 	global  cleaned             "$root/05 clean data"
+	global  tables_informal     "$root/04 output/tables_informal data"
+	global  tables_full         "$root/04 output/tables_merged full datat"
 	
 	* using log
 	log using "$output/research/Project-level summary stat using informal dataset.smcl", replace
@@ -76,26 +78,51 @@
 		
 		* tab region
 		tab region, missing
+
+			* export table
+			asdoc tab region, save(region.doc) replace
 	
 	* hhsize
 	sum hhsize, detail
 	
+			* export table
+			asdoc sum hhsize, save(hhsize.doc) replace
+	
 	* sp_sub_category
 	tab sp_sub_category, missing
+	
+			* export table
+			asdoc tab sp_sub_category, save(sp_sub_category) replace
 	
 	* updated_status
 	replace updated_status = status if missing(updated_status)
 	tab updated_status, missing
-	
+			
+			* export table
+			asdoc tab updated_status, save(updated_status) replace
+			
 	* informal
 	rename Column3 informal_type
 	tab informal_type, missing
+			
+			* export table
+			asdoc tab informal_type, save(informal_type) replace			
 	
+* =====*
+* Binary
+* =====*
+
 	* benefit_new
-	tab benefit_new ,missing
+	tab benefit_new, missing
+	
+			* export table
+			asdoc tab benefit_new, save(binary_stat.doc) replace			
 	
 	* household or individual
 	tab ben_unit_plan, missing
+	
+			* export table
+			asdoc tab ben_unit_plan, save(binary_stat.doc) append
 	
 	* benefit temp or one-off
 	tab benefit_temp, missing
@@ -151,15 +178,27 @@
 		gen expansion_type = ""
 		replace expansion_type = "Vertical" if strmatch(sa_policy_adap, "*Vertical*")
 		replace expansion_type = "Horizontal" if strmatch(sa_policy_adap, "*Horizontal*")
+		
+		* export table
+		asdoc tab sa_policy_adap, save(sa_policy_adap.doc) replace
 	
 	* tab expansion type
 	tab expansion_type, missing
 	
+		* export table
+		asdoc tab expansion_type, save(expansion_type.doc) replace
+	
 	* rural vs urban
 	tab sa_location, missing
+		
+		* export table
+		asdoc tab sa_location, save(sa_location.doc) replace
 	
 	* benefit type
 	tab sa_b_type, missing
+	
+		* export table
+		asdoc tab sa_b_type, save(sa_b_type.doc) replace
 	
 	*** indentification_instruments
 		

@@ -57,9 +57,21 @@
 	 * filtering out high-income countries
 	 drop if income_group == "HIC"
 
-	 save "$cleaned/1-Informal Sector Worker.dta", replace	 
-
-
+	 save "$cleaned/1-Informal Sector Worker.dta", replace
+	 
+********************************************************************************
+*                   =====================================
+*   			                 Data Cleaning
+*                   =====================================
+********************************************************************************
+	
+	* destring variables
+	*for each var in {region,  }
+		destring `var', replace
+	  
+	*save "$cleaned/1-Informal Sector Worker.dta", replace
+	 
+	 
 ********************************************************************************
 *                   =====================================
 *   			                 Data Merge

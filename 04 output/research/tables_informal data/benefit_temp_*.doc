@@ -1,0 +1,703 @@
+{\rtf1\ansi\deff0 {\fonttbl{\f0\fnil Garamond;}}
+{\info {\author .}{\company .}{\title .}}
+\deflang1033\plain\fs20
+{\footer\pard\qc\plain\f0\fs20\chpgn\par}
+{
+{\b\qc\line Table: List of Variables }{\par}
+{\trowd\trgaph108\trleft-108
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx1500
+\fs20 \pard\intbl \qr { program_id}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx3000
+\fs20 \pard\intbl \qr { Column1}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx4500
+\fs20 \pard\intbl \qr { last_modified}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx6000
+\fs20 \pard\intbl \qr { modified_by}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx7200
+\fs20 \pard\intbl \qr { entry_date}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx8700
+\fs20 \pard\intbl \qr { data_sources}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx10200
+\fs20 \pard\intbl \qr { primary_source}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx11700
+\fs20 \pard\intbl \qr { entered_by}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx13200
+\fs20 \pard\intbl \qr { consultant_nov21}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx14700
+\fs20 \pard\intbl \qr { region}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx15550
+\fs20 \pard\intbl \qr { income_group}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx17050
+\fs20 \pard\intbl \qr { country_name}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx17950
+\fs20 \pard\intbl \qr { hhsize}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx18800
+\fs20 \pard\intbl \qr { country_code}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx20300
+\fs20 \pard\intbl \qr { program_name_l}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx21800
+\fs20 \pard\intbl \qr { program_name}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx23300
+\fs20 \pard\intbl \qr { benefit_name}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx24800
+\fs20 \pard\intbl \qr { benefit_desc}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx26300
+\fs20 \pard\intbl \qr { informal_type}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx27260
+\fs20 \pard\intbl \qr { informal}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx28760
+\fs20 \pard\intbl \qr { sp_sub_category}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx30260
+\fs20 \pard\intbl \qr { benefit_new}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx31760
+\fs20 \pard\intbl \qr { benefit_temp}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx33260
+\fs20 \pard\intbl \qr { status}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx34760
+\fs20 \pard\intbl \qr { updated_status}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx35610
+\fs20 \pard\intbl \qr { implemented}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx36930
+\fs20 \pard\intbl \qr { extensionstory}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx38430
+\fs20 \pard\intbl \qr { benefit_extended}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx39930
+\fs20 \pard\intbl \qr { benefit_extension_type}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx40780
+\fs20 \pard\intbl \qr { Number_extensions}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx41860
+\fs20 \pard\intbl \qr { announced_date}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx42940
+\fs20 \pard\intbl \qr { start_date}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx44020
+\fs20 \pard\intbl \qr { extended_date}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx45220
+\fs20 \pard\intbl \qr { end_date}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx46120
+\fs20 \pard\intbl \qr { ben_plan}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx47620
+\fs20 \pard\intbl \qr { ben_unit_plan}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx48520
+\fs20 \pard\intbl \qr { ben_ind_plan}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx49420
+\fs20 \pard\intbl \qr { ben_actual}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx50920
+\fs20 \pard\intbl \qr { ben_unit_actual}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx51820
+\fs20 \pard\intbl \qr { acualcoverage}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx52720
+\fs20 \pard\intbl \qr { ben_ind_actual}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx53620
+\fs20 \pard\intbl \qr { ben_pre_covidben_precovid}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx55060
+\fs20 \pard\intbl \qr { Column2}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx55960
+\fs20 \pard\intbl \qr { ben_precovid_year}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx57160
+\fs20 \pard\intbl \qr { ben_source_date_actual}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx58360
+\fs20 \pard\intbl \qr { ben_date_actual}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx59860
+\fs20 \pard\intbl \qr { ben_sources}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx60760
+\fs20 \pard\intbl \qr { exp_plan}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx61840
+\fs20 \pard\intbl \qr { exp_currency}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx62740
+\fs20 \pard\intbl \qr { exp_plan_usd}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx64240
+\fs20 \pard\intbl \qr { exp_actual}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx65090
+\fs20 \pard\intbl \qr { exp_actual_currency}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx65990
+\fs20 \pard\intbl \qr { exp_actual_usd}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx67490
+\fs20 \pard\intbl \qr { financing_source}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx68990
+\fs20 \pard\intbl \qr { financing_source_subcat}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx70490
+\fs20 \pard\intbl \qr { financing_comments}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx71690
+\fs20 \pard\intbl \qr { exp_source_date_actual}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx72890
+\fs20 \pard\intbl \qr { exp_date_actual}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx74390
+\fs20 \pard\intbl \qr { exp_sources}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx75290
+\fs20 \pard\intbl \qr { exp_plan_usd3}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx76190
+\fs20 \pard\intbl \qr { exp_actual_usd4}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx77090
+\fs20 \pard\intbl \qr { gender_pc}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx77940
+\fs20 \pard\intbl \qr { gender_mis}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx79440
+\fs20 \pard\intbl \qr { Policy_Objective}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx80940
+\fs20 \pard\intbl \qr { sa_policy_adap}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx82440
+\fs20 \pard\intbl \qr { Column5}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx83940
+\fs20 \pard\intbl \qr { Column6}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx85440
+\fs20 \pard\intbl \qr { sa_scale}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx86940
+\fs20 \pard\intbl \qr { sa_location}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx88440
+\fs20 \pard\intbl \qr { sa_b_type}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx89290
+\fs20 \pard\intbl \qr { sa_b_amount_l}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx90140
+\fs20 \pard\intbl \qr { sa_b_currency_l}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx91640
+\fs20 \pard\intbl \qr { sa_b_unit}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx93140
+\fs20 \pard\intbl \qr { sa_b_frequency10Other}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx94640
+\fs20 \pard\intbl \qr { sa_b_explanation}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx95840
+\fs20 \pard\intbl \qr { sa_b_source_date}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx97040
+\fs20 \pard\intbl \qr { sa_b_date}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx97940
+\fs20 \pard\intbl \qr { sa_transfer}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx99260
+\fs20 \pard\intbl \qr { sa_b_min_duration}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx100580
+\fs20 \pard\intbl \qr { sa_b_max_duration}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx102080
+\fs20 \pard\intbl \qr { Column7}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx103580
+\fs20 \pard\intbl \qr { identification_instruments}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx105080
+\fs20 \pard\intbl \qr { id_instruments_elaboration}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx106580
+\fs20 \pard\intbl \qr { app_method}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx108080
+\fs20 \pard\intbl \qr { sa_targ_method}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx109580
+\fs20 \pard\intbl \qr { sa_targ_group}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx111080
+\fs20 \pard\intbl \qr { Deliveryinnovationpractices}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx112580
+\fs20 \pard\intbl \qr { sa_payment_mecha}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx113480
+\fs20 \pard\intbl \qr { sa_payment_pc_account}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx114980
+\fs20 \pard\intbl \qr { sa_payment_instruments}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx116480
+\fs20 \pard\intbl \qr { sa_payment_points}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx117980
+\fs20 \pard\intbl \qr { sa_payment_psp_type}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx119480
+\fs20 \pard\intbl \qr { sa_payment_psp_choice}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx120980
+\fs20 \pard\intbl \qr { sa_payment_flow}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx121880
+\fs20 \pard\intbl \qr { benefit_temp_1}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx122780
+\fs20 \pard\intbl \qr { benefit_temp_2}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx123680
+\fs20 \pard\intbl \qr { benefit_temp_3}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx124580
+\fs20 \pard\intbl \qr { benefit_temp_4}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx125480
+\fs20 \pard\intbl \qr { financing_source_1}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx126380
+\fs20 \pard\intbl \qr { financing_source_2}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx127280
+\fs20 \pard\intbl \qr { financing_source_3}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx128180
+\fs20 \pard\intbl \qr { financing_source_4}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx129380
+\fs20 \pard\intbl \qr { expansion_type}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx130280
+\fs20 \pard\intbl \qr { identification_instruments_1}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx131180
+\fs20 \pard\intbl \qr { identification_instruments_2}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx132080
+\fs20 \pard\intbl \qr { identification_instruments_3}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx132980
+\fs20 \pard\intbl \qr { identification_instruments_4}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx133880
+\fs20 \pard\intbl \qr { identification_instruments_5}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx134780
+\fs20 \pard\intbl \qr { identification_instruments_6}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx135680
+\fs20 \pard\intbl \qr { identification_instruments_7}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx136580
+\fs20 \pard\intbl \qr { sa_targ_method_0}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx137480
+\fs20 \pard\intbl \qr { sa_targ_method_1}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx138380
+\fs20 \pard\intbl \qr { sa_targ_method_2}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx139280
+\fs20 \pard\intbl \qr { sa_targ_method_3}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx140180
+\fs20 \pard\intbl \qr { sa_targ_method_4}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx141080
+\fs20 \pard\intbl \qr { sa_targ_method_5}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx141980
+\fs20 \pard\intbl \qr { sa_targ_method_6}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx142880
+\fs20 \pard\intbl \qr { sa_targ_method_7}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx143780
+\fs20 \pard\intbl \qr { sa_targ_method_8}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx144680
+\fs20 \pard\intbl \qr { sa_targ_group_0}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx145580
+\fs20 \pard\intbl \qr { sa_targ_group_1}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx146480
+\fs20 \pard\intbl \qr { sa_targ_group_2}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx147380
+\fs20 \pard\intbl \qr { sa_targ_group_3}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx148280
+\fs20 \pard\intbl \qr { sa_targ_group_4}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx149180
+\fs20 \pard\intbl \qr { sa_targ_group_5}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx150080
+\fs20 \pard\intbl \qr { sa_targ_group_6}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx150980
+\fs20 \pard\intbl \qr { sa_targ_group_7}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx151880
+\fs20 \pard\intbl \qr { sa_targ_group_8}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx152780
+\fs20 \pard\intbl \qr { sa_targ_group_9}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx153680
+\fs20 \pard\intbl \qr { sa_targ_group_10}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx154580
+\fs20 \pard\intbl \qr { sa_targ_group_11}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx155480
+\fs20 \pard\intbl \qr { sa_targ_group_12}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx156380
+\fs20 \pard\intbl \qr { sa_targ_group_13}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx157280
+\fs20 \pard\intbl \qr { sa_targ_group_14}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx158180
+\fs20 \pard\intbl \qr { sa_targ_group_15}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx159080
+\fs20 \pard\intbl \qr { sa_targ_group_16}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx159980
+\fs20 \pard\intbl \qr { sa_targ_group_17}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx160880
+\fs20 \pard\intbl \qr { sa_targ_group_18}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx161780
+\fs20 \pard\intbl \qr { sa_targ_group_19}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx162680
+\fs20 \pard\intbl \qr { sa_targ_group_20}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx163580
+\fs20 \pard\intbl \qr { sa_targ_group_21}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx164480
+\fs20 \pard\intbl \qr { sa_targ_group_22}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx165380
+\fs20 \pard\intbl \qr { sa_targ_group_23}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx166280
+\fs20 \pard\intbl \qr { sa_targ_group_24}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx167180
+\fs20 \pard\intbl \qr { sa_targ_group_25}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx168080
+\fs20 \pard\intbl \qr { sa_targ_group_26}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx168980
+\fs20 \pard\intbl \qr { sa_targ_group_27}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx169880
+\fs20 \pard\intbl \qr { sa_targ_group_28}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx170780
+\fs20 \pard\intbl \qr { sa_payment_mecha_1}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx171680
+\fs20 \pard\intbl \qr { sa_payment_mecha_2}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx172580
+\fs20 \pard\intbl \qr { sa_payment_mecha_3}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx173480
+\fs20 \pard\intbl \qr { sa_payment_mecha_4}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx174380
+\fs20 \pard\intbl \qr { sa_payment_mecha_5}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx175280
+\fs20 \pard\intbl \qr { sa_payment_instruments_1}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx176180
+\fs20 \pard\intbl \qr { sa_payment_instruments_2}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx177080
+\fs20 \pard\intbl \qr { sa_payment_instruments_3}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx177980
+\fs20 \pard\intbl \qr { sa_payment_instruments_4}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx178880
+\fs20 \pard\intbl \qr { sa_payment_instruments_5}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx179780
+\fs20 \pard\intbl \qr { sa_payment_instruments_6}\cell
+\row}
+{\trowd\trgaph108\trleft-108
+\cellx1500
+\fs20 \pard\intbl \ql { C19_PHL_0001}\cell
+\cellx3000
+\fs20 \pard\intbl \ql {}\cell
+\cellx4500
+\fs20 \pard\intbl \ql {}\cell
+\cellx6000
+\fs20 \pard\intbl \ql {Dea Tusha}\cell
+\cellx7200
+\fs20 \pard\intbl \ql {11dec2020}\cell
+\cellx8700
+\fs20 \pard\intbl \ql {https://app.powerbi.com/view r=eyJrIjoiYWM3MTM4OWYtYjcyMy00NGFmLWEyZjktZWI3ZDNkMzU1OGUyIiwidCI6ImJkMDNhNzM1LTJhYTMtNGNjYS05NzIyLTJhZTQ5MjlhYjNlYyIsImMiOjEwfQ%3D%3D&pageName=ReportSection5de5df1d97a4c68a8cbc
+https://www.pna.gov.ph/articles/1114330
+https://www.pna.gov.ph/articles/1111381
+https://www.pna.gov.ph/articles/1098769
+Republic Act No. 11469
+https://www.gmanetwork.com/news/news/nation/731130/key-points-of-measure-granting-additional-powers-to-duterte-to-address-covid-19/story/, https://app.powerbi.com/view r=eyJrIjoiYWM3MTM4OWYtYjcyMy00NGFmLWEyZjktZWI3ZDNkMzU1OGUyIiwidCI6ImJkMDNhNzM1LTJhYTMtNGNjYS05NzIyLTJhZTQ5MjlhYjNlYyIsImMiOjEwfQ%3D%3D&pageName=ReportSection5de5df1d97a4c68a8cbc
+https://www.pna.gov.ph/articles/1114330
+https://www.pna.gov.ph/articles/1111381
+https://www.pna.gov.ph/articles/1098769
+Republic Act No. 11469
+https://www.gmanetwork.com/news/news/nation/731130/key-points-of-measure-granting-additional-powers-to-duterte-to-address-covid-19/story/
+http://documents1.worldbank.org/curated/en/768871611898266913/pdf/The-Impact-of-the-COVID-19-Crisis-on-Low-Income-Households-in-the-Philippines-Deepening-Distress-Despite-Rebounding-Economy.pdf}\cell
+\cellx10200
+\fs20 \pard\intbl \ql {0. Other sources}\cell
+\cellx11700
+\fs20 \pard\intbl \ql {Mohamed Almenfi}\cell
+\cellx13200
+\fs20 \pard\intbl \ql {John Downes}\cell
+\cellx14700
+\fs20 \pard\intbl \ql {East Asia & Pacific}\cell
+\cellx15550
+\fs20 \pard\intbl \ql {LMIC}\cell
+\cellx17050
+\fs20 \pard\intbl \ql {Philippines}\cell
+\cellx17950
+\fs20 \pard\intbl \qr {    4.227}\cell
+\cellx18800
+\fs20 \pard\intbl \ql {PHL}\cell
+\cellx20300
+\fs20 \pard\intbl \ql {Banyanihan 1}\cell
+\cellx21800
+\fs20 \pard\intbl \ql { Social Amelioration Program (SAP)}\cell
+\cellx23300
+\fs20 \pard\intbl \ql {}\cell
+\cellx24800
+\fs20 \pard\intbl \ql {(April 2020) Under the Social Amelioration Programme, the government will provide PhP200 billion to 18 million households out of 24 million households nationwide (low-income families and households working in the informal economy) with P5,000-P8,000 a month for two months (depending on the prevailing regional minimum wage and considering the current CCT grants and rice subsidy in the computation of emergency aid)}\cell
+\cellx26300
+\fs20 \pard\intbl \ql {only informal}\cell
+\cellx27260
+\fs20 \pard\intbl \ql {informal}\cell
+\cellx28760
+\fs20 \pard\intbl \ql {1.1.1. Unconditional cash transfers}\cell
+\cellx30260
+\fs20 \pard\intbl \ql {1. New}\cell
+\cellx31760
+\fs20 \pard\intbl \ql {2. Temporary (not one-off)}\cell
+\cellx33260
+\fs20 \pard\intbl \ql {3. Ended}\cell
+\cellx34760
+\fs20 \pard\intbl \ql {3. Ended}\cell
+\cellx35610
+\fs20 \pard\intbl \ql {}\cell
+\cellx36930
+\fs20 \pard\intbl \ql {}\cell
+\cellx38430
+\fs20 \pard\intbl \ql {}\cell
+\cellx39930
+\fs20 \pard\intbl \ql {}\cell
+\cellx40780
+\fs20 \pard\intbl \ql {}\cell
+\cellx41860
+\fs20 \pard\intbl \ql {04apr2020}\cell
+\cellx42940
+\fs20 \pard\intbl \ql {.}\cell
+\cellx44020
+\fs20 \pard\intbl \ql {.}\cell
+\cellx45220
+\fs20 \pard\intbl \ql {30aug2020}\cell
+\cellx46120
+\fs20 \pard\intbl \qr {18000000}\cell
+\cellx47620
+\fs20 \pard\intbl \ql {1. Household}\cell
+\cellx48520
+\fs20 \pard\intbl \qr {84600000}\cell
+\cellx49420
+\fs20 \pard\intbl \qr {17597757}\cell
+\cellx50920
+\fs20 \pard\intbl \ql {1. Household}\cell
+\cellx51820
+\fs20 \pard\intbl \qr { 7.44e+07}\cell
+\cellx52720
+\fs20 \pard\intbl \qr { 8.27e+07}\cell
+\cellx53620
+\fs20 \pard\intbl \qr {.}\cell
+\cellx55060
+\fs20 \pard\intbl \ql {}\cell
+\cellx55960
+\fs20 \pard\intbl \qr {.}\cell
+\cellx57160
+\fs20 \pard\intbl \ql {}\cell
+\cellx58360
+\fs20 \pard\intbl \ql {04jan2021}\cell
+\cellx59860
+\fs20 \pard\intbl \ql {}\cell
+\cellx60760
+\fs20 \pard\intbl \qr {200000000000}\cell
+\cellx61840
+\fs20 \pard\intbl \ql {PHP}\cell
+\cellx62740
+\fs20 \pard\intbl \qr {.}\cell
+\cellx64240
+\fs20 \pard\intbl \ql {}\cell
+\cellx65090
+\fs20 \pard\intbl \ql {}\cell
+\cellx65990
+\fs20 \pard\intbl \qr {.}\cell
+\cellx67490
+\fs20 \pard\intbl \ql {}\cell
+\cellx68990
+\fs20 \pard\intbl \ql {}\cell
+\cellx70490
+\fs20 \pard\intbl \ql {}\cell
+\cellx71690
+\fs20 \pard\intbl \ql {}\cell
+\cellx72890
+\fs20 \pard\intbl \ql {}\cell
+\cellx74390
+\fs20 \pard\intbl \ql {}\cell
+\cellx75290
+\fs20 \pard\intbl \qr {.}\cell
+\cellx76190
+\fs20 \pard\intbl \qr {.}\cell
+\cellx77090
+\fs20 \pard\intbl \qr {.}\cell
+\cellx77940
+\fs20 \pard\intbl \ql {}\cell
+\cellx79440
+\fs20 \pard\intbl \ql {1. Income support}\cell
+\cellx80940
+\fs20 \pard\intbl \ql {2.5.Horizontal expansion (new targeted multiple payments)}\cell
+\cellx82440
+\fs20 \pard\intbl \ql {}\cell
+\cellx83940
+\fs20 \pard\intbl \ql {}\cell
+\cellx85440
+\fs20 \pard\intbl \ql {}\cell
+\cellx86940
+\fs20 \pard\intbl \ql {}\cell
+\cellx88440
+\fs20 \pard\intbl \ql {}\cell
+\cellx89290
+\fs20 \pard\intbl \ql {6500}\cell
+\cellx90140
+\fs20 \pard\intbl \ql {}\cell
+\cellx91640
+\fs20 \pard\intbl \ql {}\cell
+\cellx93140
+\fs20 \pard\intbl \ql {}\cell
+\cellx94640
+\fs20 \pard\intbl \ql {}\cell
+\cellx95840
+\fs20 \pard\intbl \ql {}\cell
+\cellx97040
+\fs20 \pard\intbl \ql {}\cell
+\cellx97940
+\fs20 \pard\intbl \qr {.}\cell
+\cellx99260
+\fs20 \pard\intbl \ql {}\cell
+\cellx100580
+\fs20 \pard\intbl \ql {2}\cell
+\cellx102080
+\fs20 \pard\intbl \ql {}\cell
+\cellx103580
+\fs20 \pard\intbl \ql {}\cell
+\cellx105080
+\fs20 \pard\intbl \ql {}\cell
+\cellx106580
+\fs20 \pard\intbl \ql {}\cell
+\cellx108080
+\fs20 \pard\intbl \ql {}\cell
+\cellx109580
+\fs20 \pard\intbl \ql {}\cell
+\cellx111080
+\fs20 \pard\intbl \ql {}\cell
+\cellx112580
+\fs20 \pard\intbl \ql {5. Cash}\cell
+\cellx113480
+\fs20 \pard\intbl \qr {.}\cell
+\cellx114980
+\fs20 \pard\intbl \ql {}\cell
+\cellx116480
+\fs20 \pard\intbl \ql {}\cell
+\cellx117980
+\fs20 \pard\intbl \ql {}\cell
+\cellx119480
+\fs20 \pard\intbl \ql {}\cell
+\cellx120980
+\fs20 \pard\intbl \ql {}\cell
+\cellx121880
+\fs20 \pard\intbl \qr {0}\cell
+\cellx122780
+\fs20 \pard\intbl \qr {1}\cell
+\cellx123680
+\fs20 \pard\intbl \qr {0}\cell
+\cellx124580
+\fs20 \pard\intbl \qr {0}\cell
+\cellx125480
+\fs20 \pard\intbl \qr {0}\cell
+\cellx126380
+\fs20 \pard\intbl \qr {0}\cell
+\cellx127280
+\fs20 \pard\intbl \qr {0}\cell
+\cellx128180
+\fs20 \pard\intbl \qr {0}\cell
+\cellx129380
+\fs20 \pard\intbl \ql {Horizontal}\cell
+\cellx130280
+\fs20 \pard\intbl \qr {0}\cell
+\cellx131180
+\fs20 \pard\intbl \qr {0}\cell
+\cellx132080
+\fs20 \pard\intbl \qr {0}\cell
+\cellx132980
+\fs20 \pard\intbl \qr {0}\cell
+\cellx133880
+\fs20 \pard\intbl \qr {0}\cell
+\cellx134780
+\fs20 \pard\intbl \qr {0}\cell
+\cellx135680
+\fs20 \pard\intbl \qr {0}\cell
+\cellx136580
+\fs20 \pard\intbl \qr {0}\cell
+\cellx137480
+\fs20 \pard\intbl \qr {0}\cell
+\cellx138380
+\fs20 \pard\intbl \qr {0}\cell
+\cellx139280
+\fs20 \pard\intbl \qr {0}\cell
+\cellx140180
+\fs20 \pard\intbl \qr {0}\cell
+\cellx141080
+\fs20 \pard\intbl \qr {0}\cell
+\cellx141980
+\fs20 \pard\intbl \qr {0}\cell
+\cellx142880
+\fs20 \pard\intbl \qr {0}\cell
+\cellx143780
+\fs20 \pard\intbl \qr {0}\cell
+\cellx144680
+\fs20 \pard\intbl \qr {0}\cell
+\cellx145580
+\fs20 \pard\intbl \qr {0}\cell
+\cellx146480
+\fs20 \pard\intbl \qr {0}\cell
+\cellx147380
+\fs20 \pard\intbl \qr {0}\cell
+\cellx148280
+\fs20 \pard\intbl \qr {0}\cell
+\cellx149180
+\fs20 \pard\intbl \qr {0}\cell
+\cellx150080
+\fs20 \pard\intbl \qr {0}\cell
+\cellx150980
+\fs20 \pard\intbl \qr {0}\cell
+\cellx151880
+\fs20 \pard\intbl \qr {0}\cell
+\cellx152780
+\fs20 \pard\intbl \qr {0}\cell
+\cellx153680
+\fs20 \pard\intbl \qr {0}\cell
+\cellx154580
+\fs20 \pard\intbl \qr {0}\cell
+\cellx155480
+\fs20 \pard\intbl \qr {0}\cell
+\cellx156380
+\fs20 \pard\intbl \qr {0}\cell
+\cellx157280
+\fs20 \pard\intbl \qr {0}\cell
+\cellx158180
+\fs20 \pard\intbl \qr {0}\cell
+\cellx159080
+\fs20 \pard\intbl \qr {0}\cell
+\cellx159980
+\fs20 \pard\intbl \qr {0}\cell
+\cellx160880
+\fs20 \pard\intbl \qr {0}\cell
+\cellx161780
+\fs20 \pard\intbl \qr {0}\cell
+\cellx162680
+\fs20 \pard\intbl \qr {0}\cell
+\cellx163580
+\fs20 \pard\intbl \qr {0}\cell
+\cellx164480
+\fs20 \pard\intbl \qr {0}\cell
+\cellx165380
+\fs20 \pard\intbl \qr {0}\cell
+\cellx166280
+\fs20 \pard\intbl \qr {0}\cell
+\cellx167180
+\fs20 \pard\intbl \qr {0}\cell
+\cellx168080
+\fs20 \pard\intbl \qr {0}\cell
+\cellx168980
+\fs20 \pard\intbl \qr {0}\cell
+\cellx169880
+\fs20 \pard\intbl \qr {0}\cell
+\cellx170780
+\fs20 \pard\intbl \qr {0}\cell
+\cellx171680
+\fs20 \pard\intbl \qr {0}\cell
+\cellx172580
+\fs20 \pard\intbl \qr {0}\cell
+\cellx173480
+\fs20 \pard\intbl \qr {0}\cell
+\cellx174380
+\fs20 \pard\intbl \qr {1}\cell
+\cellx175280
+\fs20 \pard\intbl \qr {0}\cell
+\cellx176180
+\fs20 \pard\intbl \qr {0}\cell
+\cellx177080
+\fs20 \pard\intbl \qr {0}\cell
+\cellx177980
+\fs20 \pard\intbl \qr {0}\cell
+\cellx178880
+\fs20 \pard\intbl \qr {0}\cell
+\cellx179780
+\fs20 \pard\intbl \qr {0}\cell
+\row}
+{\trowd\trgaph108\trleft-108
+\cellx1500
+\fs20 \pard\intbl \ql { C19_THA_0080}\cell
+\cellx3000
+\fs20 \pard\intbl \ql {}\cell
+\cellx4500
+\fs20 \pard\intbl \ql {02nov2021}\cell
+\cellx6000
+\fs20 \pard\intbl \ql {John Downes}\cell
+\cellx7200
+\fs20 \pard\intbl \ql {25jan2021}\cell
+\cellx8700
+\fs20 \pard\intbl \ql {https://www.thailand-business-news.com/economics/79116-23-million-thais-to-receive-5000-baht-cash-subsidy.html
+https://www.samuitimes.com/last-chance-for-5000-baht-handout/
+https://www.bangkokpost.com/business/1904645/over-1m-appeal-cash-handout-rejection#cxrecs_s
+https://www.khaosodenglish.com/news/business/2020/04/07/5000-baht-cash-handouts-extended-to-6-months/
+https://www.bangkokpost.com/thailand/general/1900595/relief-cash-only-covers-a-month; https://www.thaipbsworld.com/13-4-million-thais-will-have-received-5000-baht-cash-subsidy-by-next-week/, https://www.thailand-business-news.com/economics/79116-23-million-thais-to-receive-5000-baht-cash-subsidy.html
+https://www.bangkokbank.com/en/International-Banking/-/media/71e4b83df4c4473c9cc5832c45e3a542.ashx
+https://www.samuitimes.com/last-chance-for-5000-baht-handout/
+https://www.bangkokpost.com/business/1904645/over-1m-appeal-cash-handout-rejection#cxrecs_s
+https://www.khaosodenglish.com/news/business/2020/04/07/5000-baht-cash-handouts-extended-to-6-months/
+https://www.bangkokpost.com/thailand/general/1900595/relief-cash-only-covers-a-month; https://www.thaipbsworld.com/13-4-million-thais-will-have-received-5000-baht-cash-subsidy-by-next-week/}\cell
+\cellx10200
+\fs20 \pard\intbl \ql {1. Primary/official}\cell
+\cellx11700
+\fs20 \pard\intbl \ql {Mohamed Almenfi}\cell
+\cellx13200
+\fs20 \pard\intbl \ql {John Downes}\cell
+\cellx14700
+\fs20 \pard\intbl \ql {East Asia & Pacific}\cell
+\cellx15550
+\fs20 \pard\intbl \ql {UMIC}\cell
+\cellx17050
+\fs20 \pard\intbl \ql {Thailand}\cell
+\cellx17950
+\fs20 \pard\intbl \qr {3.7}\cell
+\cellx18800
+\fs20 \pard\intbl \ql {THA}\cell
+\cellx20300
+\fs20 \pard\intbl \ql {Rao Mai Ting Gun}\cell
+\cellx21800
+\fs20 \pard\intbl \ql {No-one left behind}\cell
+\cellx23300
+\fs20 \pard\intbl \ql {}\cell
+\cellx24800
+\fs20 \pard\intbl \ql {The cash handout scheme, “Rao Mai Ting Gun” or “we do not leave anyone behind
