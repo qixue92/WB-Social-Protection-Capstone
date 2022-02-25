@@ -349,6 +349,7 @@
 		
 		gsort -ben_ind_plan
 		list country_name program_name ben_ind_plan in 1/15 if !missing(ben_ind_plan), table
+
 	
 	destring ben_ind_actual, replace force
 		label var ben_ind_actual "Beneficiaries actual (ind) (converting hhs into individuals) CALCULATED VARIABLE"
