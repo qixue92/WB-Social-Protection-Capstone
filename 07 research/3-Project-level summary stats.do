@@ -41,10 +41,13 @@
 	global  cleaned             "$root/05 clean data"
 	
 	* using log
-	log using "$output/research/Project-level Summary Stat using merged full dataset.smcl", replace
+	log using "$output/research/Project-level summary stat using informal dataset.smcl", replace
+	*log using "$output/research/Project-level summary stat using merged full dataset.smcl", replace
 	
 	* using data
-	use "$cleaned/merged_Main_database_Feb.dta", clear
+	use "$cleaned/1-Informal Sector Worker.dta"
+	*use "$cleaned/3-Filtered Informal Projects.dta", clear
+	
 	
 ********************************************************************************
 *                   ===================================
@@ -211,7 +214,7 @@
 	
 		* generate dummy var for all subcategories
 		forvalues v = 0/28 {
-			gen sa_targ_group_`v' = regexm(sa_targ_group, "`v'") == 1	
+			gen sa_targ_group_`v' = regexm(sa_targ_group, "`v.'") == 1	
 			}
 		
 		* label newly created dummy variables
@@ -346,8 +349,12 @@
 *                   ===================================
 ********************************************************************************	
 
-	* save imported to cleaned data
-	save "$cleaned/cleaned_Informal Sector Working.dta", replace
+	* save merged dataset
+	*save "$cleaned/4.1-merged_project-level data.dta", replace
+		*notes: project-level data using merged dataset
+		
+	save "$cleaned/4.2-merged_project-level data.dta", replace
+		notes: project-level data using informal data only
 	
 	* close log
 	log close

@@ -1,16 +1,18 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level Summary Stat using merged full dataset.smcl
+       {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using merged full dataset.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}22 Feb 2022, 10:28:32
+ {txt}opened on:  {res}24 Feb 2022, 23:38:00
 {txt}
 {com}.         
 .         * using data
-.         use "$cleaned/merged_Main_database_Feb.dta", clear
+.         *use "$cleaned/1-Informal Sector Worker.dta"
+.         use "$cleaned/3-Filtered Informal Projects.dta", clear
 {txt}(Social Assistance Tracker)
 
 {com}.         
+.         
 . ********************************************************************************
 . *                   ===================================
 . *                                      Summary Stats
@@ -30,28 +32,28 @@
 .                 * rename sublabels
 .                 replace region = "East Asia & Pacific" if region == "EAS"
 {txt}variable {bf}{res}region{sf}{txt} was {bf}{res}str3{sf}{txt} now {bf}{res}str19{sf}
-{txt}(654 real changes made)
+{txt}(49 real changes made)
 
 {com}.                 replace region = "Europe & Central Asia" if region == "ECS"
 {txt}variable {bf}{res}region{sf}{txt} was {bf}{res}str19{sf}{txt} now {bf}{res}str21{sf}
-{txt}(1,192 real changes made)
+{txt}(19 real changes made)
 
 {com}.                 replace region = "Latin America & Caribbean" if region == "LCN"
 {txt}variable {bf}{res}region{sf}{txt} was {bf}{res}str21{sf}{txt} now {bf}{res}str25{sf}
-{txt}(727 real changes made)
+{txt}(47 real changes made)
 
 {com}.                 replace region = "Middle East & North Africa" if region == "MEA"
 {txt}variable {bf}{res}region{sf}{txt} was {bf}{res}str25{sf}{txt} now {bf}{res}str26{sf}
-{txt}(376 real changes made)
+{txt}(41 real changes made)
 
 {com}.                 replace region = "North America" if region == "NAC"
-{txt}(69 real changes made)
+{txt}(0 real changes made)
 
 {com}.                 replace region = "South Asia" if region == "SAS"
-{txt}(155 real changes made)
+{txt}(16 real changes made)
 
 {com}.                 replace region = "Sub-Saharan Africa" if region == "SSF"
-{txt}(662 real changes made)
+{txt}(43 real changes made)
 
 {com}.                 
 .                 * tab region
@@ -59,15 +61,14 @@
 
                     {txt}region {c |}      Freq.     Percent        Cum.
 {hline 27}{c +}{hline 35}
-       East Asia & Pacific {c |}{res}        654       17.05       17.05
-{txt}     Europe & Central Asia {c |}{res}      1,192       31.08       48.14
-{txt} Latin America & Caribbean {c |}{res}        727       18.96       67.09
-{txt}Middle East & North Africa {c |}{res}        376        9.80       76.90
-{txt}             North America {c |}{res}         69        1.80       78.70
-{txt}                South Asia {c |}{res}        155        4.04       82.74
-{txt}        Sub-Saharan Africa {c |}{res}        662       17.26      100.00
+       East Asia & Pacific {c |}{res}         49       22.79       22.79
+{txt}     Europe & Central Asia {c |}{res}         19        8.84       31.63
+{txt} Latin America & Caribbean {c |}{res}         47       21.86       53.49
+{txt}Middle East & North Africa {c |}{res}         41       19.07       72.56
+{txt}                South Asia {c |}{res}         16        7.44       80.00
+{txt}        Sub-Saharan Africa {c |}{res}         43       20.00      100.00
 {txt}{hline 27}{c +}{hline 35}
-                     Total {c |}{res}      3,835      100.00
+                     Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         * hhsize
@@ -76,17 +77,17 @@
                            {txt}hhsize
 {hline 61}
       Percentiles      Smallest
- 1%    {res} 2.402593       2.402593
-{txt} 5%    {res}        3       2.402593
-{txt}10%    {res} 3.456537       2.402593       {txt}Obs         {res}        142
-{txt}25%    {res} 4.130858       2.458298       {txt}Sum of wgt. {res}        142
+ 1%    {res}        3       2.458298
+{txt} 5%    {res}  3.31149              3
+{txt}10%    {res} 3.526852              3       {txt}Obs         {res}        112
+{txt}25%    {res} 4.226661       3.060923       {txt}Sum of wgt. {res}        112
 
-{txt}50%    {res} 4.130858                      {txt}Mean          {res} 4.096883
-                        {txt}Largest       Std. dev.     {res} .5902164
-{txt}75%    {res} 4.130858            5.9
-{txt}90%    {res} 4.572189       5.924453       {txt}Variance      {res} .3483554
-{txt}95%    {res} 5.130789       5.993139       {txt}Skewness      {res} .2327063
-{txt}99%    {res} 5.993139              6       {txt}Kurtosis      {res} 6.677382
+{txt}50%    {res} 4.259292                      {txt}Mean          {res} 4.247093
+                        {txt}Largest       Std. dev.     {res} .5577884
+{txt}75%    {res} 4.259292            5.9
+{txt}90%    {res} 4.574381       5.924453       {txt}Variance      {res} .3111279
+{txt}95%    {res} 5.590376       5.993139       {txt}Skewness      {res} .6182188
+{txt}99%    {res} 5.993139              6       {txt}Kurtosis      {res} 6.440415
 {txt}
 {com}.         
 .         * sp_sub_category
@@ -94,97 +95,52 @@
 
                         {txt}sp_sub_category {c |}      Freq.     Percent        Cum.
 {hline 40}{c +}{hline 35}
-                                        {c |}{res}         58        1.51        1.51
-{txt}    1.1.1. Unconditional cash transfers {c |}{res}        981       25.58       27.09
-{txt}1.1.1. Unconditional cash transfers, .. {c |}{res}          1        0.03       27.12
-{txt}1.1.1. Unconditional cash transfers, .. {c |}{res}          1        0.03       27.14
-{txt}1.1.1. Unconditional cash transfers, .. {c |}{res}          1        0.03       27.17
-{txt}1.1.1. Unconditional cash transfers, .. {c |}{res}          1        0.03       27.20
-{txt}      1.2.1. Conditional cash transfers {c |}{res}         54        1.41       28.60
-{txt}         1.3.1. Old age social pensions {c |}{res}         31        0.81       29.41
-{txt}1.3.1. Old age social pensions, 1.1.1.. {c |}{res}          1        0.03       29.44
-{txt}1.3.1. Old age social pensions, 1.3.2.. {c |}{res}          1        0.03       29.47
-{txt}             1.3.2. Disability pensions {c |}{res}          2        0.05       29.52
-{txt}            1.3.2. Disability pensions  {c |}{res}          9        0.23       29.75
-{txt}1.3.2. Disability pensions, 1.3.1. Ol.. {c |}{res}          2        0.05       29.80
-{txt}1.4.1. Food vouchers (quantity or val.. {c |}{res}         52        1.36       31.16
-{txt}1.4.1. Food vouchers (quantity or val.. {c |}{res}          1        0.03       31.19
-{txt}       1.4.2. In-kind food distribution {c |}{res}        230        6.00       37.18
-{txt}1.4.2. In-kind food distribution, 1.1.. {c |}{res}          1        0.03       37.21
-{txt}1.4.2. In-kind food distribution, 1.4.. {c |}{res}          1        0.03       37.24
-{txt}1.4.2. In-kind food distribution, 1.4.. {c |}{res}          7        0.18       37.42
-{txt}1.4.3. Health kits and other inkind t.. {c |}{res}         78        2.03       39.45
-{txt}1.4.3. Health kits and other inkind t.. {c |}{res}          1        0.03       39.48
-{txt}1.4.3. Health kits and other inkind t.. {c |}{res}          1        0.03       39.50
-{txt}1.5.1. School meals (on-site school f.. {c |}{res}         19        0.50       40.00
-{txt}1.5.1. School meals (on-site school f.. {c |}{res}          1        0.03       40.03
-{txt}               1.5.2. Take-home rations {c |}{res}         47        1.23       41.25
-{txt}                   1.6.1. Cash for work {c |}{res}         68        1.77       43.02
-{txt}              1.6.2. Cash for services  {c |}{res}          1        0.03       43.05
-{txt}                   1.6.3. Food for work {c |}{res}          1        0.03       43.08
-{txt}                       1.7.1. Education {c |}{res}         28        0.73       43.81
-{txt}      1.7.10. Mortgages and other loans {c |}{res}        150        3.91       47.72
-{txt}                          1.7.11. Other {c |}{res}        166        4.33       52.05
-{txt}                          1.7.2. Health {c |}{res}         15        0.39       52.44
-{txt}          1.7.3. Housing (rent support) {c |}{res}         75        1.96       54.39
-{txt}1.7.4. Water, electricity, telephone,.. {c |}{res}        178        4.64       59.04
-{txt}1.7.4. Water, electricity, telephone,.. {c |}{res}          1        0.03       59.06
-{txt}1.7.4. Water, electricity, telephone,.. {c |}{res}          2        0.05       59.11
-{txt}1.7.4. Water, electricity, telephone,.. {c |}{res}          1        0.03       59.14
-{txt}                  1.7.5. Transportation {c |}{res}         15        0.39       59.53
-{txt}1.7.5. Transportation, 1.7.6. Price c.. {c |}{res}          1        0.03       59.56
-{txt}1.7.6. Price control (food and in-kind) {c |}{res}         70        1.83       61.38
-{txt}             1.7.8. Agricultural inputs {c |}{res}         22        0.57       61.96
-{txt}1.7.8. Agricultural inputs, 1.4.2. In.. {c |}{res}          1        0.03       61.98
-{txt}          1.7.9. Money transaction fees {c |}{res}         30        0.78       62.76
-{txt}                2.1.1. Old age pensions {c |}{res}         51        1.33       64.09
-{txt}            2.1.2. Disability pensions  {c |}{res}          5        0.13       64.22
-{txt}              2.1.3. Survivors pensions {c |}{res}          2        0.05       64.28
-{txt}2.2.1. Individual retirement accounts.. {c |}{res}         98        2.56       66.83
-{txt}2.2.2. Social security contributions .. {c |}{res}        147        3.83       70.66
-{txt}2.3.1. Sickness and population at risk  {c |}{res}        111        2.89       73.56
-{txt}             2.3.2. Maternity/Paternity {c |}{res}         31        0.81       74.37
-{txt}                2.5.1. Health insurance {c |}{res}         55        1.43       75.80
-{txt}      2.6.1. Out-of-work income support {c |}{res}        141        3.68       79.48
-{txt}3.2.1. Labor market services includin.. {c |}{res}         27        0.70       80.18
-{txt}3.2.2. Training (vocational, life ski.. {c |}{res}        113        2.95       83.13
-{txt}3.4.1. Wage subsidy with reduced work.. {c |}{res}         91        2.37       85.50
-{txt}3.4.2. Wage subsidy without reduced w.. {c |}{res}        106        2.76       88.27
-{txt}3.4.3.Subsidies for job creation that.. {c |}{res}         36        0.94       89.20
-{txt}               3.7.1. Severance payment {c |}{res}          8        0.21       89.41
-{txt}             3.7.2. Hiring flexibility  {c |}{res}         25        0.65       90.07
-{txt}           3.7.3. Dismissal procedures  {c |}{res}         37        0.96       91.03
-{txt}      3.7.4. Working conditions/methods {c |}{res}        131        3.42       94.45
-{txt}                  3.7.5. Leave policies {c |}{res}         37        0.96       95.41
-{txt}                   3.7.6. Remuneration  {c |}{res}         59        1.54       96.95
-{txt}3.7.8. Labor inspector interventions .. {c |}{res}         76        1.98       98.93
-{txt}     3.7.9. Other regulatory adjustment {c |}{res}         41        1.07      100.00
+                                        {c |}{res}         29       13.49       13.49
+{txt}    1.1.1. Unconditional cash transfers {c |}{res}        112       52.09       65.58
+{txt}1.1.1. Unconditional cash transfers, .. {c |}{res}          1        0.47       66.05
+{txt}      1.2.1. Conditional cash transfers {c |}{res}          3        1.40       67.44
+{txt}1.4.1. Food vouchers (quantity or val.. {c |}{res}          2        0.93       68.37
+{txt}       1.4.2. In-kind food distribution {c |}{res}         14        6.51       74.88
+{txt}1.4.2. In-kind food distribution, 1.4.. {c |}{res}          1        0.47       75.35
+{txt}1.4.3. Health kits and other inkind t.. {c |}{res}          4        1.86       77.21
+{txt}1.5.1. School meals (on-site school f.. {c |}{res}          1        0.47       77.67
+{txt}               1.5.2. Take-home rations {c |}{res}          1        0.47       78.14
+{txt}                   1.6.1. Cash for work {c |}{res}          8        3.72       81.86
+{txt}              1.6.2. Cash for services  {c |}{res}          1        0.47       82.33
+{txt}                       1.7.1. Education {c |}{res}          1        0.47       82.79
+{txt}      1.7.10. Mortgages and other loans {c |}{res}          3        1.40       84.19
+{txt}                          1.7.11. Other {c |}{res}          3        1.40       85.58
+{txt}1.7.4. Water, electricity, telephone,.. {c |}{res}          1        0.47       86.05
+{txt}                2.1.1. Old age pensions {c |}{res}          7        3.26       89.30
+{txt}2.1.1. Old age pensions, 2.1.2. Disab.. {c |}{res}          1        0.47       89.77
+{txt}            2.1.2. Disability pensions  {c |}{res}          1        0.47       90.23
+{txt}2.2.2. Social security contributions .. {c |}{res}          5        2.33       92.56
+{txt}2.3.1. Sickness and population at risk  {c |}{res}          1        0.47       93.02
+{txt}                2.5.1. Health insurance {c |}{res}          1        0.47       93.49
+{txt}      2.6.1. Out-of-work income support {c |}{res}          4        1.86       95.35
+{txt}3.2.2. Training (vocational, life ski.. {c |}{res}          2        0.93       96.28
+{txt}3.4.1. Wage subsidy with reduced work.. {c |}{res}          1        0.47       96.74
+{txt}3.4.2. Wage subsidy without reduced w.. {c |}{res}          4        1.86       98.60
+{txt}     3.7.9. Other regulatory adjustment {c |}{res}          3        1.40      100.00
 {txt}{hline 40}{c +}{hline 35}
-                                  Total {c |}{res}      3,835      100.00
+                                  Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         * updated_status
 .         replace updated_status = status if missing(updated_status)
-{txt}variable {bf}{res}updated_status{sf}{txt} was {bf}{res}str26{sf}{txt} now {bf}{res}str30{sf}
-{txt}(540 real changes made)
+{txt}(23 real changes made)
 
 {com}.         tab updated_status, missing
 
-                {txt}updated_status {c |}      Freq.     Percent        Cum.
-{hline 31}{c +}{hline 35}
-                               {c |}{res}        823       21.46       21.46
-{txt}          1. Announced/Planned {c |}{res}        166        4.33       25.79
-{txt}1. Announced/Planned, 3. Ended {c |}{res}          1        0.03       25.81
-{txt}            2. Started/Ongoing {c |}{res}        924       24.09       49.91
-{txt}                 2. a. Started {c |}{res}          2        0.05       49.96
-{txt}                      3. Ended {c |}{res}        963       25.11       75.07
-{txt}3. Ended, 1. Announced/Planned {c |}{res}          1        0.03       75.10
-{txt}    4. Cancelled/Never started {c |}{res}          7        0.18       75.28
-{txt}     5. Could not be confimred {c |}{res}        944       24.62       99.90
-{txt}     5. Could not be confirmed {c |}{res}          3        0.08       99.97
-{txt}                       ongoing {c |}{res}          1        0.03      100.00
-{txt}{hline 31}{c +}{hline 35}
-                         Total {c |}{res}      3,835      100.00
+            {txt}updated_status {c |}      Freq.     Percent        Cum.
+{hline 27}{c +}{hline 35}
+                           {c |}{res}         69       32.09       32.09
+{txt}      1. Announced/Planned {c |}{res}          6        2.79       34.88
+{txt}        2. Started/Ongoing {c |}{res}         36       16.74       51.63
+{txt}                  3. Ended {c |}{res}         67       31.16       82.79
+{txt} 5. Could not be confimred {c |}{res}         37       17.21      100.00
+{txt}{hline 27}{c +}{hline 35}
+                     Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         * informal
@@ -194,11 +150,11 @@
 
       {txt}Column3 {c |}      Freq.     Percent        Cum.
 {hline 14}{c +}{hline 35}
-              {c |}{res}      3,654       95.28       95.28
-{txt}    including {c |}{res}         69        1.80       97.08
-{txt}only informal {c |}{res}        112        2.92      100.00
+              {c |}{res}         74       34.42       34.42
+{txt}    including {c |}{res}        114       53.02       87.44
+{txt}only informal {c |}{res}         27       12.56      100.00
 {txt}{hline 14}{c +}{hline 35}
-        Total {c |}{res}      3,835      100.00
+        Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         * benefit_new
@@ -206,12 +162,11 @@
 
                             {txt}benefit_new {c |}      Freq.     Percent        Cum.
 {hline 40}{c +}{hline 35}
-                                        {c |}{res}         76        1.98        1.98
-{txt}0. Adaptation or new benefit of a pre.. {c |}{res}      1,289       33.61       35.59
-{txt}                                 1. New {c |}{res}      2,466       64.30       99.90
-{txt}                                 1. new {c |}{res}          4        0.10      100.00
+                                        {c |}{res}         38       17.67       17.67
+{txt}0. Adaptation or new benefit of a pre.. {c |}{res}         39       18.14       35.81
+{txt}                                 1. New {c |}{res}        138       64.19      100.00
 {txt}{hline 40}{c +}{hline 35}
-                                  Total {c |}{res}      3,835      100.00
+                                  Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         * household or individual
@@ -219,12 +174,11 @@
 
  {txt}ben_unit_plan {c |}      Freq.     Percent        Cum.
 {hline 15}{c +}{hline 35}
-               {c |}{res}      2,817       73.46       73.46
-{txt}  1. Household {c |}{res}        371        9.67       83.13
-{txt}2. Individuals {c |}{res}        634       16.53       99.66
-{txt}       3. Firm {c |}{res}         13        0.34      100.00
+               {c |}{res}         99       46.05       46.05
+{txt}  1. Household {c |}{res}         47       21.86       67.91
+{txt}2. Individuals {c |}{res}         69       32.09      100.00
 {txt}{hline 15}{c +}{hline 35}
-         Total {c |}{res}      3,835      100.00
+         Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         * benefit temp or one-off
@@ -232,19 +186,14 @@
 
                            {txt}benefit_temp {c |}      Freq.     Percent        Cum.
 {hline 40}{c +}{hline 35}
-                                        {c |}{res}        337        8.79        8.79
-{txt}                                 1. New {c |}{res}          2        0.05        8.84
-{txt}                             1. One-off {c |}{res}        576       15.02       23.86
-{txt}               1. One-off, 3. Permanent {c |}{res}          1        0.03       23.89
-{txt}             2. Temporary (not one-off) {c |}{res}      2,834       73.90       97.78
-{txt} 2. Temporary (not one-off), 1. One-off {c |}{res}          1        0.03       97.81
-{txt}                           3. Permanent {c |}{res}         73        1.90       99.71
-{txt}               3. Permanent, 1. One-off {c |}{res}          1        0.03       99.74
-{txt}3. Permanent, 2. Temporary (not one-o.. {c |}{res}          1        0.03       99.77
-{txt}              3. Temporary to Permanent {c |}{res}          1        0.03       99.79
-{txt}              4. Temporary to Permanent {c |}{res}          8        0.21      100.00
+                                        {c |}{res}         50       23.26       23.26
+{txt}                             1. One-off {c |}{res}         56       26.05       49.30
+{txt}             2. Temporary (not one-off) {c |}{res}        104       48.37       97.67
+{txt}                           3. Permanent {c |}{res}          3        1.40       99.07
+{txt}              3. Temporary to Permanent {c |}{res}          1        0.47       99.53
+{txt}              4. Temporary to Permanent {c |}{res}          1        0.47      100.00
 {txt}{hline 40}{c +}{hline 35}
-                                  Total {c |}{res}      3,835      100.00
+                                  Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .                 * correctly wrongly coded var
@@ -273,10 +222,10 @@
 
 {txt}{ralign 15: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
 {hline 16}{c +}{hline 45}
-{ralign 15 : benefit_temp_1} {c |}{res}{ralign 0:     3835     0.15     0.36     0.00     1.00{space 0}}{ralign 0:{col 65}1.One-off}
-{txt}{ralign 15 : benefit_temp_2} {c |}{res}{ralign 0:     3835     0.74     0.44     0.00     1.00{space 0}}{ralign 0:{col 65}2.Temporary (not one-off)}
-{txt}{ralign 15 : benefit_temp_3} {c |}{res}{ralign 0:     3835     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 65}3.Permanent}
-{txt}{ralign 15 : benefit_temp_4} {c |}{res}{ralign 0:     3835     0.00     0.05     0.00     1.00{space 0}}{ralign 0:{col 65}4.Temporary to Permanent}
+{ralign 15 : benefit_temp_1} {c |}{res}{ralign 0:      215     0.26     0.44     0.00     1.00{space 0}}{ralign 0:{col 65}1.One-off}
+{txt}{ralign 15 : benefit_temp_2} {c |}{res}{ralign 0:      215     0.48     0.50     0.00     1.00{space 0}}{ralign 0:{col 65}2.Temporary (not one-off)}
+{txt}{ralign 15 : benefit_temp_3} {c |}{res}{ralign 0:      215     0.01     0.12     0.00     1.00{space 0}}{ralign 0:{col 65}3.Permanent}
+{txt}{ralign 15 : benefit_temp_4} {c |}{res}{ralign 0:      215     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 65}4.Temporary to Permanent}
 {txt}
 {com}.                 
 .         *** financing_source
@@ -286,25 +235,17 @@
 
                        {txt}financing_source {c |}      Freq.     Percent        Cum.
 {hline 40}{c +}{hline 35}
-                                        {c |}{res}      3,246       84.64       84.64
-{txt}                             1. Public  {c |}{res}          1        0.03       84.67
-{txt}                              06jul2020 {c |}{res}          1        0.03       84.69
-{txt}                              1. Public {c |}{res}        284        7.41       92.10
-{txt}           1. Public
-4. International  {c |}{res}          1        0.03       92.13
-{txt}                  1. Public, 2. Private {c |}{res}          6        0.16       92.28
-{txt}           1. Public, 4. International  {c |}{res}         15        0.39       92.67
-{txt}                             2. Private {c |}{res}        106        2.76       95.44
-{txt}                  2. Private, 1. Public {c |}{res}          1        0.03       95.46
-{txt}          2. Private, 4. International  {c |}{res}          1        0.03       95.49
-{txt}2. Private, 4. International , 1. Pub.. {c |}{res}          1        0.03       95.51
-{txt}                     3. Social Security {c |}{res}          4        0.10       95.62
-{txt}                      4. International  {c |}{res}        161        4.20       99.82
-{txt}           4. International , 1. Public {c |}{res}          5        0.13       99.95
-{txt}4. International , 1. Public, 2. Priv.. {c |}{res}          1        0.03       99.97
-{txt}          4. International , 2. Private {c |}{res}          1        0.03      100.00
+                                        {c |}{res}        164       76.28       76.28
+{txt}                              1. Public {c |}{res}         23       10.70       86.98
+{txt}                  1. Public, 2. Private {c |}{res}          2        0.93       87.91
+{txt}           1. Public, 4. International  {c |}{res}          3        1.40       89.30
+{txt}                             2. Private {c |}{res}          7        3.26       92.56
+{txt}          2. Private, 4. International  {c |}{res}          1        0.47       93.02
+{txt}2. Private, 4. International , 1. Pub.. {c |}{res}          1        0.47       93.49
+{txt}                     3. Social Security {c |}{res}          1        0.47       93.95
+{txt}                      4. International  {c |}{res}         13        6.05      100.00
 {txt}{hline 40}{c +}{hline 35}
-                                  Total {c |}{res}      3,835      100.00
+                                  Total {c |}{res}        215      100.00
 {txt}
 {com}.                 
 .                 * generate dummy var for all subcategories
@@ -328,10 +269,10 @@
 
 {txt}{ralign 19: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
 {hline 20}{c +}{hline 45}
-{ralign 19 : financing_source_1} {c |}{res}{ralign 0:     3835     0.08     0.27     0.00     1.00{space 0}}{ralign 0:{col 69}1.Public}
-{txt}{ralign 19 : financing_source_2} {c |}{res}{ralign 0:     3835     0.03     0.17     0.00     1.00{space 0}}{ralign 0:{col 69}2.Private}
-{txt}{ralign 19 : financing_source_3} {c |}{res}{ralign 0:     3835     0.00     0.03     0.00     1.00{space 0}}{ralign 0:{col 69}3.Social security}
-{txt}{ralign 19 : financing_source_4} {c |}{res}{ralign 0:     3835     0.05     0.21     0.00     1.00{space 0}}{ralign 0:{col 69}4.International}
+{ralign 19 : financing_source_1} {c |}{res}{ralign 0:      215     0.13     0.34     0.00     1.00{space 0}}{ralign 0:{col 69}1.Public}
+{txt}{ralign 19 : financing_source_2} {c |}{res}{ralign 0:      215     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 69}2.Private}
+{txt}{ralign 19 : financing_source_3} {c |}{res}{ralign 0:      215     0.00     0.07     0.00     1.00{space 0}}{ralign 0:{col 69}3.Social security}
+{txt}{ralign 19 : financing_source_4} {c |}{res}{ralign 0:      215     0.08     0.28     0.00     1.00{space 0}}{ralign 0:{col 69}4.International}
 {txt}
 {com}.         
 .         /* policy_Objective
@@ -348,36 +289,29 @@
 
                          {txt}sa_policy_adap {c |}      Freq.     Percent        Cum.
 {hline 40}{c +}{hline 35}
-                                        {c |}{res}      1,492       38.90       38.90
-{txt}1.1.Vertical expansion (multiple paym.. {c |}{res}        110        2.87       41.77
-{txt}       1.2.Vertical expansion (one-off) {c |}{res}         74        1.93       43.70
-{txt}1.3.Vertical expansion & admin simpli.. {c |}{res}          5        0.13       43.83
-{txt}2.1.Horizontal expansion (Existing pr.. {c |}{res}         97        2.53       46.36
-{txt}2.2.Horizontal expansion & admin simp.. {c |}{res}          2        0.05       46.41
-{txt}2.3.Horizontal expansion (new targete.. {c |}{res}        496       12.93       59.35
-{txt}2.4.Horizontal expansion (new univers.. {c |}{res}         13        0.34       59.69
-{txt}2.5.Horizontal expansion (new targete.. {c |}{res}        607       15.83       75.51
-{txt}2.6.Horizontal expansion (new univers.. {c |}{res}          2        0.05       75.57
-{txt}3.1.Horizontal expansion & vertical e.. {c |}{res}         47        1.23       76.79
-{txt}3.2.Horizontal expansion, vertical ex.. {c |}{res}          4        0.10       76.90
-{txt}4.1.Admin simplification (flexible ti.. {c |}{res}         98        2.56       79.45
-{txt}           4.2.Change in conditionality {c |}{res}          5        0.13       79.58
-{txt}                   4.3.Advanced payment {c |}{res}         26        0.68       80.26
-{txt}                            5.1.Subsidy {c |}{res}        757       19.74      100.00
+                                        {c |}{res}         60       27.91       27.91
+{txt}1.1.Vertical expansion (multiple paym.. {c |}{res}          4        1.86       29.77
+{txt}       1.2.Vertical expansion (one-off) {c |}{res}          3        1.40       31.16
+{txt}2.1.Horizontal expansion (Existing pr.. {c |}{res}          6        2.79       33.95
+{txt}2.3.Horizontal expansion (new targete.. {c |}{res}         55       25.58       59.53
+{txt}2.5.Horizontal expansion (new targete.. {c |}{res}         68       31.63       91.16
+{txt}3.1.Horizontal expansion & vertical e.. {c |}{res}          7        3.26       94.42
+{txt}4.1.Admin simplification (flexible ti.. {c |}{res}          2        0.93       95.35
+{txt}                            5.1.Subsidy {c |}{res}         10        4.65      100.00
 {txt}{hline 40}{c +}{hline 35}
-                                  Total {c |}{res}      3,835      100.00
+                                  Total {c |}{res}        215      100.00
 {txt}
 {com}.                 * gen new var to reduce dimensions of measuring
 .                 gen expansion_type = ""
-{txt}(3,835 missing values generated)
+{txt}(215 missing values generated)
 
 {com}.                 replace expansion_type = "Vertical" if strmatch(sa_policy_adap, "*Vertical*")
 {txt}variable {bf}{res}expansion_type{sf}{txt} was {bf}{res}str1{sf}{txt} now {bf}{res}str8{sf}
-{txt}(189 real changes made)
+{txt}(7 real changes made)
 
 {com}.                 replace expansion_type = "Horizontal" if strmatch(sa_policy_adap, "*Horizontal*")
 {txt}variable {bf}{res}expansion_type{sf}{txt} was {bf}{res}str8{sf}{txt} now {bf}{res}str10{sf}
-{txt}(1,268 real changes made)
+{txt}(136 real changes made)
 
 {com}.         
 .         * tab expansion type
@@ -386,11 +320,11 @@
 {txt}expansion_t {c |}
         ype {c |}      Freq.     Percent        Cum.
 {hline 12}{c +}{hline 35}
-            {c |}{res}      2,378       62.01       62.01
-{txt} Horizontal {c |}{res}      1,268       33.06       95.07
-{txt}   Vertical {c |}{res}        189        4.93      100.00
+            {c |}{res}         72       33.49       33.49
+{txt} Horizontal {c |}{res}        136       63.26       96.74
+{txt}   Vertical {c |}{res}          7        3.26      100.00
 {txt}{hline 12}{c +}{hline 35}
-      Total {c |}{res}      3,835      100.00
+      Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         * rural vs urban
@@ -398,12 +332,12 @@
 
                         {txt}sa_location {c |}      Freq.     Percent        Cum.
 {hline 36}{c +}{hline 35}
-                                    {c |}{res}      3,473       90.56       90.56
-{txt}                      1.	Rural only {c |}{res}         44        1.15       91.71
-{txt}2.	Urban only (includes peri-urban) {c |}{res}         67        1.75       93.46
-{txt}                 3.	Rural and urban {c |}{res}        251        6.54      100.00
+                                    {c |}{res}        189       87.91       87.91
+{txt}                      1.	Rural only {c |}{res}          3        1.40       89.30
+{txt}2.	Urban only (includes peri-urban) {c |}{res}          6        2.79       92.09
+{txt}                 3.	Rural and urban {c |}{res}         17        7.91      100.00
 {txt}{hline 36}{c +}{hline 35}
-                              Total {c |}{res}      3,835      100.00
+                              Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         * benefit type
@@ -411,22 +345,15 @@
 
                {txt}sa_b_type {c |}      Freq.     Percent        Cum.
 {hline 25}{c +}{hline 35}
-                         {c |}{res}      2,199       57.34       57.34
-{txt}                 1. Cash {c |}{res}        843       21.98       79.32
-{txt}   1. Cash, 2. Near cash {c |}{res}          5        0.13       79.45
-{txt}     1. Cash, 3. In-kind {c |}{res}          2        0.05       79.50
-{txt}    1. Cash, 4. Services {c |}{res}          1        0.03       79.53
-{txt}            2. Near cash {c |}{res}        159        4.15       83.68
-{txt}2. Near cash, 3. In-kind {c |}{res}          2        0.05       83.73
-{txt}              3. In-Kind {c |}{res}          8        0.21       83.94
-{txt}              3. In-kind {c |}{res}        307        8.01       91.94
-{txt}     3. In-kind, 1. Cash {c |}{res}          1        0.03       91.97
-{txt}3. In-kind, 2. Near cash {c |}{res}          1        0.03       91.99
-{txt} 3. In-kind, 4. Services {c |}{res}          1        0.03       92.02
-{txt}             4. Services {c |}{res}        109        2.84       94.86
-{txt}                5. Other {c |}{res}        197        5.14      100.00
+                         {c |}{res}        107       49.77       49.77
+{txt}                 1. Cash {c |}{res}         85       39.53       89.30
+{txt}   1. Cash, 2. Near cash {c |}{res}          1        0.47       89.77
+{txt}     1. Cash, 3. In-kind {c |}{res}          1        0.47       90.23
+{txt}            2. Near cash {c |}{res}          6        2.79       93.02
+{txt}              3. In-kind {c |}{res}         14        6.51       99.53
+{txt}     3. In-kind, 1. Cash {c |}{res}          1        0.47      100.00
 {txt}{hline 25}{c +}{hline 35}
-                   Total {c |}{res}      3,835      100.00
+                   Total {c |}{res}        215      100.00
 {txt}
 {com}.         
 .         *** indentification_instruments
@@ -436,31 +363,19 @@
 
              {txt}identification_instruments {c |}      Freq.     Percent        Cum.
 {hline 40}{c +}{hline 35}
-                                        {c |}{res}      3,512       91.58       91.58
-{txt}                     1. Social registry {c |}{res}         23        0.60       92.18
-{txt}1. Social registry
-2. Existing benef.. {c |}{res}          1        0.03       92.20
-{txt}1. Social registry, 2. Existing benef.. {c |}{res}          1        0.03       92.23
-{txt}1. Social registry, 6. Open registrat.. {c |}{res}          2        0.05       92.28
-{txt}2. Existing beneficiary databases (vi.. {c |}{res}         57        1.49       93.77
-{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        0.03       93.79
-{txt}2. Existing beneficiary databases (vi.. {c |}{res}          4        0.10       93.90
-{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        0.03       93.92
-{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        0.03       93.95
-{txt}2. Existing beneficiary databases (vi.. {c |}{res}          5        0.13       94.08
-{txt}3. Civil registry (ID, voting ID, bir.. {c |}{res}         15        0.39       94.47
-{txt}3. Civil registry (ID, voting ID, bir.. {c |}{res}          1        0.03       94.50
-{txt}4. Other Governoment registry (social.. {c |}{res}          3        0.08       94.58
-{txt}4. Other governoment registry (social.. {c |}{res}         35        0.91       95.49
-{txt}4. Other governoment registry (social.. {c |}{res}          1        0.03       95.51
-{txt}4. Other governoment registry (social.. {c |}{res}          1        0.03       95.54
-{txt}5. Informal workers/self-employed reg.. {c |}{res}          3        0.08       95.62
-{txt}6. Open registration/new enrolment ca.. {c |}{res}        138        3.60       99.22
-{txt}6. Open registration/new enrolment ca.. {c |}{res}          1        0.03       99.24
-{txt}6. Open registration/new enrolment ca.. {c |}{res}          1        0.03       99.27
-{txt}                              7. Others {c |}{res}         28        0.73      100.00
+                                        {c |}{res}        171       79.53       79.53
+{txt}                     1. Social registry {c |}{res}          9        4.19       83.72
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          4        1.86       85.58
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        0.47       86.05
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        0.47       86.51
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        0.47       86.98
+{txt}3. Civil registry (ID, voting ID, bir.. {c |}{res}          2        0.93       87.91
+{txt}4. Other governoment registry (social.. {c |}{res}          3        1.40       89.30
+{txt}5. Informal workers/self-employed reg.. {c |}{res}          2        0.93       90.23
+{txt}6. Open registration/new enrolment ca.. {c |}{res}         17        7.91       98.14
+{txt}                              7. Others {c |}{res}          4        1.86      100.00
 {txt}{hline 40}{c +}{hline 35}
-                                  Total {c |}{res}      3,835      100.00
+                                  Total {c |}{res}        215      100.00
 {txt}
 {com}.                 
 .                 * generate dummy var for all subcategories
@@ -490,20 +405,20 @@
 
 {txt}{ralign 29: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
 {hline 30}{c +}{hline 45}
-{ralign 29 : identification_instruments_1} {c |}{res}{ralign 0:     3835     0.01     0.09     0.00     1.00{space 0}}{ralign 0:{col 79}1.Social registry}
-{txt}{ralign 29 : identification_instruments_2} {c |}{res}{ralign 0:     3835     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 79}2.Existing beneficiary database}
-{txt}{ralign 29 : identification_instruments_3} {c |}{res}{ralign 0:     3835     0.00     0.06     0.00     1.00{space 0}}{ralign 0:{col 79}3.Civil registry}
-{txt}{ralign 29 : identification_instruments_4} {c |}{res}{ralign 0:     3835     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 79}4.Other government registry}
-{txt}{ralign 29 : identification_instruments_5} {c |}{res}{ralign 0:     3835     0.00     0.03     0.00     1.00{space 0}}{ralign 0:{col 79}5.Informal workers/self-employed registry}
-{txt}{ralign 29 : identification_instruments_6} {c |}{res}{ralign 0:     3835     0.04     0.19     0.00     1.00{space 0}}{ralign 0:{col 79}6.Open registraion/new enrolment campaign}
-{txt}{ralign 29 : identification_instruments_7} {c |}{res}{ralign 0:     3835     0.01     0.09     0.00     1.00{space 0}}{ralign 0:{col 79}7.Others}
+{ralign 29 : identification_instruments_1} {c |}{res}{ralign 0:      215     0.05     0.21     0.00     1.00{space 0}}{ralign 0:{col 79}1.Social registry}
+{txt}{ralign 29 : identification_instruments_2} {c |}{res}{ralign 0:      215     0.03     0.18     0.00     1.00{space 0}}{ralign 0:{col 79}2.Existing beneficiary database}
+{txt}{ralign 29 : identification_instruments_3} {c |}{res}{ralign 0:      215     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 79}3.Civil registry}
+{txt}{ralign 29 : identification_instruments_4} {c |}{res}{ralign 0:      215     0.01     0.12     0.00     1.00{space 0}}{ralign 0:{col 79}4.Other government registry}
+{txt}{ralign 29 : identification_instruments_5} {c |}{res}{ralign 0:      215     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 79}5.Informal workers/self-employed registry}
+{txt}{ralign 29 : identification_instruments_6} {c |}{res}{ralign 0:      215     0.09     0.28     0.00     1.00{space 0}}{ralign 0:{col 79}6.Open registraion/new enrolment campaign}
+{txt}{ralign 29 : identification_instruments_7} {c |}{res}{ralign 0:      215     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 79}7.Others}
 {txt}
 {com}.                 
 .         *** targeting method
 .                 
 .                 * replace website input as missing
 .                 replace sa_targ_method = "" if strmatch(sa_targ_method, "*https*")
-{txt}(1 real change made)
+{txt}(0 real changes made)
 
 {com}.                 
 .                 * Initial tab - finding which program used multiple targeting methods
@@ -511,46 +426,23 @@
 
                          {txt}sa_targ_method {c |}      Freq.     Percent        Cum.
 {hline 40}{c +}{hline 35}
-                                        {c |}{res}      2,867       74.76       74.76
-{txt}                           0. Universal {c |}{res}          1        0.03       74.78
-{txt}                            0.Universal {c |}{res}        233        6.08       80.86
-{txt}                         1.Geographical {c |}{res}          9        0.23       81.10
-{txt}1.Geographical, 2.Categorical, 4.Mean.. {c |}{res}          3        0.08       81.17
-{txt}1.Geographical, 2.Categorical, 5.Prox.. {c |}{res}          1        0.03       81.20
-{txt}1.Geographical, 3.Community Based, 5... {c |}{res}          2        0.05       81.25
-{txt}         1.Geographical, 4.Means/income {c |}{res}          1        0.03       81.28
-{txt}1.Geographical, 4.Means/income, 7. Fo.. {c |}{res}          1        0.03       81.30
-{txt}     1.Geographical, 5.Proxy means test {c |}{res}          1        0.03       81.33
-{txt}1.Geographical, 5.Proxy means test, 3.. {c |}{res}          1        0.03       81.36
-{txt}                          2.Categorical {c |}{res}        343        8.94       90.30
-{txt}             2.Categorical, 0.Universal {c |}{res}          1        0.03       90.33
-{txt}2.Categorical, 3.Community Based, 5.P.. {c |}{res}          2        0.05       90.38
-{txt}          2.Categorical, 4.Means/income {c |}{res}         83        2.16       92.54
-{txt}      2.Categorical, 5.Proxy means test {c |}{res}          2        0.05       92.59
-{txt}2.Categorical, 5.Proxy means test, 4... {c |}{res}          1        0.03       92.62
-{txt}        2.Categorical, 6.Self-targeting {c |}{res}          1        0.03       92.65
-{txt}                      3.Community Based {c |}{res}          8        0.21       92.86
-{txt}                         4.Means/income {c |}{res}        150        3.91       96.77
-{txt}          4.Means/income, 2.Categorical {c |}{res}          3        0.08       96.84
-{txt}       4.Means/income, 6.Self-targeting {c |}{res}          2        0.05       96.90
-{txt}                    5. Proxy Means Test {c |}{res}          1        0.03       96.92
-{txt}                     5.Proxy means test {c |}{res}          8        0.21       97.13
-{txt}      5.Proxy means test, 2.Categorical {c |}{res}          2        0.05       97.18
-{txt}                      6. Self-targeting {c |}{res}          1        0.03       97.21
-{txt}                       6.Self-targeting {c |}{res}         31        0.81       98.02
-{txt}6.Self-targeting, 8.Other targeting m.. {c |}{res}          1        0.03       98.04
-{txt}                        6.self targeted {c |}{res}          1        0.03       98.07
-{txt}            7. Food security/nutrition  {c |}{res}         16        0.42       98.49
-{txt}7. Food security/nutrition , 2.Catego.. {c |}{res}          2        0.05       98.54
-{txt}7. Food security/nutrition , 4.Means/.. {c |}{res}          2        0.05       98.59
-{txt}8. Other (specify): A project targeti.. {c |}{res}          3        0.08       98.67
-{txt}8. Other (specify): Communities targe.. {c |}{res}          1        0.03       98.70
-{txt}8. other targeting methods (people wi.. {c |}{res}          1        0.03       98.72
-{txt}8. other targeting methods (school go.. {c |}{res}          1        0.03       98.75
-{txt}     8.Other targeting method (specify) {c |}{res}         43        1.12       99.87
-{txt}                       9.Not applicable {c |}{res}          5        0.13      100.00
+                                        {c |}{res}        146       67.91       67.91
+{txt}                            0.Universal {c |}{res}          1        0.47       68.37
+{txt}                         1.Geographical {c |}{res}          3        1.40       69.77
+{txt}         1.Geographical, 4.Means/income {c |}{res}          1        0.47       70.23
+{txt}                          2.Categorical {c |}{res}         37       17.21       87.44
+{txt}          2.Categorical, 4.Means/income {c |}{res}          6        2.79       90.23
+{txt}        2.Categorical, 6.Self-targeting {c |}{res}          1        0.47       90.70
+{txt}                         4.Means/income {c |}{res}          8        3.72       94.42
+{txt}          4.Means/income, 2.Categorical {c |}{res}          1        0.47       94.88
+{txt}                     5.Proxy means test {c |}{res}          2        0.93       95.81
+{txt}                       6.Self-targeting {c |}{res}          1        0.47       96.28
+{txt}6.Self-targeting, 8.Other targeting m.. {c |}{res}          1        0.47       96.74
+{txt}            7. Food security/nutrition  {c |}{res}          1        0.47       97.21
+{txt}7. Food security/nutrition , 4.Means/.. {c |}{res}          1        0.47       97.67
+{txt}     8.Other targeting method (specify) {c |}{res}          5        2.33      100.00
 {txt}{hline 40}{c +}{hline 35}
-                                  Total {c |}{res}      3,835      100.00
+                                  Total {c |}{res}        215      100.00
 {txt}
 {com}.                 
 .                 * generate dummy var for all subcategories
@@ -584,15 +476,15 @@
 
 {txt}{ralign 17: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
 {hline 18}{c +}{hline 45}
-{ralign 17 : sa_targ_method_0} {c |}{res}{ralign 0:     3835     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 67}0.Universal}
-{txt}{ralign 17 : sa_targ_method_1} {c |}{res}{ralign 0:     3835     0.00     0.07     0.00     1.00{space 0}}{ralign 0:{col 67}1.Geographical}
-{txt}{ralign 17 : sa_targ_method_2} {c |}{res}{ralign 0:     3835     0.12     0.32     0.00     1.00{space 0}}{ralign 0:{col 67}2.Categorical}
-{txt}{ralign 17 : sa_targ_method_3} {c |}{res}{ralign 0:     3835     0.00     0.06     0.00     1.00{space 0}}{ralign 0:{col 67}3.Community-based}
-{txt}{ralign 17 : sa_targ_method_4} {c |}{res}{ralign 0:     3835     0.06     0.25     0.00     1.00{space 0}}{ralign 0:{col 67}4.Means/income}
-{txt}{ralign 17 : sa_targ_method_5} {c |}{res}{ralign 0:     3835     0.01     0.08     0.00     1.00{space 0}}{ralign 0:{col 67}5.Proxy-means test}
-{txt}{ralign 17 : sa_targ_method_6} {c |}{res}{ralign 0:     3835     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}6.Self-targeting}
-{txt}{ralign 17 : sa_targ_method_7} {c |}{res}{ralign 0:     3835     0.01     0.07     0.00     1.00{space 0}}{ralign 0:{col 67}7.Pension-tested}
-{txt}{ralign 17 : sa_targ_method_8} {c |}{res}{ralign 0:     3835     0.01     0.11     0.00     1.00{space 0}}{ralign 0:{col 67}8.Other}
+{ralign 17 : sa_targ_method_0} {c |}{res}{ralign 0:      215     0.00     0.07     0.00     1.00{space 0}}{ralign 0:{col 67}0.Universal}
+{txt}{ralign 17 : sa_targ_method_1} {c |}{res}{ralign 0:      215     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}1.Geographical}
+{txt}{ralign 17 : sa_targ_method_2} {c |}{res}{ralign 0:      215     0.21     0.41     0.00     1.00{space 0}}{ralign 0:{col 67}2.Categorical}
+{txt}{ralign 17 : sa_targ_method_3} {c |}{res}{ralign 0:      215     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}3.Community-based}
+{txt}{ralign 17 : sa_targ_method_4} {c |}{res}{ralign 0:      215     0.08     0.27     0.00     1.00{space 0}}{ralign 0:{col 67}4.Means/income}
+{txt}{ralign 17 : sa_targ_method_5} {c |}{res}{ralign 0:      215     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}5.Proxy-means test}
+{txt}{ralign 17 : sa_targ_method_6} {c |}{res}{ralign 0:      215     0.01     0.12     0.00     1.00{space 0}}{ralign 0:{col 67}6.Self-targeting}
+{txt}{ralign 17 : sa_targ_method_7} {c |}{res}{ralign 0:      215     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}7.Pension-tested}
+{txt}{ralign 17 : sa_targ_method_8} {c |}{res}{ralign 0:      215     0.03     0.17     0.00     1.00{space 0}}{ralign 0:{col 67}8.Other}
 {txt}
 {com}.         
 .         *** targeting groups
@@ -668,35 +560,35 @@
 
 {txt}{ralign 17: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
 {hline 18}{c +}{hline 45}
-{ralign 17 : sa_targ_group_0} {c |}{res}{ralign 0:     3835     0.07     0.26     0.00     1.00{space 0}}{ralign 0:{col 67}0.All/entire population}
-{txt}{ralign 17 : sa_targ_group_1} {c |}{res}{ralign 0:     3835     0.08     0.27     0.00     1.00{space 0}}{ralign 0:{col 67}1.Children (under 15)}
-{txt}{ralign 17 : sa_targ_group_2} {c |}{res}{ralign 0:     3835     0.20     0.40     0.00     1.00{space 0}}{ralign 0:{col 67}2.Youth (16-25)}
-{txt}{ralign 17 : sa_targ_group_3} {c |}{res}{ralign 0:     3835     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 67}3.Adults (18 plus)}
-{txt}{ralign 17 : sa_targ_group_4} {c |}{res}{ralign 0:     3835     0.05     0.23     0.00     1.00{space 0}}{ralign 0:{col 67}4.Working age (16-64)}
-{txt}{ralign 17 : sa_targ_group_5} {c |}{res}{ralign 0:     3835     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 67}5.Elderly (65 plus)}
-{txt}{ralign 17 : sa_targ_group_6} {c |}{res}{ralign 0:     3835     0.08     0.27     0.00     1.00{space 0}}{ralign 0:{col 67}6.Families}
-{txt}{ralign 17 : sa_targ_group_7} {c |}{res}{ralign 0:     3835     0.06     0.25     0.00     1.00{space 0}}{ralign 0:{col 67}7.Parents (all)}
-{txt}{ralign 17 : sa_targ_group_8} {c |}{res}{ralign 0:     3835     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 67}8.Parents (of young children)}
-{txt}{ralign 17 : sa_targ_group_9} {c |}{res}{ralign 0:     3835     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}9. Women (all)}
-{txt}{ralign 17 : sa_targ_group_10} {c |}{res}{ralign 0:     3835     0.01     0.08     0.00     1.00{space 0}}{ralign 0:{col 67}10. Women (pregnant, lactating or with children)}
-{txt}{ralign 17 : sa_targ_group_11} {c |}{res}{ralign 0:     3835     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}11.Men}
-{txt}{ralign 17 : sa_targ_group_12} {c |}{res}{ralign 0:     3835     0.00     0.03     0.00     1.00{space 0}}{ralign 0:{col 67}12. Indigenous}
-{txt}{ralign 17 : sa_targ_group_13} {c |}{res}{ralign 0:     3835     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}13.Disabled}
-{txt}{ralign 17 : sa_targ_group_14} {c |}{res}{ralign 0:     3835     0.01     0.09     0.00     1.00{space 0}}{ralign 0:{col 67}14.Migrants}
-{txt}{ralign 17 : sa_targ_group_15} {c |}{res}{ralign 0:     3835     0.02     0.15     0.00     1.00{space 0}}{ralign 0:{col 67}15.COVID-19 risk group}
-{txt}{ralign 17 : sa_targ_group_16} {c |}{res}{ralign 0:     3835     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}16.Homeless}
-{txt}{ralign 17 : sa_targ_group_17} {c |}{res}{ralign 0:     3835     0.01     0.12     0.00     1.00{space 0}}{ralign 0:{col 67}17.Frontline workers}
-{txt}{ralign 17 : sa_targ_group_18} {c |}{res}{ralign 0:     3835     0.00     0.05     0.00     1.00{space 0}}{ralign 0:{col 67}18.Cross-border commuters}
-{txt}{ralign 17 : sa_targ_group_19} {c |}{res}{ralign 0:     3835     0.01     0.08     0.00     1.00{space 0}}{ralign 0:{col 67}19.Veterants}
-{txt}{ralign 17 : sa_targ_group_20} {c |}{res}{ralign 0:     3835     0.02     0.13     0.00     1.00{space 0}}{ralign 0:{col 67}20.Unemployed}
-{txt}{ralign 17 : sa_targ_group_21} {c |}{res}{ralign 0:     3835     0.00     0.06     0.00     1.00{space 0}}{ralign 0:{col 67}21.All employment}
-{txt}{ralign 17 : sa_targ_group_22} {c |}{res}{ralign 0:     3835     0.01     0.09     0.00     1.00{space 0}}{ralign 0:{col 67}22.Wage emplyment}
-{txt}{ralign 17 : sa_targ_group_23} {c |}{res}{ralign 0:     3835     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}23.Self-employed}
-{txt}{ralign 17 : sa_targ_group_24} {c |}{res}{ralign 0:     3835     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 67}24.Informal sector workers}
-{txt}{ralign 17 : sa_targ_group_25} {c |}{res}{ralign 0:     3835     0.01     0.11     0.00     1.00{space 0}}{ralign 0:{col 67}25.Workers in non-standard form of employment}
-{txt}{ralign 17 : sa_targ_group_26} {c |}{res}{ralign 0:     3835     0.02     0.15     0.00     1.00{space 0}}{ralign 0:{col 67}26.Students}
-{txt}{ralign 17 : sa_targ_group_27} {c |}{res}{ralign 0:     3835     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 67}27.Poor and vulnerable}
-{txt}{ralign 17 : sa_targ_group_28} {c |}{res}{ralign 0:     3835     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 67}28.Other}
+{ralign 17 : sa_targ_group_0} {c |}{res}{ralign 0:      215     0.07     0.25     0.00     1.00{space 0}}{ralign 0:{col 67}0.All/entire population}
+{txt}{ralign 17 : sa_targ_group_1} {c |}{res}{ralign 0:      215     0.11     0.31     0.00     1.00{space 0}}{ralign 0:{col 67}1.Children (under 15)}
+{txt}{ralign 17 : sa_targ_group_2} {c |}{res}{ralign 0:      215     0.46     0.50     0.00     1.00{space 0}}{ralign 0:{col 67}2.Youth (16-25)}
+{txt}{ralign 17 : sa_targ_group_3} {c |}{res}{ralign 0:      215     0.17     0.38     0.00     1.00{space 0}}{ralign 0:{col 67}3.Adults (18 plus)}
+{txt}{ralign 17 : sa_targ_group_4} {c |}{res}{ralign 0:      215     0.36     0.48     0.00     1.00{space 0}}{ralign 0:{col 67}4.Working age (16-64)}
+{txt}{ralign 17 : sa_targ_group_5} {c |}{res}{ralign 0:      215     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 67}5.Elderly (65 plus)}
+{txt}{ralign 17 : sa_targ_group_6} {c |}{res}{ralign 0:      215     0.08     0.27     0.00     1.00{space 0}}{ralign 0:{col 67}6.Families}
+{txt}{ralign 17 : sa_targ_group_7} {c |}{res}{ralign 0:      215     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 67}7.Parents (all)}
+{txt}{ralign 17 : sa_targ_group_8} {c |}{res}{ralign 0:      215     0.06     0.23     0.00     1.00{space 0}}{ralign 0:{col 67}8.Parents (of young children)}
+{txt}{ralign 17 : sa_targ_group_9} {c |}{res}{ralign 0:      215     0.02     0.15     0.00     1.00{space 0}}{ralign 0:{col 67}9. Women (all)}
+{txt}{ralign 17 : sa_targ_group_10} {c |}{res}{ralign 0:      215     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}10. Women (pregnant, lactating or with children)}
+{txt}{ralign 17 : sa_targ_group_11} {c |}{res}{ralign 0:      215     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}11.Men}
+{txt}{ralign 17 : sa_targ_group_12} {c |}{res}{ralign 0:      215     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}12. Indigenous}
+{txt}{ralign 17 : sa_targ_group_13} {c |}{res}{ralign 0:      215     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}13.Disabled}
+{txt}{ralign 17 : sa_targ_group_14} {c |}{res}{ralign 0:      215     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 67}14.Migrants}
+{txt}{ralign 17 : sa_targ_group_15} {c |}{res}{ralign 0:      215     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}15.COVID-19 risk group}
+{txt}{ralign 17 : sa_targ_group_16} {c |}{res}{ralign 0:      215     0.01     0.12     0.00     1.00{space 0}}{ralign 0:{col 67}16.Homeless}
+{txt}{ralign 17 : sa_targ_group_17} {c |}{res}{ralign 0:      215     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}17.Frontline workers}
+{txt}{ralign 17 : sa_targ_group_18} {c |}{res}{ralign 0:      215     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}18.Cross-border commuters}
+{txt}{ralign 17 : sa_targ_group_19} {c |}{res}{ralign 0:      215     0.00     0.07     0.00     1.00{space 0}}{ralign 0:{col 67}19.Veterants}
+{txt}{ralign 17 : sa_targ_group_20} {c |}{res}{ralign 0:      215     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 67}20.Unemployed}
+{txt}{ralign 17 : sa_targ_group_21} {c |}{res}{ralign 0:      215     0.00     0.07     0.00     1.00{space 0}}{ralign 0:{col 67}21.All employment}
+{txt}{ralign 17 : sa_targ_group_22} {c |}{res}{ralign 0:      215     0.01     0.12     0.00     1.00{space 0}}{ralign 0:{col 67}22.Wage emplyment}
+{txt}{ralign 17 : sa_targ_group_23} {c |}{res}{ralign 0:      215     0.16     0.37     0.00     1.00{space 0}}{ralign 0:{col 67}23.Self-employed}
+{txt}{ralign 17 : sa_targ_group_24} {c |}{res}{ralign 0:      215     0.30     0.46     0.00     1.00{space 0}}{ralign 0:{col 67}24.Informal sector workers}
+{txt}{ralign 17 : sa_targ_group_25} {c |}{res}{ralign 0:      215     0.03     0.17     0.00     1.00{space 0}}{ralign 0:{col 67}25.Workers in non-standard form of employment}
+{txt}{ralign 17 : sa_targ_group_26} {c |}{res}{ralign 0:      215     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}26.Students}
+{txt}{ralign 17 : sa_targ_group_27} {c |}{res}{ralign 0:      215     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 67}27.Poor and vulnerable}
+{txt}{ralign 17 : sa_targ_group_28} {c |}{res}{ralign 0:      215     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 67}28.Other}
 {txt}
 {com}. 
 .         *** payment mechanisam
@@ -724,11 +616,11 @@
 
 {txt}{ralign 19: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
 {hline 20}{c +}{hline 45}
-{ralign 19 : sa_payment_mecha_1} {c |}{res}{ralign 0:     3835     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 69}1.Fully functional account}
-{txt}{ralign 19 : sa_payment_mecha_2} {c |}{res}{ralign 0:     3835     0.01     0.11     0.00     1.00{space 0}}{ralign 0:{col 69}2.Limited purpose account}
-{txt}{ralign 19 : sa_payment_mecha_3} {c |}{res}{ralign 0:     3835     0.01     0.09     0.00     1.00{space 0}}{ralign 0:{col 69}3.Electronic non-account based}
-{txt}{ralign 19 : sa_payment_mecha_4} {c |}{res}{ralign 0:     3835     0.00     0.06     0.00     1.00{space 0}}{ralign 0:{col 69}4.Check or voucher}
-{txt}{ralign 19 : sa_payment_mecha_5} {c |}{res}{ralign 0:     3835     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 69}5.Cash}
+{ralign 19 : sa_payment_mecha_1} {c |}{res}{ralign 0:      215     0.14     0.35     0.00     1.00{space 0}}{ralign 0:{col 69}1.Fully functional account}
+{txt}{ralign 19 : sa_payment_mecha_2} {c |}{res}{ralign 0:      215     0.03     0.17     0.00     1.00{space 0}}{ralign 0:{col 69}2.Limited purpose account}
+{txt}{ralign 19 : sa_payment_mecha_3} {c |}{res}{ralign 0:      215     0.04     0.19     0.00     1.00{space 0}}{ralign 0:{col 69}3.Electronic non-account based}
+{txt}{ralign 19 : sa_payment_mecha_4} {c |}{res}{ralign 0:      215     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 69}4.Check or voucher}
+{txt}{ralign 19 : sa_payment_mecha_5} {c |}{res}{ralign 0:      215     0.08     0.27     0.00     1.00{space 0}}{ralign 0:{col 69}5.Cash}
 {txt}
 {com}. 
 .         *** payment instruments
@@ -757,12 +649,12 @@
 
 {txt}{ralign 25: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
 {hline 26}{c +}{hline 45}
-{ralign 25 : sa_payment_instruments_1} {c |}{res}{ralign 0:     3835     0.02     0.12     0.00     1.00{space 0}}{ralign 0:{col 75}1.Debit card (general purpose)}
-{txt}{ralign 25 : sa_payment_instruments_2} {c |}{res}{ralign 0:     3835     0.01     0.08     0.00     1.00{space 0}}{ralign 0:{col 75}2.Prepaid or program card (limited purpose)}
-{txt}{ralign 25 : sa_payment_instruments_3} {c |}{res}{ralign 0:     3835     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 75}3.E-wallet or mobile banking}
-{txt}{ralign 25 : sa_payment_instruments_4} {c |}{res}{ralign 0:     3835     0.00     0.05     0.00     1.00{space 0}}{ralign 0:{col 75}4.Unique-cose based payment or OTP}
-{txt}{ralign 25 : sa_payment_instruments_5} {c |}{res}{ralign 0:     3835     0.00     0.02     0.00     1.00{space 0}}{ralign 0:{col 75}5.Biometric}
-{txt}{ralign 25 : sa_payment_instruments_6} {c |}{res}{ralign 0:     3835     0.01     0.09     0.00     1.00{space 0}}{ralign 0:{col 75}6.Other}
+{ralign 25 : sa_payment_instruments_1} {c |}{res}{ralign 0:      215     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 75}1.Debit card (general purpose)}
+{txt}{ralign 25 : sa_payment_instruments_2} {c |}{res}{ralign 0:      215     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 75}2.Prepaid or program card (limited purpose)}
+{txt}{ralign 25 : sa_payment_instruments_3} {c |}{res}{ralign 0:      215     0.09     0.28     0.00     1.00{space 0}}{ralign 0:{col 75}3.E-wallet or mobile banking}
+{txt}{ralign 25 : sa_payment_instruments_4} {c |}{res}{ralign 0:      215     0.02     0.15     0.00     1.00{space 0}}{ralign 0:{col 75}4.Unique-cose based payment or OTP}
+{txt}{ralign 25 : sa_payment_instruments_5} {c |}{res}{ralign 0:      215     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 75}5.Biometric}
+{txt}{ralign 25 : sa_payment_instruments_6} {c |}{res}{ralign 0:      215     0.01     0.12     0.00     1.00{space 0}}{ralign 0:{col 75}6.Other}
 {txt}
 {com}.                         
 . * ================================================
@@ -771,7 +663,7 @@
 .         
 .         * replace long/irrgular program name
 .         replace program_name = "Aide exceptionnelle de 200 dinars" if strmatch(program_name, "*dinars*")
-{txt}(2 real changes made)
+{txt}(1 real change made)
 
 {com}.         replace program_name = "Bihar's Corona Sahayata (Assistance) Program" if strmatch(program_name, "*SAHAYATA*")
 {txt}(1 real change made)
@@ -806,32 +698,32 @@
 {txt}
 {com}.                 list country_name program_name ben_ind_plan in 1/15 if !missing(ben_ind_plan), table
 {txt}
-     {c TLC}{hline 20}{c -}{hline 76}{c -}{hline 11}{c TRC}
-     {c |} {res}      country_name                                                                 program_name   ben_ind~n {txt}{c |}
-     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
-  1. {c |} {res}             Japan                                                        Special cash payment    1.265e+08 {txt}{c |}
-  2. {c |} {res}       Philippines                                            Social Amelioration Program (SAP)    84600000 {txt}{c |}
-  3. {c |} {res}             China                                                                        dibao    62000000 {txt}{c |}
-  4. {c |} {res}Russian Federation                                                       Child one-off transfer    27000000 {txt}{c |}
-  5. {c |} {res}          Malaysia                                             Bantuan Sara Hidup (BSH) program    20000000 {txt}{c |}
-     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
-  6. {c |} {res}          Thailand                                                           No-one left behind    15000000 {txt}{c |}
-  7. {c |} {res}             Kenya                                                                                 13254104 {txt}{c |}
-  8. {c |} {res}              Peru                                               Bono 380 'Yo me quedo en casa'    10260000 {txt}{c |}
-  9. {c |} {res}             Italy                                                              Relaunch Decree     9840000 {txt}{c |}
- 10. {c |} {res}           Ukraine                                                                                  9700000 {txt}{c |}
-     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
- 11. {c |} {res}    United Kingdom                                        Universal credit standard allowance.    9430425.2 {txt}{c |}
- 12. {c |} {res}          Thailand                                                          Farmer's assistance     7500000 {txt}{c |}
- 13. {c |} {res}            Brazil                                                  Auxilio Emergencial 1 (AE1)     6830000 {txt}{c |}
- 14. {c |} {res}          Thailand   Old Age Allowance, People with Disabilities Allowance, Child Support Grant     6800000 {txt}{c |}
- 15. {c |} {res}     Venezuela, RB                                                           Stay at home Bonus     6000000 {txt}{c |}
-     {c BLC}{hline 20}{c -}{hline 76}{c -}{hline 11}{c BRC}
+     {c TLC}{hline 15}{c -}{hline 93}{c -}{hline 10}{c TRC}
+     {c |} {res} country_name                                                                                  program_name   ben_in~n {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 93}{c -}{hline 10}{c RT}
+  1. {c |} {res}  Philippines                                                             Social Amelioration Program (SAP)   84600000 {txt}{c |}
+  2. {c |} {res}     Thailand                                                                            No-one left behind   15000000 {txt}{c |}
+  3. {c |} {res}       Brazil                                                                   Auxilio Emergencial 1 (AE1)    6830000 {txt}{c |}
+  4. {c |} {res}Venezuela, RB                                                                            Stay at home Bonus    6000000 {txt}{c |}
+  5. {c |} {res}     Zimbabwe                                                                                                  4100000 {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 93}{c -}{hline 10}{c RT}
+  6. {c |} {res}  Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second Tranche     863667 {txt}{c |}
+  7. {c |} {res}      Ukraine                                                       Guaranteed Minimum Income (GMI) Program     341600 {txt}{c |}
+  8. {c |} {res}  Philippines    Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First Tranche     337198 {txt}{c |}
+  9. {c |} {res}  Philippines                                                 Abot Kamay ang Pagtulong (AKAP) First Tranche     250000 {txt}{c |}
+ 10. {c |} {res}      Georgia                                             One-off for the informal sector and self-employed     248282 {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 93}{c -}{hline 10}{c RT}
+ 11. {c |} {res}      Lesotho                                        Child Grants Programme (CGP) and Old Age Pension (OAP)     200000 {txt}{c |}
+ 12. {c |} {res}  Philippines                                                 Abot Kamay ang Pagtulong (AKAP) First Tranche     200000 {txt}{c |}
+ 13. {c |} {res}     Malaysia                                                     Prihatin Rakyat Economic Stimulus Package     120000 {txt}{c |}
+ 14. {c |} {res}   Cape Verde                                                                               Food Assistance      90000 {txt}{c |}
+ 15. {c |} {res}       Rwanda                                                                                                    86000 {txt}{c |}
+     {c BLC}{hline 15}{c -}{hline 93}{c -}{hline 10}{c BRC}
 
 {com}.         
 .         destring ben_ind_actual, replace force
-{txt}ben_ind_actual: contains nonnumeric characters; {res}replaced {txt}as {res}double
-{txt}(3787 missing values generated)
+{txt}ben_ind_actual: all characters numeric; {res}replaced {txt}as {res}double
+{txt}(205 missing values generated)
 {res}{txt}
 {com}.                 label var ben_ind_actual "Beneficiaries actual (ind) (converting hhs into individuals) CALCULATED VARIABLE"
 {txt}
@@ -840,24 +732,18 @@
 {txt}
 {com}.                 list country_name program_name ben_ind_actual in 1/15 if !missing(ben_ind_plan), table
 {txt}
-     {c TLC}{hline 20}{c -}{hline 92}{c -}{hline 10}{c TRC}
-     {c |} {res}      country_name                                                                                 program_name   ben_in~l {txt}{c |}
-     {c LT}{hline 20}{c -}{hline 92}{c -}{hline 10}{c RT}
-  1. {c |} {res}       Philippines                                                            Social Amelioration Program (SAP)   82720000 {txt}{c |}
-  2. {c |} {res}             China                                                                                        dibao   62000000 {txt}{c |}
-  3. {c |} {res}Russian Federation                                                                       Child one-off transfer   22800000 {txt}{c |}
-  4. {c |} {res}          Thailand                                                                           No-one left behind   15000000 {txt}{c |}
-  5. {c |} {res}           Ukraine                                                                                                10600000 {txt}{c |}
-     {c LT}{hline 20}{c -}{hline 92}{c -}{hline 10}{c RT}
-  6. {c |} {res}             Italy                                                                              Relaunch Decree    9840000 {txt}{c |}
-  9. {c |} {res}Russian Federation                                                                            Maternity Capital    4900000 {txt}{c |}
- 10. {c |} {res}        Kazakhstan                                                                                                 4000000 {txt}{c |}
- 11. {c |} {res}              Peru                                                               Juntos, Pensión 65 and Contigo    3520729 {txt}{c |}
- 12. {c |} {res}         Australia                                                                                    JobKeeper    3500000 {txt}{c |}
-     {c LT}{hline 20}{c -}{hline 92}{c -}{hline 10}{c RT}
- 14. {c |} {res}       Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First Tranche    2600000 {txt}{c |}
- 15. {c |} {res}             China                                                               Unemployment social assistance    2300000 {txt}{c |}
-     {c BLC}{hline 20}{c -}{hline 92}{c -}{hline 10}{c BRC}
+     {c TLC}{hline 13}{c -}{hline 93}{c -}{hline 10}{c TRC}
+     {c |} {res}country_n~e                                                                                  program_name   ben_in~l {txt}{c |}
+     {c LT}{hline 13}{c -}{hline 93}{c -}{hline 10}{c RT}
+  1. {c |} {res}Philippines                                                             Social Amelioration Program (SAP)   82720000 {txt}{c |}
+  2. {c |} {res}   Thailand                                                                            No-one left behind   15000000 {txt}{c |}
+  4. {c |} {res}Philippines    Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First Tranche    2600000 {txt}{c |}
+  6. {c |} {res}Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second Tranche     797222 {txt}{c |}
+  7. {c |} {res}Philippines                                                 Abot Kamay ang Pagtulong (AKAP) First Tranche     725000 {txt}{c |}
+     {c LT}{hline 13}{c -}{hline 93}{c -}{hline 10}{c RT}
+  9. {c |} {res}Philippines                                                 Abot Kamay ang Pagtulong (AKAP) First Tranche     116194 {txt}{c |}
+ 10. {c |} {res}      Sudan                                                                                                    57428 {txt}{c |}
+     {c BLC}{hline 13}{c -}{hline 93}{c -}{hline 10}{c BRC}
 
 {com}.         
 .         /* actual coverage - how different from ben_ind_actual?
@@ -870,8 +756,9 @@
 .         
 .         * exp_plan_USD
 .         destring exp_plan_usd, replace
-{txt}exp_plan_usd: contains nonnumeric characters; no {res}replace
-{txt}
+{txt}exp_plan_usd: all characters numeric; {res}replaced {txt}as {res}double
+{txt}(200 missing values generated)
+{res}{txt}
 {com}.                 label var exp_plan_usd "Total expenditure (planned) in USD"
 {txt}
 {com}.         
@@ -879,34 +766,34 @@
 {txt}
 {com}.                 list country_name program_name exp_plan_usd in 1/15 if !missing(exp_plan_usd), table
 {txt}
-     {c TLC}{hline 26}{c -}{hline 141}{c -}{hline 19}{c TRC}
-     {c |} {res}            country_name                                                                                                                                  program_name        exp_plan_usd {txt}{c |}
-     {c LT}{hline 26}{c -}{hline 141}{c -}{hline 19}{c RT}
-  1. {c |} {res}         North Macedonia                                                                                                                                                               EUR {txt}{c |}
-  2. {c |} {res}  British Virgin Islands                                                                                                                     Suspension in water bills   949024.8100000001 {txt}{c |}
-  3. {c |} {res}                 Ukraine                                                                                                         Housing Utility Subsidy (HUS) Program           900000000 {txt}{c |}
-  4. {c |} {res}            Bahamas, the                                                                                                         Unemployment Assistance for COVID-19             90000000 {txt}{c |}
-  5. {c |} {res}             Afghanistan                                                                                                                               REACH programme            86000000 {txt}{c |}
-     {c LT}{hline 26}{c -}{hline 141}{c -}{hline 19}{c RT}
-  6. {c |} {res}               Australia                                                                                                                        Coronavirus Supplement          8500000000 {txt}{c |}
-  7. {c |} {res}   Virgin Islands (U.S.)                                                                                         Assistance to Workers and their Families - Stimulus#1            84700000 {txt}{c |}
-  8. {c |} {res}                 Ukraine                                                                                                                                                          84440000 {txt}{c |}
-  9. {c |} {res}                   Qatar                                                                                                                                                         800000000 {txt}{c |}
- 10. {c |} {res}Central African Republic   Additional Financing for COVID-19 Response under the Service Delivery and Support to Communities Affected by
-Displacement Project (P174547)             8000000 {txt}{c |}
-     {c LT}{hline 26}{c -}{hline 141}{c -}{hline 19}{c RT}
- 11. {c |} {res}      West Bank and Gaza                                                                                West Bank Emergency Social Protetion COVID-19 Response Project             8000000 {txt}{c |}
- 12. {c |} {res}   São Tomé and Principe                                                                                                                   Vulnerable Family Programme             8000000 {txt}{c |}
- 13. {c |} {res}              Mozambique                                                                                  Post Emergency Direct Cash Transfers Program (PASD-PE Covid)            79000000 {txt}{c |}
- 14. {c |} {res}             El Salvador                                                                                                                    Family School Meal Package             7800000 {txt}{c |}
- 15. {c |} {res}                   Kenya                                                                                                  WFP transfer to Nairobi informal settlements         76555902.33 {txt}{c |}
-     {c BLC}{hline 26}{c -}{hline 141}{c -}{hline 19}{c BRC}
+     {c TLC}{hline 20}{c -}{hline 76}{c -}{hline 11}{c TRC}
+     {c |} {res}      country_name                                                                 program_name   exp_pla~d {txt}{c |}
+     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
+  1. {c |} {res}           Ukraine                                      Guaranteed Minimum Income (GMI) Program   1.112e+10 {txt}{c |}
+  2. {c |} {res}          Zimbabwe                                                                                6.000e+08 {txt}{c |}
+  3. {c |} {res}              Iraq                                                                                2.540e+08 {txt}{c |}
+  4. {c |} {res}           Bolivia                                                               Bono Universal   1.924e+08 {txt}{c |}
+  5. {c |} {res}          Cambodia                                                                cash for work   1.000e+08 {txt}{c |}
+     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
+  6. {c |} {res}             Kenya                                 WFP transfer to Nairobi informal settlements    76555902 {txt}{c |}
+  7. {c |} {res}          Honduras              Unique Bonus. Assistance to Independent Workers or Own Account     68000000 {txt}{c |}
+  8. {c |} {res}           Ecuador   Bono de Protección Familiar por la Emergencia por la presencia de COVID-19    57000000 {txt}{c |}
+  9. {c |} {res}           Ukraine                                                         Unemployment benefit    47300000 {txt}{c |}
+ 10. {c |} {res}          Maldives                                    COVID-19 Emergency Income Support Project    34400000 {txt}{c |}
+     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
+ 11. {c |} {res}West Bank and Gaza                                                      Emergency cash transfer    13900000 {txt}{c |}
+ 12. {c |} {res}         St. Lucia                                                                                6222222.2 {txt}{c |}
+ 13. {c |} {res}      Sierra Leone                                            Informal workers one-off transfer     4000000 {txt}{c |}
+ 14. {c |} {res}             Kenya                   Oxfam transfer to Mombasa and Nairobi informal settlements   2845603.1 {txt}{c |}
+ 15. {c |} {res}            Bhutan           Druk Gyalpo’s Relief Kidu – Income support to affected individuals     1950000 {txt}{c |}
+     {c BLC}{hline 20}{c -}{hline 76}{c -}{hline 11}{c BRC}
 
 {com}.         
 .         * exp_actual_USD
 .         destring exp_actual_usd, replace
-{txt}exp_actual_usd: contains nonnumeric characters; no {res}replace
-{txt}
+{txt}exp_actual_usd: all characters numeric; {res}replaced {txt}as {res}long
+{txt}(213 missing values generated)
+{res}{txt}
 {com}.                 label var exp_actual_usd "Total expenditure (actual) in USD"
 {txt}
 {com}.                 
@@ -914,27 +801,12 @@ Displacement Project (P174547)             8000000 {txt}{c |}
 {txt}
 {com}.                 list country_name program_name exp_actual_usd in 1/15 if !missing(exp_actual_usd), table
 {txt}
-     {c TLC}{hline 23}{c -}{hline 75}{c -}{hline 36}{c TRC}
-     {c |} {res}         country_name                                                                program_name                       exp_actual_usd {txt}{c |}
-     {c LT}{hline 23}{c -}{hline 75}{c -}{hline 36}{c RT}
-  1. {c |} {res}                Gabon                                                                                                            75000 {txt}{c |}
-  2. {c |} {res}                 Mali   PILOT 5: CLASSIFYING AERIAL IMAGERY TO IDENTIFY SOLID WASTE WITH MAPSWIPE                                68343 {txt}{c |}
-  3. {c |} {res}          Timor-Leste                                                                                                         66527692 {txt}{c |}
-  4. {c |} {res}Virgin Islands (U.S.)                 Pandemic Emergency Unemployment Compensation (PEUC) program                              6435720 {txt}{c |}
-  5. {c |} {res}              Bolivia                                                       Bono Canasta Familiar                             60950286 {txt}{c |}
-     {c LT}{hline 23}{c -}{hline 75}{c -}{hline 36}{c RT}
-  6. {c |} {res}                China                                                                                                       5980000000 {txt}{c |}
-  7. {c |} {res}              Bolivia                                                       Bono Contra el Hambre                            574729776 {txt}{c |}
-  8. {c |} {res}           Seychelles                              Financial Assistance for Job Retention (FA4JR)                             52000000 {txt}{c |}
-  9. {c |} {res}Virgin Islands (U.S.)                                  Federal Pandemic Unemployment Compensation                             50599440 {txt}{c |}
- 10. {c |} {res}           Azerbaijan                                                                                                          5000000 {txt}{c |}
-     {c LT}{hline 23}{c -}{hline 75}{c -}{hline 36}{c RT}
- 11. {c |} {res}                Kenya                        PILOT 2: GEOLOCATING SLUM INFRASTRUCTURE WITH NATIVE   50000 (23% in worker compensation) {txt}{c |}
- 12. {c |} {res}                Gabon                                                                                                            50000 {txt}{c |}
- 13. {c |} {res}         Sierra Leone                                                                                                           405928 {txt}{c |}
- 14. {c |} {res}        United States                       Third Economic Impact Payments (American Rescue Plan)                         372000000000 {txt}{c |}
- 15. {c |} {res}                Kenya                                                                                                          3200000 {txt}{c |}
-     {c BLC}{hline 23}{c -}{hline 75}{c -}{hline 36}{c BRC}
+     {c TLC}{hline 12}{c -}{hline 16}{c -}{hline 11}{c TRC}
+     {c |} {res}country~me     program_name   exp_act~d {txt}{c |}
+     {c LT}{hline 12}{c -}{hline 16}{c -}{hline 11}{c RT}
+  1. {c |} {res}   Bolivia   Bono Universal   2.634e+08 {txt}{c |}
+  2. {c |} {res}Tajikistan                         3000 {txt}{c |}
+     {c BLC}{hline 12}{c -}{hline 16}{c -}{hline 11}{c BRC}
 
 {com}.                 
 .         /* benefit amount in local currencies
@@ -947,21 +819,26 @@ Displacement Project (P174547)             8000000 {txt}{c |}
 . *                   ===================================
 . ********************************************************************************        
 . 
-.         * save imported to cleaned data
-.         save "$cleaned/cleaned_Informal Sector Working.dta", replace
+.         * save merged dataset
+.         save "$cleaned/4.1-merged_project-level data.dta", replace
 {txt}{p 0 4 2}
 file {bf}
-/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/05 clean data/cleaned_Informal Sector Working.dta{rm}
+/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/05 clean data/4.1-merged_project-level data.dta{rm}
 saved
 {p_end}
 
-{com}.         
+{com}.                 notes: project-level data using merged dataset
+{res}{txt}
+{com}.                 
+.         *save "$cleaned/4.2-merged_project-level data.dta", replace
+.                 *notes: project-level data using informal data only
+.         
 .         * close log
 .         log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level Summary Stat using merged full dataset.smcl
+       {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using merged full dataset.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}22 Feb 2022, 10:28:33
+ {txt}closed on:  {res}24 Feb 2022, 23:38:00
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

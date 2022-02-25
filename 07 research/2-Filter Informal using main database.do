@@ -50,7 +50,7 @@
 *	1) Use clean data
 *	=================
 
-    use "$cleaned/merged_Main_database_Feb.dta", clear
+    use "$cleaned/2-merged_Main_database_Feb.dta", clear
 
 *	===================================
 *	2) filter data with informal sector
@@ -65,11 +65,11 @@
 	* informal mentioned in description
 	gen informal_desc = .
 	foreach var in benefit_desc benefit_desc_changes {
-		replace informal_desc = 1 if regexm(`var', "informal") | regexm(`var', "self")
+		replace informal_desc = 1 if regexm(`var', "informal")
 	}
 	
 	* destring original var called informal 
-	gen informal_new = 1 if regexm(informal, "Yes") | regexm(self_employed, "Yes")
+	gen informal_new = "1" if strmatch(informal, "*1.Yes*") | strmatch(informal, "*informal*")
 	
 	* label newly created filters
 	label var informal_tar "targeted informal sector"
@@ -77,7 +77,7 @@
 	label var informal_new "destringed informal var"
 	
 	* keep data marked with informal
-	keep if informal_tar == 1 | informal_desc == 1 | informal_new == 1
+	keep if informal_tar == 1 | informal_desc == 1 | informal_new == "1"
 	
 *   ===================
 *	4) sliming datasets
@@ -90,12 +90,6 @@
         drop `var'
 		}
 	 }
-	
-	* keep relavent variable
-	keep program_* region country_* income_group lending_category hh_size original_* benefit_* sp_* *_date ben_* exp_* financing_* sa_* si_* lm_* Deliveryinnovationpractices informal_*
-	
-	* drop variables irrelavant
-	drop country_ASPIRE original_class original_area exp_dat entry_date ben_exp_changes lm_related ben_source_date_actual *sources *explanation clean_date lm_targ_company *_objective announced_date *_comments
 	
 *   ===============================
 *	5) Remove high-income countries
@@ -111,5 +105,5 @@
 *                   =====================================
 ********************************************************************************	
 
-	save "$cleaned/Filtered Informal Projects.dta", replace
+	save "$cleaned/3-Filtered Informal Projects.dta", replace
 

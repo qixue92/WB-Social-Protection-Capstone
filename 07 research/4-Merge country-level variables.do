@@ -47,13 +47,16 @@
 ********************************************************************************
 
 	* use informal section data
-	use "Informal Sector Workder.dta", clear
+	*use "$cleaned/1-Informal Sector Workder.dta", clear
+	use "$cleaned/3-Filtered Informal Projects.dta", clear
 	
 	* merge country-level variables
 	merge 1:1 country_name using "xxxxx.dta"
 	
 	* save merged dataset
-	save "$cleaned/merged_Informal Sector Worker.dta", replace
-	
-	
+	save "$cleaned/5.1-merged_country-level data.dta", replace
+		notes: country-level data using merged dataset
+		
+	*save "$cleaned/5.2-merged_country-level data.dta", replace
+		*notes: country-level data using informal data only
 	

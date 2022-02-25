@@ -7,10 +7,10 @@
 			 
 * Date created: Feb 26, 2022
 * Description: This file is created to import Informal Sector Data and merge it 
-			   with the Main Database - Tracker.
+			   with the Main Database Tracker.
 
 * Update 1: import dataset, Feb 26, 2022 - "import new dataset" 
-* Update 2: 
+* Update 2: add merge, Feb 22, 2022 - "merge with the main tracker"
 ********************************************************************************/
 
 
@@ -39,7 +39,7 @@
 	global	cleaning			"$root/03 data cleaning"
 	global  cleaned             "$root/05 clean data"
 	
-
+	
 ********************************************************************************
 *                   =====================================
 *   			                 Data Import
@@ -53,8 +53,11 @@
 	
 	 label data "Informal Sector Workder_V16 Global Tracker"
 	 notes: Source: Informal Sector Workder_V16 Global Tracker_as of Feb 2022.
+	 
+	 * filtering out high-income countries
+	 drop if income_group == "HIC"
 
-	 save "$imported/Informal Sector Workder.dta", replace	 
+	 save "$cleaned/1-Informal Sector Worker.dta", replace	 
 
 
 ********************************************************************************
@@ -66,14 +69,14 @@
 	* meger with the main data
 	use "$cleaned/cleaned_main_database_Dec", clear
 
-	merge m:m program_id using "Informal Sector Workder.dta", update replace force
+	merge m:m program_id using "1-Informal Sector Worker.dta", update replace force
 	
 	* save merged data	
 	compress
 	
-	save "$cleaned/merged_Main_database_Feb.dta", replace
+	save "$cleaned/2-merged_Main_database_Feb.dta", replace
 	
 		label data "Merged datasets including Main Dataset and Informal Sector Targeted Programs"
-		notes: Source: Main Database_V16 and Informal Sector Workder_V16 Global Tracker_as of Feb 2022.
+		notes: Source: Main Database_V16 and Informal Sector Worker_V16 Global Tracker_as of Feb 2022.
 	
 	
