@@ -110,6 +110,18 @@
 	* drop duplicates - Duplicates in terms of all variables
 	duplicates drop
 	
+	**************************************
+	* Duplicates drop of Egyptian programs
+	**************************************
+
+	* explore data
+	br program_id benefit_desc hh_size if country_code == "EGY"	
+	///many program_id are missing and hhsize is exactly the same
+	
+	* drop duplicates programs
+	drop if strmatch(benefit_desc, "*(April 2020) Monthly cash assistance for 6 months financed by the House of Zakat*") & country_code == "EGY"
+	
+	* save dataset
 	save "$cleaned/2-merged_Main_database_Feb.dta", replace
 	
 		label data "Merged datasets including Main Dataset and Informal Sector Targeted Programs"
