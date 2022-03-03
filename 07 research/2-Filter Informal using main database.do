@@ -57,27 +57,34 @@
 *	===================================
 	
 	* target groups
-	gen informal_tar = .
+	gen informal_targ = 0
 	foreach var in sa_targ_group si_targ_group lm_targ_group {
-		replace informal_tar = 1 if regexm(`var', "23") | regexm(`var', "24") 
+		replace informal_targ = 1 if regexm(`var', "23")
 	}
 	
 	* informal mentioned in description
-	gen informal_desc = .
+	gen informal_desc = 0
 	foreach var in benefit_desc benefit_desc_changes {
 		replace informal_desc = 1 if regexm(`var', "informal")
 	}
 	
 	* destring original var called informal 
-	gen informal_new = "1" if strmatch(informal, "*1.Yes*") | strmatch(informal, "*informal*")
+	gen informal_new = 0
+		replace informal_new = 1 if informal == "1. Yes"
+		replace informal_new = 1 if informal == "informal"
 	
 	* label newly created filters
-	label var informal_tar "targeted informal sector"
+	label var informal_targ "targeted informal sector group"
 	label var informal_desc "informal mentioned in description"
-	label var informal_new "destringed informal var"
+	label var informal_new "imported informal category"
+	
+	* explore data
+	tab informal_new informal_desc
+	tab informal_new informal_targ
+	tab informal_desc informal_targ
 	
 	* keep data marked with informal
-	keep if informal_tar == 1 | informal_desc == 1 | informal_new == "1"
+	keep if informal_targ == 1 | informal_desc == 1 | informal_new == 1
 	
 *   ===================
 *	4) sliming datasets
@@ -105,5 +112,4 @@
 *                   =====================================
 ********************************************************************************	
 
-	save "$cleaned/3-Filtered Informal Projects.dta", replace
-
+	save "$cleaned/3-Filtered Informal Programs.dta", replace
