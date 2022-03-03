@@ -51,9 +51,16 @@
 *	=================
 
     use "$cleaned/2-merged_Main_database_Feb.dta", clear
+	
+*   ===============================
+*	2) Remove high-income countries
+*	===============================
+	
+	* remove high-income countries
+	drop if income_group == "HIC"	
 
 *	===================================
-*	2) filter data with informal sector
+*	3) filter data with informal sector
 *	===================================
 	
 	* target groups
@@ -72,11 +79,17 @@
 	gen informal_new = 0
 		replace informal_new = 1 if informal == "1. Yes"
 		replace informal_new = 1 if informal == "informal"
-	
+		
+	* add in-kind transfers & public works
+	gen informal_trans = 0
+		replace informal_trans = 1 if sp_category == "1.4. Unconditional food and in-kind transfers"
+		replace informal_trans = 1 if sp_category == "1.6. Public works"
+	 
 	* label newly created filters
 	label var informal_targ "targeted informal sector group"
 	label var informal_desc "informal mentioned in description"
 	label var informal_new "imported informal category"
+	label var informal_trans "transfer to informal through public works & in-kind"
 	
 	* explore data
 	tab informal_new informal_desc
@@ -84,7 +97,7 @@
 	tab informal_desc informal_targ
 	
 	* keep data marked with informal
-	keep if informal_targ == 1 | informal_desc == 1 | informal_new == 1
+	keep if informal_targ == 1 | informal_desc == 1 | informal_new == 1 | informal_trans == 1
 	
 *   ===================
 *	4) sliming datasets
@@ -98,14 +111,7 @@
 		}
 	 }
 	
-*   ===============================
-*	5) Remove high-income countries
-*	===============================
-	
-	* remove high-income countries
-	drop if income_group == "HIC"
-		
-	
+
 ********************************************************************************
 *                   =====================================
 *   	                        Save Filtered Data

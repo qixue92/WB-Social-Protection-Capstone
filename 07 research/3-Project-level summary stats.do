@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File name: Summary Stats for Project-Level Data
+* File name: Summary Stats for Project-level Data
 
 * Author(s): Qi Xue (qx61@georgetown.edu)
              Neha Dagaonkar (nd569@georgetown.edu)
@@ -10,7 +10,8 @@
 			   sector.
 
 * Update 1: add labels, Feb 20 - "complete labels for a few variables" 
-* Update 2: apply new dataset, Feb 22- "apply merged dataset"
+* Update 2: apply new dataset, Feb 22 - "apply merged dataset"
+* Update 3: remove non-validated vars - Mar 03 - "remove 'finance source' and 'targeting method'"
 ********************************************************************************/
 
 
@@ -25,7 +26,7 @@
 	cls
 	capture log close
 	set more off
-	set		 varabbrev on   
+	set		 varabbrev off   
 	set 	 memory  900m
 	
 	* Set the Dropbox Folder
@@ -43,12 +44,10 @@
 	global  tables_full         "$root/04 output/tables_merged full datat"
 	
 	* using log
-	log using "$output/research/Project-level summary stat using informal dataset.smcl", replace
-	*log using "$output/research/Project-level summary stat using merged full dataset.smcl", replace
+	log using "$output/research/Project-level summary stat using merged full dataset.smcl", replace
 	
 	* using data
-	use "$cleaned/1-Informal Sector Worker.dta"
-	*use "$cleaned/3-Filtered Informal Projects.dta", clear
+	use "$cleaned/3-Filtered Informal Programs.dta", clear
 	
 	
 ********************************************************************************
@@ -144,7 +143,7 @@
 		* summarize subcategories (including repetitives)
 		fsum benefit_temp_*, label
 		
-	*** financing_source
+	/*** financing_source - not validated"
 		
 		* Initial tab - finding which program used multiple financing sources
 		tab financing_source, missing
@@ -161,7 +160,7 @@
 		label var financing_source_4 "4.International"
 		
 		* summarize subcategories (including repetitives)
-		fsum financing_source_*, label
+		fsum financing_source_*, label*/
 	
 	/* policy_Objective
 	rename Policy_Objective policy_objective
@@ -222,7 +221,7 @@
 		* summarize subcategories (including repetitives)
 		fsum identification_instruments_*, label
 		
-	*** targeting method
+	/*** targeting method - not validated"
 		
 		* replace website input as missing
 		replace sa_targ_method = "" if strmatch(sa_targ_method, "*https*")
@@ -247,7 +246,7 @@
 		label var sa_targ_method_8 "8.Other"
 		
 		* summarize subcategories (including repetitives)
-		fsum sa_targ_method_*, label
+		fsum sa_targ_method_*, label*/
 	
 	*** targeting groups
 	
@@ -382,6 +381,7 @@
 	/* benefit amount in local currencies
 	gsort -sa_b_amount_l
 	list country_name program_name acualcoverage in 1/15 if !missing(ben_plan), table*/
+
 	
 ********************************************************************************
 *                   ===================================
@@ -389,12 +389,9 @@
 *                   ===================================
 ********************************************************************************	
 
-	* save merged dataset
-	*save "$cleaned/4.1-merged_project-level data.dta", replace
-		*notes: project-level data using merged dataset
-		
-	save "$cleaned/4.2-merged_project-level data.dta", replace
-		notes: project-level data using informal data only
+	* save changed dataset
+	save "$cleaned/4-merged_project-level data.dta", replace
+		notes: project-level data using filtered merged dataset
 	
 	* close log
 	log close
