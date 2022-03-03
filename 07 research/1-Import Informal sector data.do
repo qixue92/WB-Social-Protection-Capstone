@@ -102,7 +102,7 @@
 	* merge with the main data
 	use "$cleaned/cleaned_main_database_Dec.dta", clear
 	
-	merge m:m program_id using "$cleaned/1-Informal Sector Worker.dta", update replace force
+	merge m:m program_id using "$cleaned/1-Informal Sector Worker.dta", update force
 	
 	* save merged data	
 	compress
@@ -110,16 +110,11 @@
 	* drop duplicates - Duplicates in terms of all variables
 	duplicates drop
 	
-	**************************************
-	* Duplicates drop of Egyptian programs
-	**************************************
-
-	* explore data
-	br program_id benefit_desc hh_size if country_code == "EGY"	
-	///many program_id are missing and hhsize is exactly the same
-	
-	* drop duplicates programs
-	drop if strmatch(benefit_desc, "*(April 2020) Monthly cash assistance for 6 months financed by the House of Zakat*") & country_code == "EGY"
+********************************************************************************
+*                   =====================================
+*   			              Save Merged Dataset
+*                   =====================================
+********************************************************************************	
 	
 	* save dataset
 	save "$cleaned/2-merged_Main_database_Feb.dta", replace

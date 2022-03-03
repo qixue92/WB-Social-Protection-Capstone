@@ -39,7 +39,6 @@
 	global  cleaned             "$root/05 clean data"
 
 	
-	
 ********************************************************************************
 *                   =====================================
 *   			                 Data Filtering
@@ -107,7 +106,7 @@
 	drop if sp_category == "1.7. Utility and financial obligations waivers/reductions"
 	drop if sp_category == "2.1. Pensions"
 	drop if sp_category == "2.2. Social security contributions"
-	drop if sp_category == "2.3. Paid leave"
+	drop if sp_category == "3.7. Labor regulatory adjustment and enforcement"
 	
 *   ===================
 *	5) sliming datasets
