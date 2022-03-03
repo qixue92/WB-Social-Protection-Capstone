@@ -6,9 +6,9 @@
 			 Gavin Hawkins (jgh73@georgetown.edu)
 			 
 * Date created: Jan 28, 2022
-* Description: This file is created to filter the merged dataset with regard to programs targeted informal sector.
+* Description: This file is created to filter the main dataset with regard to programs targeted informal sector.
 
-* Update 1: add new dataset, Dec 9 - "import new dataset" 
+* Update 1: change dataset, Mar 03 - "switch from merged data to main data" 
 * Update 2: add new do-file, Dec 11- "add clean var do-file"
 ********************************************************************************/
 
@@ -49,14 +49,14 @@
 *	1) Use clean data
 *	=================
 
-    use "$cleaned/2-merged_Main_database_Feb.dta", clear
+    use "$cleaned/cleaned_main_database_Dec.dta", clear
 	
 *   ===============================
 *	2) Remove high-income countries
 *	===============================
 	
 	* remove high-income countries
-	drop if income_group == "HIC"	
+	drop if income_group == "HIC"
 
 *	===================================
 *	3) filter data with informal sector
@@ -77,26 +77,27 @@
 	* destring original var called informal 
 	gen informal_new = 0
 		replace informal_new = 1 if informal == "1. Yes"
-		replace informal_new = 1 if informal == "informal"
 		
-	* add in-kind transfers & public works
-	gen informal_trans = 0
-		replace informal_trans = 1 if sp_category == "1.4. Unconditional food and in-kind transfers"
-		replace informal_trans = 1 if sp_category == "1.6. Public works"
-	 
 	* label newly created filters
 	label var informal_targ "targeted informal sector group"
 	label var informal_desc "informal mentioned in description"
 	label var informal_new "imported informal category"
-	label var informal_trans "transfer to informal through public works & in-kind"
 	
 	* explore data
 	tab informal_new informal_desc
 	tab informal_new informal_targ
 	tab informal_desc informal_targ
 	
+	* explore the dataset
+	count if informal_desc == 1
+	count if informal_targ == 1
+	count if informal_new == 1
+	
+	count if informal_targ == 1 | informal_desc == 1
+	count if informal_targ == 1 | informal_desc == 1 | informal_new == 1
+	
 	* keep data marked with informal
-	keep if informal_targ == 1 | informal_desc == 1 | informal_new == 1 | informal_trans == 1
+	keep if informal_targ == 1 | informal_desc == 1 | informal_new == 1
 	
 *   ===========================================================
 *	4) exclude programs that are not targeted at informal sector
@@ -120,11 +121,22 @@
 		}
 	 }
 	
-
 ********************************************************************************
 *                   =====================================
 *   	                        Save Filtered Data
 *                   =====================================
 ********************************************************************************	
 
-	save "$cleaned/3-Filtered Informal Programs.dta", replace
+	* destring a few variables for merge
+	foreach var of varlist start_date extended_date ben_pre_covidben_precovid exp_plan exp_plan_usd exp_actual_usd {
+		destring `var', replace
+		}
+	
+	save "$cleaned/2-Filtered Informal Programs.dta", replace
+		label data "Filterted informal programs using the main dataset"
+		notes: Source: "COVID-19 SP tracker_V16.xlsx"
+		
+	* cf _all using "1-Informal Sector Worker.dta", all
+	
+	
+		
