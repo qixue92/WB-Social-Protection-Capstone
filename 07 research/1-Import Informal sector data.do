@@ -11,6 +11,7 @@
 
 * Update 1: import dataset, Feb 23, 2022 - "import new dataset" 
 * Update 2: add merge, Feb 26, 2022 - "merge with the main tracker"
+* Update 3: remove merge, Mar 03, 2022 - "postpone merge after filtering"
 ********************************************************************************/
 
 
@@ -59,6 +60,7 @@
 
 	 save "$imported/Informal Sector Worker.dta", replace
 	 
+	 
 ********************************************************************************
 *                   =====================================
 *   			                 Data Cleaning
@@ -86,29 +88,10 @@
 		replace ben_ind_actual2 = ben_actual * hhsize if ben_unit_actual == "1. Household"
 		replace ben_ind_actual2 = ben_actual if ben_unit_actual == "2. Individuals"
 	label var ben_ind_actual2 "re-calculated actual individual beneficiaries based on household size"
+	
 	* drop original variable - confirmed matching
 	drop ben_ind_actual acualcoverage
-	
-	* save cleaned dataset
-	save "$cleaned/1-Informal Sector Worker.dta", replace
-	
-	 
-********************************************************************************
-*                   =====================================
-*   			                 Data Merge
-*                   =====================================
-********************************************************************************
 
-	* merge with the main data
-	use "$cleaned/cleaned_main_database_Dec.dta", clear
-	
-	merge m:m program_id using "$cleaned/1-Informal Sector Worker.dta", update force
-	
-	* save merged data	
-	compress
-	
-	* drop duplicates - Duplicates in terms of all variables
-	duplicates drop
 	
 ********************************************************************************
 *                   =====================================
@@ -116,10 +99,14 @@
 *                   =====================================
 ********************************************************************************	
 	
-	* save dataset
-	save "$cleaned/2-merged_Main_database_Feb.dta", replace
+	* drop duplicates - Duplicates in terms of all variables
+	duplicates drop
 	
-		label data "Merged datasets including Main Dataset and Informal Sector Targeted Programs"
-		notes: Source: Main Database_V16 and Informal Sector Worker_V16 Global Tracker_as of Feb 2022.
+	compress ///save storage space
+	
+	* save cleaned dataset
+	save "$cleaned/1-Informal Sector Worker.dta", replace
+		label data "cleaned Informal Sector Worker Data"
+		notes: Source: Informal Sector Worker_V16 Global Tracker_as of Feb 2022.
 	
 	
