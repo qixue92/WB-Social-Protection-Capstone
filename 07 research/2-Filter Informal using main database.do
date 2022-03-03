@@ -99,8 +99,18 @@
 	* keep data marked with informal
 	keep if informal_targ == 1 | informal_desc == 1 | informal_new == 1 | informal_trans == 1
 	
+*   ===========================================================
+*	4) exclude programs that are not targeted at informal sector
+*	============================================================
+	
+	* drop programs for below categories
+	drop if sp_category == "1.7. Utility and financial obligations waivers/reductions"
+	drop if sp_category == "2.1. Pensions"
+	drop if sp_category == "2.2. Social security contributions"
+	drop if sp_category == "2.3. Paid leave"
+	
 *   ===================
-*	4) sliming datasets
+*	5) sliming datasets
 *	===================
 	
 	* drop variables there are no data entry
