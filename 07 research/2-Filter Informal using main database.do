@@ -23,7 +23,7 @@
 	clear	 all
 	cls
 	set more off
-	set		 varabbrev on   
+	set		 varabbrev off   
 	set 	 memory  900m
 	
 	* Set the Dropbox Folder
@@ -71,7 +71,7 @@
 	* informal mentioned in description
 	gen informal_desc = 0
 	foreach var in benefit_desc benefit_desc_changes {
-		replace informal_desc = 1 if regexm(`var', "informal")
+		replace informal_desc = 1 if regexm(`var', "informal") | regexm(`var', "Informal") 
 	}
 	
 	* destring original var called informal 
@@ -121,6 +121,28 @@
 		}
 	 }
 	
+	* export to temp data for manual selection
+	 save "intermediate data filtering.dta", replace
+	
+********************************************************************************
+*                   =====================================
+*   	                    Manually Filtering Data
+*                   =====================================
+********************************************************************************
+
+	* drop duplicated programs with different program_id
+	drop if program_id == "C19_PRY_0004" & program_id == "C19_CIV_0014"
+	
+	* drop if programs are not identified as informal through manual selection
+	drop if program_id == "C19_ARG_0004" & "C19_ARG_0008" & "C19_IND_0017" &
+					      "C19_IDN_0014" & "C19_MDA_0003" & "C19_THA_0098" &
+						  "C19_JOR_0021" & "C19_ETH_LM_0003" & "C19_CUB_0013" &
+						  "C19_NAM_0025" & "C19_NAM_0002" & "C19_BTN_0010" &
+						  "C19_VNM_0002" & "C19_KEN_0037" & "C19_KEN_0036" &
+						  "C19_SLE_0001" & "C19_VCT_0029" & "C19_ARM_0027" & "C19_BLZ_0040"
+						  
+	* 
+	
 ********************************************************************************
 *                   =====================================
 *   	                        Save Filtered Data
@@ -135,8 +157,3 @@
 	save "$cleaned/2-Filtered Informal Programs.dta", replace
 		label data "Filterted informal programs using the main dataset"
 		notes: Source: "COVID-19 SP tracker_V16.xlsx"
-		
-	* cf _all using "1-Informal Sector Worker.dta", all
-	
-	
-		
