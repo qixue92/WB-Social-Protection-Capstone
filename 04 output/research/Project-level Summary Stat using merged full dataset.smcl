@@ -3,13 +3,8 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using merged full dataset.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 9 Mar 2022, 09:55:57
+ {txt}opened on:  {res} 9 Mar 2022, 11:38:59
 {txt}
-{com}.         
-.         * using data
-.         use "$cleaned/2-Filtered Informal Programs.dta", clear
-{txt}(Social Assistance Tracker)
-
 {com}.         
 .         
 . ********************************************************************************
@@ -21,6 +16,8 @@
 . * =======================================================
 . * Summary characteristics of informal targeted programs *
 . * =======================================================
+.         
+.         *cd "$output/tables_informal data"
 .         
 .         * =====================
 .         * 1_General Information
@@ -190,7 +187,6 @@ Click to Open File:  {browse "sp_sub_category.doc"}
 Click to Open File:  {browse "updated_status.doc"}
 {txt}
 {com}.                 
-.         
 . * =====*
 . * Binary
 . * =====*
@@ -769,17 +765,19 @@ Click to Open File:  {browse "sa_b_type.doc"}
 {txt}
 {com}.                 list country_name program_name ben_ind_actual in 1/15 if !missing(ben_ind_plan), table
 {txt}
-     {c TLC}{hline 13}{c -}{hline 104}{c -}{hline 10}{c TRC}
-     {c |} {res}country_n~e                                                                                             program_name   ben_in~l {txt}{c |}
-     {c LT}{hline 13}{c -}{hline 104}{c -}{hline 10}{c RT}
-  1. {c |} {res}Philippines                                                                        Social Amelioration Program (SAP)   82720000 {txt}{c |}
-  2. {c |} {res}   Thailand                                                                                       No-one left behind   15000000 {txt}{c |}
-  4. {c |} {res}Philippines               Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First Tranche    2600000 {txt}{c |}
-  5. {c |} {res}      China                                                                           Unemployment social assistance    2300000 {txt}{c |}
-  7. {c |} {res}Philippines              Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second Tranche     797222 {txt}{c |}
-     {c LT}{hline 13}{c -}{hline 104}{c -}{hline 10}{c RT}
- 12. {c |} {res} Cape Verde   Special Regime for Small and Micro Enterprises, Special Regime for Small and Micro Enterprises (REMPE)          . {txt}{c |}
-     {c BLC}{hline 13}{c -}{hline 104}{c -}{hline 10}{c BRC}
+     {c TLC}{hline 13}{c -}{hline 93}{c -}{hline 10}{c TRC}
+     {c |} {res}country_n~e                                                                                  program_name   ben_in~l {txt}{c |}
+     {c LT}{hline 13}{c -}{hline 93}{c -}{hline 10}{c RT}
+  1. {c |} {res}Philippines                                                             Social Amelioration Program (SAP)   82720000 {txt}{c |}
+  2. {c |} {res}   Thailand                                                                            No-one left behind   15000000 {txt}{c |}
+  4. {c |} {res}Philippines    Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First Tranche    2600000 {txt}{c |}
+  5. {c |} {res}      China                                                                Unemployment social assistance    2300000 {txt}{c |}
+  7. {c |} {res}Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second Tranche     797222 {txt}{c |}
+     {c LT}{hline 13}{c -}{hline 93}{c -}{hline 10}{c RT}
+ 10. {c |} {res}   Zimbabwe                                                                                                        . {txt}{c |}
+ 11. {c |} {res}    Albania                                                                                                        . {txt}{c |}
+ 13. {c |} {res}     Kosovo                                                                                                        . {txt}{c |}
+     {c BLC}{hline 13}{c -}{hline 93}{c -}{hline 10}{c BRC}
 
 {com}.         
 .         /* actual coverage - how different from ben_ind_actual?
@@ -852,11 +850,6 @@ Click to Open File:  {browse "sa_b_type.doc"}
 .         * save changed dataset
 .         save "$cleaned/4-Cleaned Project-level Data.dta", replace
 {txt}{p 0 4 2}
-(file {bf}
-/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/05 clean data/4-Cleaned Project-level Data.dta{rm}
-not found)
-{p_end}
-{p 0 4 2}
 file {bf}
 /Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/05 clean data/4-Cleaned Project-level Data.dta{rm}
 saved
@@ -870,7 +863,7 @@ saved
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using merged full dataset.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 9 Mar 2022, 09:55:57
+ {txt}closed on:  {res} 9 Mar 2022, 11:39:00
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
