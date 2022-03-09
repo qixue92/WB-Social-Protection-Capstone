@@ -21,6 +21,7 @@
  	
 	drop	 _all
 	clear	 all
+	capture  log close
 	cls
 	set more off
 	set		 varabbrev off   
@@ -38,6 +39,8 @@
 	global	cleaning			"$root/03 data cleaning"
 	global  cleaned             "$root/05 clean data"
 
+	* using log
+	log using "$output/research/Filtering informal using main database.smcl", replace
 	
 ********************************************************************************
 *                   =====================================
@@ -180,3 +183,6 @@
 	save "$cleaned/2-Filtered Informal Programs.dta", replace
 		label data "Filterted informal programs using the main dataset"
 		notes: Source: "COVID-19 SP tracker_V16.xlsx"
+		
+	* close log
+	log close
