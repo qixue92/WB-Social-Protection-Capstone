@@ -42,11 +42,11 @@
 	global  tables_informal     "$root/04 output/tables_informal data"
 	global  tables_full         "$root/04 output/tables_merged full datat"
 	
-	* using log
-	log using "$output/research/Project-level summary stat using merged full dataset.smcl", replace
-	
 	* using data
 	use "$cleaned/2-Filtered Informal Programs.dta", clear
+	
+	* using log
+	log using "$output/research/Project-level summary stat using merged full dataset.smcl", replace
 	
 	
 ********************************************************************************
@@ -58,6 +58,8 @@
 * =======================================================
 * Summary characteristics of informal targeted programs *
 * =======================================================
+	
+	*cd "$output/tables_informal data"
 	
 	* =====================
 	* 1_General Information
@@ -100,7 +102,6 @@
 			* export table
 			asdoc tab updated_status, save(updated_status) replace
 		
-	
 * =====*
 * Binary
 * =====*
@@ -389,5 +390,4 @@
 	
 	* close log
 	log close
-	
 	
