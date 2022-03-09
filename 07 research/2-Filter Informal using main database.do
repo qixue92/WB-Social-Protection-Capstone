@@ -131,10 +131,40 @@
 ********************************************************************************
 
 	* drop duplicated programs with different program_id
-	drop if program_id == "C19_PRY_0004"｜"C19_CIV_0014"
+	drop if program_id == "C19_PRY_0004"
 	
 	* drop if programs are not identified as informal through manual selection
-	drop if program_id == "C19_ARG_0004"｜"C19_ARG_0008"｜"C19_IND_0017"｜"C19_IDN_0014"｜"C19_MDA_0003"｜"C19_THA_0098"｜"C19_JOR_0021"｜"C19_ETH_LM_0003"｜"C19_CUB_0013"｜"C19_NAM_0025"｜"C19_NAM_0002"｜"C19_BTN_0010"｜"C19_VNM_0002"｜"C19_KEN_0037"｜"C19_KEN_0036"｜"C19_SLE_0001"｜"C19_VCT_0029"｜"C19_ARM_0027"｜"C19_BLZ_0040"
+	drop if program_id == "C19_ARG_0004" //child allowance
+	drop if program_id == "C19_ARG_0008" //child allowance
+	drop if program_id == "C19_ARM_0027" //parents who are jobless
+	drop if program_id == "C19_IDN_0014" //safety
+	drop if program_id == "C19_MDA_0003" //unemployment aid
+	drop if program_id == "C19_BLZ_0040" //unemployment relief
+	drop if program_id == "C19_THA_0098" //labor training
+	drop if program_id == "C19_JOR_0021" //uninsured business
+	drop if program_id == "C19_ETH_LM_0003" //labor management system
+	drop if program_id == "C19_BTN_0010" //skill training
+	drop if program_id == "C19_VNM_0002" //suspended contracted workers
+	drop if program_id == "C19_KEN_0037" //informal settlements
+	drop if program_id == "C19_KEN_0036" //informal settlements
+	drop if program_id == "C19_NAM_0025" //informal settlements
+	drop if program_id == "C19_SLE_0001" //poor and disability ???
+	drop if program_id == "C19_VNM_0013" //medium-sized business
+	
+	* list of ambiguous programs yet did not exclude from the list
+	///C19_MYS_0033 - employment insurance
+	///C19_CHN_0003 - employment insurance
+	///C19_PHL_0017 - small business wage subsidy
+	///C19_LKA_0007 - daily wage worker
+	///C19_MMR_0012 - female garment worker
+	///C19_MDV_0021 - poor and vulnerable
+	///C19_DOM_0001 - poor and vulnerable
+	///C19_VNM_0031 - artists and tour guide
+	///C19_ZAF_0031 - freelance tour guide
+	///C19_EGY_0043 - tourism
+	///C19_CIV_0002 - food assistance for existing benefitiaries
+	///C19_COL_0022 - universal cash transfer
+	
 	
 ********************************************************************************
 *                   =====================================
