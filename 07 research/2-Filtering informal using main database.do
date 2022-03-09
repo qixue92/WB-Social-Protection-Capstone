@@ -58,9 +58,9 @@
 	* remove high-income countries
 	drop if income_group == "HIC"
 
-*	===================================
-*	3) filter data with informal sector
-*	===================================
+*	=======================================
+*	3) Filter data with the informal sector
+*	=======================================
 	
 	* target groups
 	gen informal_targ = 0
@@ -68,7 +68,7 @@
 		replace informal_targ = 1 if regexm(`var', "23")
 	}
 	
-	* informal mentioned in description
+	* informal mentioned in the description
 	gen informal_desc = 0
 	foreach var in benefit_desc benefit_desc_changes {
 		replace informal_desc = 1 if regexm(`var', "informal") | regexm(`var', "Informal") 
@@ -99,9 +99,9 @@
 	* keep data marked with informal
 	keep if informal_targ == 1 | informal_desc == 1 | informal_new == 1
 	
-*   ===========================================================
-*	4) exclude programs that are not targeted at informal sector
-*	============================================================
+*   ================================================================
+*	4) exclude programs that are not targeted at the informal sector
+*	================================================================
 	
 	* drop programs for below categories
 	drop if sp_category == "1.7. Utility and financial obligations waivers/reductions"
@@ -151,7 +151,7 @@
 	drop if program_id == "C19_SLE_0001" //poor and disability ???
 	drop if program_id == "C19_VNM_0013" //medium-sized business
 	
-	* list of ambiguous programs yet did not exclude from the list
+	* list of ambiguous programs that were not excluded
 	///C19_MYS_0033 - employment insurance
 	///C19_CHN_0003 - employment insurance
 	///C19_PHL_0017 - small business wage subsidy
