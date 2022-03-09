@@ -131,17 +131,10 @@
 ********************************************************************************
 
 	* drop duplicated programs with different program_id
-	drop if program_id == "C19_PRY_0004" & program_id == "C19_CIV_0014"
+	drop if program_id == "C19_PRY_0004"｜"C19_CIV_0014"
 	
 	* drop if programs are not identified as informal through manual selection
-	drop if program_id == "C19_ARG_0004" & "C19_ARG_0008" & "C19_IND_0017" &
-					      "C19_IDN_0014" & "C19_MDA_0003" & "C19_THA_0098" &
-						  "C19_JOR_0021" & "C19_ETH_LM_0003" & "C19_CUB_0013" &
-						  "C19_NAM_0025" & "C19_NAM_0002" & "C19_BTN_0010" &
-						  "C19_VNM_0002" & "C19_KEN_0037" & "C19_KEN_0036" &
-						  "C19_SLE_0001" & "C19_VCT_0029" & "C19_ARM_0027" & "C19_BLZ_0040"
-						  
-	* 
+	drop if program_id == "C19_ARG_0004"｜"C19_ARG_0008"｜"C19_IND_0017"｜"C19_IDN_0014"｜"C19_MDA_0003"｜"C19_THA_0098"｜"C19_JOR_0021"｜"C19_ETH_LM_0003"｜"C19_CUB_0013"｜"C19_NAM_0025"｜"C19_NAM_0002"｜"C19_BTN_0010"｜"C19_VNM_0002"｜"C19_KEN_0037"｜"C19_KEN_0036"｜"C19_SLE_0001"｜"C19_VCT_0029"｜"C19_ARM_0027"｜"C19_BLZ_0040"
 	
 ********************************************************************************
 *                   =====================================
