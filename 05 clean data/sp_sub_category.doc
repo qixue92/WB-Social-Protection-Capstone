@@ -13,138 +13,63 @@
 \row
 \trowd\trgaph108\trleft-108\cellx5000\cellx6500\cellx8000\cellx9500
 \ql {1.1.1. Unconditional cash transfers}\cell
-\qr {172}\cell
-\qr {31.68}\cell
-\qr {31.68}\cell
-\row
-\ql {1.1.1. Unconditional cash transfers, 1.4.1. Food vouchers (quantity or value-based), 1.4.2. In-kind food distribution}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {31.86}\cell
-\row
-\ql {1.1.1. Unconditional cash transfers, 1.4.2. In-kind food distribution}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {32.04}\cell
+\qr {73}\cell
+\qr {72.28}\cell
+\qr {72.28}\cell
 \row
 \ql {1.2.1. Conditional cash transfers}\cell
-\qr {3}\cell
-\qr {0.55}\cell
-\qr {32.60}\cell
-\row
-\ql {1.4.1. Food vouchers (quantity or value-based)}\cell
-\qr {23}\cell
-\qr {4.24}\cell
-\qr {36.83}\cell
+\qr {1}\cell
+\qr {0.99}\cell
+\qr {73.27}\cell
 \row
 \ql {1.4.2. In-kind food distribution}\cell
-\qr {187}\cell
-\qr {34.44}\cell
-\qr {71.27}\cell
-\row
-\ql {1.4.2. In-kind food distribution, 1.1.1. Unconditional cash transfers}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {71.45}\cell
-\row
-\ql {1.4.2. In-kind food distribution, 1.4.1. Food vouchers (quantity or value-based)}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {71.64}\cell
+\qr {6}\cell
+\qr {5.94}\cell
+\qr {79.21}\cell
 \row
 \ql {1.4.2. In-kind food distribution, 1.4.3. Health kits and other inkind transfers}\cell
-\qr {4}\cell
-\qr {0.74}\cell
-\qr {72.38}\cell
+\qr {1}\cell
+\qr {0.99}\cell
+\qr {80.20}\cell
 \row
 \ql {1.4.3. Health kits and other inkind transfers}\cell
-\qr {58}\cell
-\qr {10.68}\cell
-\qr {83.06}\cell
-\row
-\ql {1.4.3. Health kits and other inkind transfers, 1.4.2. In-kind food distribution}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {83.24}\cell
+\qr {2}\cell
+\qr {1.98}\cell
+\qr {82.18}\cell
 \row
 \ql {1.6.1. Cash for work}\cell
-\qr {60}\cell
-\qr {11.05}\cell
-\qr {94.29}\cell
-\row
-\ql {1.6.2. Cash for services}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {94.48}\cell
-\row
-\ql {1.6.3. Food for work}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {94.66}\cell
-\row
-\ql {1.7.1. Education}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {94.84}\cell
-\row
-\ql {1.7.10. Mortgages and other loans}\cell
-\qr {3}\cell
-\qr {0.55}\cell
-\qr {95.40}\cell
-\row
-\ql {1.7.11. Other}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {95.58}\cell
-\row
-\ql {1.7.4. Water, electricity, telephone, internet}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {95.76}\cell
-\row
-\ql {2.2.2. Social security contributions for firms}\cell
-\qr {2}\cell
-\qr {0.37}\cell
-\qr {96.13}\cell
+\qr {6}\cell
+\qr {5.94}\cell
+\qr {88.12}\cell
 \row
 \ql {2.5.1. Health insurance}\cell
 \qr {1}\cell
-\qr {0.18}\cell
-\qr {96.32}\cell
+\qr {0.99}\cell
+\qr {89.11}\cell
 \row
 \ql {2.6.1. Out-of-work income support}\cell
-\qr {4}\cell
-\qr {0.74}\cell
-\qr {97.05}\cell
-\row
-\ql {3.2.1. Labor market services including intermediation (PES)}\cell
-\qr {1}\cell
-\qr {0.18}\cell
-\qr {97.24}\cell
+\qr {2}\cell
+\qr {1.98}\cell
+\qr {91.09}\cell
 \row
 \ql {3.2.2. Training (vocational, life skills, cash for training, others)}\cell
-\qr {5}\cell
-\qr {0.92}\cell
-\qr {98.16}\cell
+\qr {3}\cell
+\qr {2.97}\cell
+\qr {94.06}\cell
 \row
 \ql {3.4.1. Wage subsidy with reduced work time (including zero working hours)}\cell
-\qr {2}\cell
-\qr {0.37}\cell
-\qr {98.53}\cell
+\qr {1}\cell
+\qr {0.99}\cell
+\qr {95.05}\cell
 \row
 \ql {3.4.2. Wage subsidy without reduced work time (include waivers/payments of social security)}\cell
 \qr {5}\cell
-\qr {0.92}\cell
-\qr {99.45}\cell
-\row
-\ql {3.7.9. Other regulatory adjustment}\cell
-\qr {3}\cell
-\qr {0.55}\cell
+\qr {4.95}\cell
 \qr {100.00}\cell
 \row
 \trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx5000\clbrdrt\brdrw10\brdrs\cellx6500\clbrdrt\brdrw10\brdrs\cellx8000\clbrdrt\brdrw10\brdrs\cellx9500 
 \ql {Total}\cell
-\qr {543}\cell
+\qr {101}\cell
 \qr {100.00}\cell
 \qr {}\cell
 \row
