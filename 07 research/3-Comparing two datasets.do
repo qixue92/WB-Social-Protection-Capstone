@@ -73,7 +73,10 @@
 	* save the dataset which were not included in the client's data
 	keep if _merge == 1 
 	
-	* save dataset
+	* save dataset in dta
 	save "$cleaned/3-Difference in datasets.dta", replace
+	
+	* save dataset in Excel
+	export excel "$cleaned/3-Difference in datasets.xlsx", firstrow(varlabels) replace
 	
 	
