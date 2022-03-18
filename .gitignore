@@ -7,3 +7,4 @@
 02 raw data/imported/Main_database_Oct.dta
 05 clean data/cleaned_main_database_Dec.dta
 02 raw data/imported/Main_database_Dec.dta
+06 data viz/.Rhistory
