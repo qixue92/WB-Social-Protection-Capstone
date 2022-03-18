@@ -50,14 +50,14 @@
 	 
 	compress ///save storage space
 	
+	* rename country name preparing merging data
+	rename CountryCode country_code
+	
 	save "$imported/Macro_Data.dta", replace
 	
 	label data "Country-lavel macro data"
 		notes: Source: country-level macro data agreed in the research plan as of Feb 2022.
 	
-	* rename country name preparing merging data
-	rename CountryCode country_code
-	 
 	
 ********************************************************************************
 *                   ===================================
@@ -65,17 +65,15 @@
 *                   ===================================
 ********************************************************************************
 
-	* use informal section data
-	use "$cleaned/1-Informal Sector Worker.dta", clear
-	*use "$cleaned/3-Filtered Informal Projects.dta", clear
-	
+	* use filtered data
+	use "$cleaned/4-Cleaned Project-level Data.dta", clear
+
 	* merge country-level variables
 	merge 1:1 country_code using "$imported/Macro_Data.dta"
-	
-	* save merged dataset
-	*save "$cleaned/5.1-merged_country-level data.dta", replace
-		*notes: country-level data using merged dataset
 		
-	save "$cleaned/5.2-merged_country-level data.dta", replace
-		notes: country-level data using informal data only
+	save "$cleaned/5-Merged_country-level data.dta", replace
+		notes: Merged country-level data using filtered project-level data
+		
+		
+		
 	
