@@ -16,7 +16,7 @@
 
 ********************************************************************************
 *                   ===================================
-*   			               BOX Globals
+*   			               GitHub Globals
 *                   ===================================
 ********************************************************************************
  	
@@ -39,6 +39,7 @@
 	global	cleaning			"$root/03 data cleaning"
 	global  cleaned             "$root/05 clean data"
 
+	
 ********************************************************************************
 *                   ===================================
 *   			               Import Macro-data
@@ -67,13 +68,16 @@
 
 	* use filtered data
 	use "$cleaned/4-Cleaned Project-level Data.dta", clear
+	
+		* fill the missing country code before merging
+		list country_name country_code if country_name == "Vietnam"
+		replace country_code = "VNM" if country_name == "Vietnam"
 
 	* merge country-level variables
-	merge 1:1 country_code using "$imported/Macro_Data.dta"
+	merge m:1 country_code using "$imported/Macro_Data.dta"
 		
+	* save and label data
 	save "$cleaned/5-Merged_country-level data.dta", replace
-		notes: Merged country-level data using filtered project-level data
-		
-		
-		
+		notes: Merged country-level data using filtered main dataset
+	
 	
