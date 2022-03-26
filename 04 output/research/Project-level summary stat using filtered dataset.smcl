@@ -1,0 +1,947 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using filtered dataset.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}26 Mar 2022, 00:53:11
+{txt}
+{com}.         
+.         
+. ********************************************************************************
+. *                   ===================================
+. *                                      Summary Stats
+. *                   ===================================
+. ********************************************************************************
+.         
+. * =======================================================
+. * Summary characteristics of informal targeted programs *
+. * =======================================================
+.         
+.         *cd "$output/tables_informal data"
+.         
+.         * =====================
+.         * 1_General Information
+.         * =====================
+.         
+.         * region
+.                 
+.                 * rename sublabels
+.                 replace region = "East Asia & Pacific" if region == "EAS"
+{txt}variable {bf}{res}region{sf}{txt} was {bf}{res}str3{sf}{txt} now {bf}{res}str19{sf}
+{txt}(23 real changes made)
+
+{com}.                 replace region = "Europe & Central Asia" if region == "ECS"
+{txt}variable {bf}{res}region{sf}{txt} was {bf}{res}str19{sf}{txt} now {bf}{res}str21{sf}
+{txt}(11 real changes made)
+
+{com}.                 replace region = "Latin America & Caribbean" if region == "LCN"
+{txt}variable {bf}{res}region{sf}{txt} was {bf}{res}str21{sf}{txt} now {bf}{res}str25{sf}
+{txt}(21 real changes made)
+
+{com}.                 replace region = "Middle East & North Africa" if region == "MEA"
+{txt}variable {bf}{res}region{sf}{txt} was {bf}{res}str25{sf}{txt} now {bf}{res}str26{sf}
+{txt}(10 real changes made)
+
+{com}.                 replace region = "North America" if region == "NAC"
+{txt}(0 real changes made)
+
+{com}.                 replace region = "South Asia" if region == "SAS"
+{txt}(6 real changes made)
+
+{com}.                 replace region = "Sub-Saharan Africa" if region == "SSF"
+{txt}(24 real changes made)
+
+{com}.                 
+.                 * tab region
+.                 tab region, missing
+
+                    {txt}region {c |}      Freq.     Percent        Cum.
+{hline 27}{c +}{hline 35}
+       East Asia & Pacific {c |}{res}         23       24.21       24.21
+{txt}     Europe & Central Asia {c |}{res}         11       11.58       35.79
+{txt} Latin America & Caribbean {c |}{res}         21       22.11       57.89
+{txt}Middle East & North Africa {c |}{res}         10       10.53       68.42
+{txt}                South Asia {c |}{res}          6        6.32       74.74
+{txt}        Sub-Saharan Africa {c |}{res}         24       25.26      100.00
+{txt}{hline 27}{c +}{hline 35}
+                     Total {c |}{res}         95      100.00
+{txt}
+{com}. 
+.                         * export table
+.                         asdoc tab region, save(region.doc) missing replace
+
+                    {txt}region {c |}      Freq.     Percent        Cum.
+{hline 27}{c +}{hline 35}
+       East Asia & Pacific {c |}{res}         23       24.21       24.21
+{txt}     Europe & Central Asia {c |}{res}         11       11.58       35.79
+{txt} Latin America & Caribbean {c |}{res}         21       22.11       57.89
+{txt}Middle East & North Africa {c |}{res}         10       10.53       68.42
+{txt}                South Asia {c |}{res}          6        6.32       74.74
+{txt}        Sub-Saharan Africa {c |}{res}         24       25.26      100.00
+{txt}{hline 27}{c +}{hline 35}
+                     Total {c |}{res}         95      100.00
+Click to Open File:  {browse "region.doc"}
+{txt}
+{com}.                         
+.         * unique countries
+.         unique country_name
+{txt}Number of unique values of country_name is  {res}60
+{txt}Number of records is  {res}95
+{txt}
+{com}.         
+.         sort region
+{txt}
+{com}.         by region: tab country_name
+
+{txt}{hline}
+-> region = East Asia & Pacific
+
+                      country_name {c |}      Freq.     Percent        Cum.
+{hline 35}{c +}{hline 35}
+                              Fiji {c |}{res}          2        8.70        8.70
+{txt}                         Indonesia {c |}{res}          4       17.39       26.09
+{txt}                           Lao PDR {c |}{res}          1        4.35       30.43
+{txt}                          Malaysia {c |}{res}          2        8.70       39.13
+{txt}                           Myanmar {c |}{res}          1        4.35       43.48
+{txt}                       Philippines {c |}{res}          5       21.74       65.22
+{txt}                          Thailand {c |}{res}          1        4.35       69.57
+{txt}                       Timor-Leste {c |}{res}          2        8.70       78.26
+{txt}                             Tonga {c |}{res}          2        8.70       86.96
+{txt}                           Vietnam {c |}{res}          3       13.04      100.00
+{txt}{hline 35}{c +}{hline 35}
+                             Total {c |}{res}         23      100.00
+
+{txt}{hline}
+-> region = Europe & Central Asia
+
+                      country_name {c |}      Freq.     Percent        Cum.
+{hline 35}{c +}{hline 35}
+                           Albania {c |}{res}          2       18.18       18.18
+{txt}                        Azerbaijan {c |}{res}          1        9.09       27.27
+{txt}                           Georgia {c |}{res}          1        9.09       36.36
+{txt}                            Kosovo {c |}{res}          1        9.09       45.45
+{txt}                           Moldova {c |}{res}          1        9.09       54.55
+{txt}                   North Macedonia {c |}{res}          2       18.18       72.73
+{txt}                            Turkey {c |}{res}          1        9.09       81.82
+{txt}                           Ukraine {c |}{res}          2       18.18      100.00
+{txt}{hline 35}{c +}{hline 35}
+                             Total {c |}{res}         11      100.00
+
+{txt}{hline}
+-> region = Latin America & Caribbean
+
+                      country_name {c |}      Freq.     Percent        Cum.
+{hline 35}{c +}{hline 35}
+                         Argentina {c |}{res}          3       14.29       14.29
+{txt}                           Bolivia {c |}{res}          1        4.76       19.05
+{txt}                            Brazil {c |}{res}          1        4.76       23.81
+{txt}                          Colombia {c |}{res}          2        9.52       33.33
+{txt}                        Costa Rica {c |}{res}          1        4.76       38.10
+{txt}                          Dominica {c |}{res}          1        4.76       42.86
+{txt}                Dominican Republic {c |}{res}          1        4.76       47.62
+{txt}                           Ecuador {c |}{res}          1        4.76       52.38
+{txt}                       El Salvador {c |}{res}          1        4.76       57.14
+{txt}                           Grenada {c |}{res}          1        4.76       61.90
+{txt}                          Honduras {c |}{res}          1        4.76       66.67
+{txt}                           Jamaica {c |}{res}          1        4.76       71.43
+{txt}                          Paraguay {c |}{res}          2        9.52       80.95
+{txt}                         St. Lucia {c |}{res}          1        4.76       85.71
+{txt}    St. Vincent and the Grenadines {c |}{res}          1        4.76       90.48
+{txt}                     Venezuela, RB {c |}{res}          2        9.52      100.00
+{txt}{hline 35}{c +}{hline 35}
+                             Total {c |}{res}         21      100.00
+
+{txt}{hline}
+-> region = Middle East & North Africa
+
+                      country_name {c |}      Freq.     Percent        Cum.
+{hline 35}{c +}{hline 35}
+                  Egypt, Arab Rep. {c |}{res}          3       30.00       30.00
+{txt}                            Jordan {c |}{res}          3       30.00       60.00
+{txt}                           Morocco {c |}{res}          1       10.00       70.00
+{txt}                           Tunisia {c |}{res}          2       20.00       90.00
+{txt}                West Bank and Gaza {c |}{res}          1       10.00      100.00
+{txt}{hline 35}{c +}{hline 35}
+                             Total {c |}{res}         10      100.00
+
+{txt}{hline}
+-> region = South Asia
+
+                      country_name {c |}      Freq.     Percent        Cum.
+{hline 35}{c +}{hline 35}
+                            Bhutan {c |}{res}          1       16.67       16.67
+{txt}                             India {c |}{res}          2       33.33       50.00
+{txt}                          Maldives {c |}{res}          1       16.67       66.67
+{txt}                             Nepal {c |}{res}          2       33.33      100.00
+{txt}{hline 35}{c +}{hline 35}
+                             Total {c |}{res}          6      100.00
+
+{txt}{hline}
+-> region = Sub-Saharan Africa
+
+                      country_name {c |}      Freq.     Percent        Cum.
+{hline 35}{c +}{hline 35}
+                             Benin {c |}{res}          2        8.33        8.33
+{txt}                      Burkina Faso {c |}{res}          1        4.17       12.50
+{txt}                        Cape Verde {c |}{res}          1        4.17       16.67
+{txt}                     Côte d'Ivoire {c |}{res}          2        8.33       25.00
+{txt}                             Ghana {c |}{res}          2        8.33       33.33
+{txt}                             Kenya {c |}{res}          1        4.17       37.50
+{txt}                           Lesotho {c |}{res}          1        4.17       41.67
+{txt}                         Mauritius {c |}{res}          1        4.17       45.83
+{txt}                        Mozambique {c |}{res}          1        4.17       50.00
+{txt}                            Rwanda {c |}{res}          1        4.17       54.17
+{txt}                      Sierra Leone {c |}{res}          2        8.33       62.50
+{txt}                      South Africa {c |}{res}          1        4.17       66.67
+{txt}                             Sudan {c |}{res}          2        8.33       75.00
+{txt}                              Togo {c |}{res}          1        4.17       79.17
+{txt}                            Uganda {c |}{res}          1        4.17       83.33
+{txt}                            Zambia {c |}{res}          1        4.17       87.50
+{txt}                          Zimbabwe {c |}{res}          3       12.50      100.00
+{txt}{hline 35}{c +}{hline 35}
+                             Total {c |}{res}         24      100.00
+
+{txt}
+{com}.         
+.         * sp_area (sa, si or lm)
+.         tab sp_area, m
+
+                 {txt}sp_area {c |}      Freq.     Percent        Cum.
+{hline 25}{c +}{hline 35}
+    1. Social assistance {c |}{res}         85       89.47       89.47
+{txt}     2. Social insurance {c |}{res}          3        3.16       92.63
+{txt}3. Labor market programs {c |}{res}          7        7.37      100.00
+{txt}{hline 25}{c +}{hline 35}
+                   Total {c |}{res}         95      100.00
+{txt}
+{com}.         
+.                 * export table
+.                 asdoc tab sp_area, save(sp_area.doc) missing replace
+
+                 {txt}sp_area {c |}      Freq.     Percent        Cum.
+{hline 25}{c +}{hline 35}
+    1. Social assistance {c |}{res}         85       89.47       89.47
+{txt}     2. Social insurance {c |}{res}          3        3.16       92.63
+{txt}3. Labor market programs {c |}{res}          7        7.37      100.00
+{txt}{hline 25}{c +}{hline 35}
+                   Total {c |}{res}         95      100.00
+Click to Open File:  {browse "sp_area.doc"}
+{txt}
+{com}.                         
+.         * sp_sub_category
+.         tab sp_sub_category, missing
+
+                        {txt}sp_sub_category {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+    1.1.1. Unconditional cash transfers {c |}{res}         71       74.74       74.74
+{txt}      1.2.1. Conditional cash transfers {c |}{res}          1        1.05       75.79
+{txt}       1.4.2. In-kind food distribution {c |}{res}          4        4.21       80.00
+{txt}1.4.2. In-kind food distribution, 1.4.. {c |}{res}          1        1.05       81.05
+{txt}1.4.3. Health kits and other inkind t.. {c |}{res}          2        2.11       83.16
+{txt}                   1.6.1. Cash for work {c |}{res}          6        6.32       89.47
+{txt}                2.5.1. Health insurance {c |}{res}          1        1.05       90.53
+{txt}      2.6.1. Out-of-work income support {c |}{res}          2        2.11       92.63
+{txt}3.2.2. Training (vocational, life ski.. {c |}{res}          2        2.11       94.74
+{txt}3.4.1. Wage subsidy with reduced work.. {c |}{res}          1        1.05       95.79
+{txt}3.4.2. Wage subsidy without reduced w.. {c |}{res}          4        4.21      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+{txt}
+{com}.         
+.                         * export table
+.                         asdoc tab sp_sub_category, save(sp_sub_category) missing replace
+
+                        {txt}sp_sub_category {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+    1.1.1. Unconditional cash transfers {c |}{res}         71       74.74       74.74
+{txt}      1.2.1. Conditional cash transfers {c |}{res}          1        1.05       75.79
+{txt}       1.4.2. In-kind food distribution {c |}{res}          4        4.21       80.00
+{txt}1.4.2. In-kind food distribution, 1.4.3 {c |}{res}          1        1.05       81.05
+{txt}1.4.3. Health kits and other inkind tra {c |}{res}          2        2.11       83.16
+{txt}                   1.6.1. Cash for work {c |}{res}          6        6.32       89.47
+{txt}                2.5.1. Health insurance {c |}{res}          1        1.05       90.53
+{txt}      2.6.1. Out-of-work income support {c |}{res}          2        2.11       92.63
+{txt}3.2.2. Training (vocational, life skill {c |}{res}          2        2.11       94.74
+{txt}3.4.1. Wage subsidy with reduced work t {c |}{res}          1        1.05       95.79
+{txt}3.4.2. Wage subsidy without reduced wor {c |}{res}          4        4.21      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+Click to Open File:  {browse "sp_sub_category.doc"}
+{txt}
+{com}. 
+.         * benefit_new
+.         tab benefit_new, missing
+
+                            {txt}benefit_new {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+0. Adaptation or new benefit of a pre.. {c |}{res}         20       21.05       21.05
+{txt}                                 1. New {c |}{res}         75       78.95      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+{txt}
+{com}.         
+.                         * export table
+.                         asdoc tab benefit_new, save(binary_stat.doc) missing replace                    
+
+                            {txt}benefit_new {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+0. Adaptation or new benefit of a previ {c |}{res}         20       21.05       21.05
+{txt}                                 1. New {c |}{res}         75       78.95      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+Click to Open File:  {browse "binary_stat.doc"}
+{txt}
+{com}.         
+.         * household or individual
+.         tab ben_unit_plan, missing
+
+ {txt}ben_unit_plan {c |}      Freq.     Percent        Cum.
+{hline 15}{c +}{hline 35}
+               {c |}{res}         26       27.37       27.37
+{txt}  1. Household {c |}{res}         27       28.42       55.79
+{txt}2. Individuals {c |}{res}         42       44.21      100.00
+{txt}{hline 15}{c +}{hline 35}
+         Total {c |}{res}         95      100.00
+{txt}
+{com}.         
+.                         * export table
+.                         asdoc tab ben_unit_plan, save(binary_stat.doc) missing append
+
+ {txt}ben_unit_plan {c |}      Freq.     Percent        Cum.
+{hline 15}{c +}{hline 35}
+  1. Household {c |}{res}         27       28.42       28.42
+{txt}2. Individuals {c |}{res}         42       44.21       72.63
+{txt}             . {c |}{res}         26       27.37      100.00
+{txt}{hline 15}{c +}{hline 35}
+         Total {c |}{res}         95      100.00
+Click to Open File:  {browse "binary_stat.doc"}
+{txt}
+{com}.         
+.         * benefit temp or one-off
+.         tab benefit_temp, missing
+
+                           {txt}benefit_temp {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}          6        6.32        6.32
+{txt}                             1. One-off {c |}{res}         32       33.68       40.00
+{txt}             2. Temporary (not one-off) {c |}{res}         53       55.79       95.79
+{txt}                           3. Permanent {c |}{res}          2        2.11       97.89
+{txt}              3. Temporary to Permanent {c |}{res}          1        1.05       98.95
+{txt}              4. Temporary to Permanent {c |}{res}          1        1.05      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+{txt}
+{com}.         
+.                 * correctly wrongly coded var
+.                 replace benefit_temp = "4. Temporary to Permanent" if benefit_temp == "3. Temporary to Permanent"
+{txt}(1 real change made)
+
+{com}.                 
+.                 * generate dummy var for all subcategories
+.                 forvalues v = 1/4 {c -(}
+{txt}  2{com}.                         gen benefit_temp_`v' = regexm(benefit_temp, "`v'") == 1 
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                 
+.                 * label newly created dummy variables
+.                 label var benefit_temp_1 "1.One-off"
+{txt}
+{com}.                 label var benefit_temp_2 "2.Temporary (not one-off)"
+{txt}
+{com}.                 label var benefit_temp_3 "3.Permanent"
+{txt}
+{com}.                 label var benefit_temp_4 "4.Temporary to Permanent"
+{txt}
+{com}.                 
+.                 * summarize subcategories (including repetitives)
+.                 fsum benefit_temp_*, label
+
+{txt}{ralign 15: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 16}{c +}{hline 45}
+{ralign 15 : benefit_temp_1} {c |}{res}{ralign 0:       95     0.34     0.48     0.00     1.00{space 0}}{ralign 0:{col 65}1.One-off}
+{txt}{ralign 15 : benefit_temp_2} {c |}{res}{ralign 0:       95     0.56     0.50     0.00     1.00{space 0}}{ralign 0:{col 65}2.Temporary (not one-off)}
+{txt}{ralign 15 : benefit_temp_3} {c |}{res}{ralign 0:       95     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 65}3.Permanent}
+{txt}{ralign 15 : benefit_temp_4} {c |}{res}{ralign 0:       95     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 65}4.Temporary to Permanent}
+{txt}
+{com}.                 
+.          * rename Column3
+.          rename Column3 including_informal
+{res}{txt}
+{com}.          tab including_informal, missing
+
+      {txt}Column3 {c |}      Freq.     Percent        Cum.
+{hline 14}{c +}{hline 35}
+              {c |}{res}         16       16.84       16.84
+{txt}    including {c |}{res}         52       54.74       71.58
+{txt}only informal {c |}{res}         27       28.42      100.00
+{txt}{hline 14}{c +}{hline 35}
+        Total {c |}{res}         95      100.00
+{txt}
+{com}.                         
+.                         * export table
+.                         asdoc tab including_informal, save(including_informal) missing replace
+
+      {txt}Column3 {c |}      Freq.     Percent        Cum.
+{hline 14}{c +}{hline 35}
+    including {c |}{res}         52       54.74       54.74
+{txt}only informal {c |}{res}         27       28.42       83.16
+{txt}            . {c |}{res}         16       16.84      100.00
+{txt}{hline 14}{c +}{hline 35}
+        Total {c |}{res}         95      100.00
+Click to Open File:  {browse "including_informal.doc"}
+{txt}
+{com}.         
+.         * =====================
+.         * 2 - Social Assistance
+.         * =====================
+.         
+.         * sa_policy_adap
+.         tab sa_policy_adap, missing
+
+                         {txt}sa_policy_adap {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}         11       11.58       11.58
+{txt}1.1.Vertical expansion (multiple paym.. {c |}{res}          2        2.11       13.68
+{txt}       1.2.Vertical expansion (one-off) {c |}{res}          1        1.05       14.74
+{txt}2.1.Horizontal expansion (Existing pr.. {c |}{res}          4        4.21       18.95
+{txt}2.3.Horizontal expansion (new targete.. {c |}{res}         29       30.53       49.47
+{txt}2.5.Horizontal expansion (new targete.. {c |}{res}         45       47.37       96.84
+{txt}3.1.Horizontal expansion & vertical e.. {c |}{res}          3        3.16      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+{txt}
+{com}.                 * gen new var to reduce dimensions of measuring
+.                 gen expansion_type = ""
+{txt}(95 missing values generated)
+
+{com}.                 replace expansion_type = "Vertical" if strmatch(sa_policy_adap, "*Vertical*")
+{txt}variable {bf}{res}expansion_type{sf}{txt} was {bf}{res}str1{sf}{txt} now {bf}{res}str8{sf}
+{txt}(3 real changes made)
+
+{com}.                 replace expansion_type = "Horizontal" if strmatch(sa_policy_adap, "*Horizontal*")
+{txt}variable {bf}{res}expansion_type{sf}{txt} was {bf}{res}str8{sf}{txt} now {bf}{res}str10{sf}
+{txt}(81 real changes made)
+
+{com}.                 
+.                 * export table
+.                 asdoc tab sa_policy_adap, save(sa_policy_adap.doc) missing replace
+
+                         {txt}sa_policy_adap {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+1.1.Vertical expansion (multiple paymen {c |}{res}          2        2.11        2.11
+{txt}       1.2.Vertical expansion (one-off) {c |}{res}          1        1.05        3.16
+{txt}2.1.Horizontal expansion (Existing prog {c |}{res}          4        4.21        7.37
+{txt}2.3.Horizontal expansion (new targeted  {c |}{res}         29       30.53       37.89
+{txt}2.5.Horizontal expansion (new targeted  {c |}{res}         45       47.37       85.26
+{txt}3.1.Horizontal expansion & vertical exp {c |}{res}          3        3.16       88.42
+{txt}                                      . {c |}{res}         11       11.58      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+Click to Open File:  {browse "sa_policy_adap.doc"}
+{txt}
+{com}.         
+.         * tab expansion type
+.         tab expansion_type, missing
+
+{txt}expansion_t {c |}
+        ype {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+            {c |}{res}         11       11.58       11.58
+{txt} Horizontal {c |}{res}         81       85.26       96.84
+{txt}   Vertical {c |}{res}          3        3.16      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         95      100.00
+{txt}
+{com}.         
+.                 * export table
+.                 asdoc tab expansion_type, save(expansion_type.doc) missing replace
+
+   {txt}__000000 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+ Horizontal {c |}{res}         81       85.26       85.26
+{txt}   Vertical {c |}{res}          3        3.16       88.42
+{txt}          . {c |}{res}         11       11.58      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         95      100.00
+Click to Open File:  {browse "expansion_type.doc"}
+{txt}
+{com}.         
+.         * rural vs urban
+.         tab sa_location, missing
+
+                        {txt}sa_location {c |}      Freq.     Percent        Cum.
+{hline 36}{c +}{hline 35}
+                                    {c |}{res}         78       82.11       82.11
+{txt}                      1.	Rural only {c |}{res}          2        2.11       84.21
+{txt}2.	Urban only (includes peri-urban) {c |}{res}          5        5.26       89.47
+{txt}                 3.	Rural and urban {c |}{res}         10       10.53      100.00
+{txt}{hline 36}{c +}{hline 35}
+                              Total {c |}{res}         95      100.00
+{txt}
+{com}.                 
+.                 * export table
+.                 asdoc tab sa_location, save(sa_location.doc) missing replace
+
+                        {txt}sa_location {c |}      Freq.     Percent        Cum.
+{hline 36}{c +}{hline 35}
+                      1.	Rural only {c |}{res}          2        2.11        2.11
+{txt}2.	Urban only (includes peri-urban) {c |}{res}          5        5.26        7.37
+{txt}                 3.	Rural and urban {c |}{res}         10       10.53       17.89
+{txt}                                  . {c |}{res}         78       82.11      100.00
+{txt}{hline 36}{c +}{hline 35}
+                              Total {c |}{res}         95      100.00
+Click to Open File:  {browse "sa_location.doc"}
+{txt}
+{com}.         
+.         * benefit type
+.         tab sa_b_type, missing
+
+               {txt}sa_b_type {c |}      Freq.     Percent        Cum.
+{hline 25}{c +}{hline 35}
+                         {c |}{res}         27       28.42       28.42
+{txt}                 1. Cash {c |}{res}         60       63.16       91.58
+{txt}   1. Cash, 2. Near cash {c |}{res}          1        1.05       92.63
+{txt}            2. Near cash {c |}{res}          1        1.05       93.68
+{txt}              3. In-kind {c |}{res}          6        6.32      100.00
+{txt}{hline 25}{c +}{hline 35}
+                   Total {c |}{res}         95      100.00
+{txt}
+{com}.         
+.                 * export table
+.                 asdoc tab sa_b_type, save(sa_b_type.doc) missing replace
+
+            {txt}sa_b_type {c |}      Freq.     Percent        Cum.
+{hline 22}{c +}{hline 35}
+              1. Cash {c |}{res}         60       63.16       63.16
+{txt}1. Cash, 2. Near cash {c |}{res}          1        1.05       64.21
+{txt}         2. Near cash {c |}{res}          1        1.05       65.26
+{txt}           3. In-kind {c |}{res}          6        6.32       71.58
+{txt}                    . {c |}{res}         27       28.42      100.00
+{txt}{hline 22}{c +}{hline 35}
+                Total {c |}{res}         95      100.00
+Click to Open File:  {browse "sa_b_type.doc"}
+{txt}
+{com}.         
+.         *** indentification_instruments
+.                 
+.                 * Initial tab - finding which program used multiple targeting methods
+.                 tab identification_instruments, missing
+
+             {txt}identification_instruments {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}         63       66.32       66.32
+{txt}                     1. Social registry {c |}{res}          7        7.37       73.68
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          3        3.16       76.84
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        1.05       77.89
+{txt}3. Civil registry (ID, voting ID, bir.. {c |}{res}          2        2.11       80.00
+{txt}4. Other governoment registry (social.. {c |}{res}          2        2.11       82.11
+{txt}5. Informal workers/self-employed reg.. {c |}{res}          2        2.11       84.21
+{txt}6. Open registration/new enrolment ca.. {c |}{res}         12       12.63       96.84
+{txt}                              7. Others {c |}{res}          3        3.16      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+{txt}
+{com}.                 
+.                 * generate dummy var for all subcategories
+.                 forvalues v = 1/7 {c -(}
+{txt}  2{com}.                         gen identification_instruments_`v' = regexm(identification_instruments, "`v'") == 1     
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                         
+.                 * label newly created dummy variables
+.                 label var identification_instruments_1 "1.Social registry"
+{txt}
+{com}.                 label var identification_instruments_2 "2.Existing beneficiary database"
+{txt}
+{com}.                 label var identification_instruments_3 "3.Civil registry"
+{txt}
+{com}.                 label var identification_instruments_4 "4.Other government registry"
+{txt}
+{com}.                 label var identification_instruments_5 "5.Informal workers/self-employed registry"
+{txt}
+{com}.                 label var identification_instruments_6 "6.Open registraion/new enrolment campaign"
+{txt}
+{com}.                 label var identification_instruments_7 "7.Others"
+{txt}
+{com}.                 
+.                 * summarize subcategories (including repetitives)
+.                 fsum identification_instruments_*, label
+
+{txt}{ralign 29: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 30}{c +}{hline 45}
+{ralign 29 : identification_instruments_1} {c |}{res}{ralign 0:       95     0.08     0.28     0.00     1.00{space 0}}{ralign 0:{col 79}1.Social registry}
+{txt}{ralign 29 : identification_instruments_2} {c |}{res}{ralign 0:       95     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 79}2.Existing beneficiary database}
+{txt}{ralign 29 : identification_instruments_3} {c |}{res}{ralign 0:       95     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 79}3.Civil registry}
+{txt}{ralign 29 : identification_instruments_4} {c |}{res}{ralign 0:       95     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 79}4.Other government registry}
+{txt}{ralign 29 : identification_instruments_5} {c |}{res}{ralign 0:       95     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 79}5.Informal workers/self-employed registry}
+{txt}{ralign 29 : identification_instruments_6} {c |}{res}{ralign 0:       95     0.13     0.33     0.00     1.00{space 0}}{ralign 0:{col 79}6.Open registraion/new enrolment campaign}
+{txt}{ralign 29 : identification_instruments_7} {c |}{res}{ralign 0:       95     0.03     0.18     0.00     1.00{space 0}}{ralign 0:{col 79}7.Others}
+{txt}
+{com}.                 
+.         /*** targeting method - not validated"
+>                 
+>                 * replace website input as missing
+>                 replace sa_targ_method = "" if strmatch(sa_targ_method, "*https*")
+>                 
+>                 * Initial tab - finding which program used multiple targeting methods
+>                 tab sa_targ_method, missing
+>                 
+>                 * generate dummy var for all subcategories
+>                 forvalues v = 0/8 {c -(}
+>                         gen sa_targ_method_`v' = regexm(sa_targ_method, "`v'") == 1     
+>                         {c )-}
+>                 
+>                 * label newly created dummy variables
+>                 label var sa_targ_method_0 "0.Universal"
+>                 label var sa_targ_method_1 "1.Geographical"
+>                 label var sa_targ_method_2 "2.Categorical"
+>                 label var sa_targ_method_3 "3.Community-based"
+>                 label var sa_targ_method_4 "4.Means/income"
+>                 label var sa_targ_method_5 "5.Proxy-means test"
+>                 label var sa_targ_method_6 "6.Self-targeting"
+>                 label var sa_targ_method_7 "7.Pension-tested"
+>                 label var sa_targ_method_8 "8.Other"
+>                 
+>                 * summarize subcategories (including repetitives)
+>                 fsum sa_targ_method_*, label*/
+.         
+.         *** targeting groups
+.         
+.                 * generate dummy var for all subcategories
+.                 forvalues v = 0/28 {c -(}
+{txt}  2{com}.                         gen sa_targ_group_`v' = regexm(sa_targ_group, "`v.'") == 1      
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                 
+.                 * label newly created dummy variables
+.                 label var sa_targ_group_0 "0.All/entire population"
+{txt}
+{com}.                 label var sa_targ_group_1 "1.Children (under 15)"
+{txt}
+{com}.                 label var sa_targ_group_2 "2.Youth (16-25)"
+{txt}
+{com}.                 label var sa_targ_group_3 "3.Adults (18 plus)"
+{txt}
+{com}.                 label var sa_targ_group_4 "4.Working age (16-64)"
+{txt}
+{com}.                 label var sa_targ_group_5 "5.Elderly (65 plus)"
+{txt}
+{com}.                 label var sa_targ_group_6 "6.Families"
+{txt}
+{com}.                 label var sa_targ_group_7 "7.Parents (all)"
+{txt}
+{com}.                 label var sa_targ_group_8 "8.Parents (of young children)"
+{txt}
+{com}.                 label var sa_targ_group_9 "9. Women (all)"
+{txt}
+{com}.                 label var sa_targ_group_10 "10. Women (pregnant, lactating or with children)"
+{txt}
+{com}.                 label var sa_targ_group_11 "11.Men"
+{txt}
+{com}.                 label var sa_targ_group_12 "12. Indigenous"
+{txt}
+{com}.                 label var sa_targ_group_13 "13.Disabled"
+{txt}
+{com}.                 label var sa_targ_group_14 "14.Migrants"
+{txt}
+{com}.                 label var sa_targ_group_15 "15.COVID-19 risk group"
+{txt}
+{com}.                 label var sa_targ_group_16 "16.Homeless"
+{txt}
+{com}.                 label var sa_targ_group_17 "17.Frontline workers"
+{txt}
+{com}.                 label var sa_targ_group_18 "18.Cross-border commuters"
+{txt}
+{com}.                 label var sa_targ_group_19 "19.Veterants"
+{txt}
+{com}.                 label var sa_targ_group_20 "20.Unemployed"
+{txt}
+{com}.                 label var sa_targ_group_21 "21.All employment"
+{txt}
+{com}.                 label var sa_targ_group_22 "22.Wage emplyment"
+{txt}
+{com}.                 label var sa_targ_group_23 "23.Self-employed"
+{txt}
+{com}.                 label var sa_targ_group_24 "24.Informal sector workers"
+{txt}
+{com}.                 label var sa_targ_group_25 "25.Workers in non-standard form of employment"
+{txt}
+{com}.                 label var sa_targ_group_26 "26.Students"
+{txt}
+{com}.                 label var sa_targ_group_27 "27.Poor and vulnerable"
+{txt}
+{com}.                 label var sa_targ_group_28 "28.Other"
+{txt}
+{com}.                 
+.                 * summarize subcategories (including repetitives)
+.                 fsum sa_targ_group_*, label
+
+{txt}{ralign 17: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 18}{c +}{hline 45}
+{ralign 17 : sa_targ_group_0} {c |}{res}{ralign 0:       95     0.09     0.29     0.00     1.00{space 0}}{ralign 0:{col 67}0.All/entire population}
+{txt}{ralign 17 : sa_targ_group_1} {c |}{res}{ralign 0:       95     0.07     0.26     0.00     1.00{space 0}}{ralign 0:{col 67}1.Children (under 15)}
+{txt}{ralign 17 : sa_targ_group_2} {c |}{res}{ralign 0:       95     0.65     0.48     0.00     1.00{space 0}}{ralign 0:{col 67}2.Youth (16-25)}
+{txt}{ralign 17 : sa_targ_group_3} {c |}{res}{ralign 0:       95     0.27     0.45     0.00     1.00{space 0}}{ralign 0:{col 67}3.Adults (18 plus)}
+{txt}{ralign 17 : sa_targ_group_4} {c |}{res}{ralign 0:       95     0.45     0.50     0.00     1.00{space 0}}{ralign 0:{col 67}4.Working age (16-64)}
+{txt}{ralign 17 : sa_targ_group_5} {c |}{res}{ralign 0:       95     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 67}5.Elderly (65 plus)}
+{txt}{ralign 17 : sa_targ_group_6} {c |}{res}{ralign 0:       95     0.07     0.26     0.00     1.00{space 0}}{ralign 0:{col 67}6.Families}
+{txt}{ralign 17 : sa_targ_group_7} {c |}{res}{ralign 0:       95     0.08     0.28     0.00     1.00{space 0}}{ralign 0:{col 67}7.Parents (all)}
+{txt}{ralign 17 : sa_targ_group_8} {c |}{res}{ralign 0:       95     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 67}8.Parents (of young children)}
+{txt}{ralign 17 : sa_targ_group_9} {c |}{res}{ralign 0:       95     0.03     0.18     0.00     1.00{space 0}}{ralign 0:{col 67}9. Women (all)}
+{txt}{ralign 17 : sa_targ_group_10} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}10. Women (pregnant, lactating or with children)}
+{txt}{ralign 17 : sa_targ_group_11} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}11.Men}
+{txt}{ralign 17 : sa_targ_group_12} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}12. Indigenous}
+{txt}{ralign 17 : sa_targ_group_13} {c |}{res}{ralign 0:       95     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}13.Disabled}
+{txt}{ralign 17 : sa_targ_group_14} {c |}{res}{ralign 0:       95     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 67}14.Migrants}
+{txt}{ralign 17 : sa_targ_group_15} {c |}{res}{ralign 0:       95     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}15.COVID-19 risk group}
+{txt}{ralign 17 : sa_targ_group_16} {c |}{res}{ralign 0:       95     0.03     0.18     0.00     1.00{space 0}}{ralign 0:{col 67}16.Homeless}
+{txt}{ralign 17 : sa_targ_group_17} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}17.Frontline workers}
+{txt}{ralign 17 : sa_targ_group_18} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}18.Cross-border commuters}
+{txt}{ralign 17 : sa_targ_group_19} {c |}{res}{ralign 0:       95     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}19.Veterants}
+{txt}{ralign 17 : sa_targ_group_20} {c |}{res}{ralign 0:       95     0.08     0.28     0.00     1.00{space 0}}{ralign 0:{col 67}20.Unemployed}
+{txt}{ralign 17 : sa_targ_group_21} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}21.All employment}
+{txt}{ralign 17 : sa_targ_group_22} {c |}{res}{ralign 0:       95     0.01     0.10     0.00     1.00{space 0}}{ralign 0:{col 67}22.Wage emplyment}
+{txt}{ralign 17 : sa_targ_group_23} {c |}{res}{ralign 0:       95     0.27     0.45     0.00     1.00{space 0}}{ralign 0:{col 67}23.Self-employed}
+{txt}{ralign 17 : sa_targ_group_24} {c |}{res}{ralign 0:       95     0.42     0.50     0.00     1.00{space 0}}{ralign 0:{col 67}24.Informal sector workers}
+{txt}{ralign 17 : sa_targ_group_25} {c |}{res}{ralign 0:       95     0.03     0.18     0.00     1.00{space 0}}{ralign 0:{col 67}25.Workers in non-standard form of employment}
+{txt}{ralign 17 : sa_targ_group_26} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 67}26.Students}
+{txt}{ralign 17 : sa_targ_group_27} {c |}{res}{ralign 0:       95     0.08     0.28     0.00     1.00{space 0}}{ralign 0:{col 67}27.Poor and vulnerable}
+{txt}{ralign 17 : sa_targ_group_28} {c |}{res}{ralign 0:       95     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 67}28.Other}
+{txt}
+{com}. 
+.         *** payment mechanisam
+.         
+.                 * generate dummy var for all sub-categories
+.                 forvalues v = 1/5 {c -(}
+{txt}  2{com}.                         gen sa_payment_mecha_`v' = regexm(sa_payment_mecha, "`v'") == 1
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                 
+.                 * label newly created dummy variables
+.                 label var sa_payment_mecha_1 "1.Fully functional account"
+{txt}
+{com}.                 label var sa_payment_mecha_2 "2.Limited purpose account"
+{txt}
+{com}.                 label var sa_payment_mecha_3 "3.Electronic non-account based"
+{txt}
+{com}.                 label var sa_payment_mecha_4 "4.Check or voucher"
+{txt}
+{com}.                 label var sa_payment_mecha_5 "5.Cash"
+{txt}
+{com}.                 
+.                 * summarize subcategories (including repetitives)
+.                 fsum sa_payment_mecha_*, label
+
+{txt}{ralign 19: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 20}{c +}{hline 45}
+{ralign 19 : sa_payment_mecha_1} {c |}{res}{ralign 0:       95     0.22     0.42     0.00     1.00{space 0}}{ralign 0:{col 69}1.Fully functional account}
+{txt}{ralign 19 : sa_payment_mecha_2} {c |}{res}{ralign 0:       95     0.05     0.22     0.00     1.00{space 0}}{ralign 0:{col 69}2.Limited purpose account}
+{txt}{ralign 19 : sa_payment_mecha_3} {c |}{res}{ralign 0:       95     0.06     0.24     0.00     1.00{space 0}}{ralign 0:{col 69}3.Electronic non-account based}
+{txt}{ralign 19 : sa_payment_mecha_4} {c |}{res}{ralign 0:       95     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 69}4.Check or voucher}
+{txt}{ralign 19 : sa_payment_mecha_5} {c |}{res}{ralign 0:       95     0.15     0.36     0.00     1.00{space 0}}{ralign 0:{col 69}5.Cash}
+{txt}
+{com}. 
+.         *** payment instruments
+.                 * generate dummy var for all sub-categories
+.                 forvalues v = 1/6 {c -(}
+{txt}  2{com}.                         gen sa_payment_instruments_`v' = regexm(sa_payment_instruments, "`v'")  == 1
+{txt}  3{com}.                         {c )-}
+{txt}
+{com}.                         
+.                 * summarize subcategories (including repetitives)
+.                 label var sa_payment_instruments_1 "1.Debit card (general purpose)"
+{txt}
+{com}.                 label var sa_payment_instruments_2 "2.Prepaid or program card (limited purpose)"
+{txt}
+{com}.                 label var sa_payment_instruments_3 "3.E-wallet or mobile banking"
+{txt}
+{com}.                 label var sa_payment_instruments_4 "4.Unique-cose based payment or OTP"
+{txt}
+{com}.                 label var sa_payment_instruments_5 "5.Biometric"
+{txt}
+{com}.                 label var sa_payment_instruments_6 "6.Other"
+{txt}
+{com}.                 
+.                 * summarize subcategories (including repetitives)
+.                 fsum sa_payment_instruments_*, label
+
+{txt}{ralign 25: Variable} {c |}{ralign 9:N}{ralign 9:Mean}{ralign 9:SD}{ralign 9:Min}{ralign 9:Max}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}{ralign 9:}
+{hline 26}{c +}{hline 45}
+{ralign 25 : sa_payment_instruments_1} {c |}{res}{ralign 0:       95     0.12     0.32     0.00     1.00{space 0}}{ralign 0:{col 75}1.Debit card (general purpose)}
+{txt}{ralign 25 : sa_payment_instruments_2} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 75}2.Prepaid or program card (limited purpose)}
+{txt}{ralign 25 : sa_payment_instruments_3} {c |}{res}{ralign 0:       95     0.14     0.35     0.00     1.00{space 0}}{ralign 0:{col 75}3.E-wallet or mobile banking}
+{txt}{ralign 25 : sa_payment_instruments_4} {c |}{res}{ralign 0:       95     0.04     0.20     0.00     1.00{space 0}}{ralign 0:{col 75}4.Unique-cose based payment or OTP}
+{txt}{ralign 25 : sa_payment_instruments_5} {c |}{res}{ralign 0:       95     0.00     0.00     0.00     0.00{space 0}}{ralign 0:{col 75}5.Biometric}
+{txt}{ralign 25 : sa_payment_instruments_6} {c |}{res}{ralign 0:       95     0.02     0.14     0.00     1.00{space 0}}{ralign 0:{col 75}6.Other}
+{txt}
+{com}.                         
+. * ================================================
+. * Ranking country program & name by program size *
+. * ================================================
+.         
+.         * replace long/irrgular program name
+.         replace program_name = "Aide exceptionnelle de 200 dinars" if strmatch(program_name, "*dinars*")
+{txt}(1 real change made)
+
+{com}.         replace program_name = "Bihar's Corona Sahayata (Assistance) Program" if strmatch(program_name, "*SAHAYATA*")
+{txt}(0 real changes made)
+
+{com}.         
+.         * ===========================
+.         * 1) Number of beneficiaries
+.         * ===========================
+.         
+.         * note that ben_plan & ben_actual need to combine with units to interpretate
+.         destring ben_plan, replace force
+{txt}ben_plan already numeric; no {res}replace
+{txt}
+{com}.                 label var ben_plan "Number of planned beneficiaries (either individual or household)"
+{txt}
+{com}.         
+.         destring ben_actual, replace force
+{txt}ben_actual already numeric; no {res}replace
+{txt}
+{com}.                 label var ben_plan "Number of actual beneficiaries (either individual or household)"
+{txt}
+{com}.                 
+.         * ben_ind_plan & ben_ind_actual reflect the converted numbers of beneficiaries
+.         destring ben_ind_plan, replace force
+{txt}ben_ind_plan already numeric; no {res}replace
+{txt}
+{com}.                 label var ben_ind_plan "Beneficiaries planned (ind) (converting hhs into individuals) CALCULATED VARIABLE"
+{txt}note: label truncated to 80 characters
+
+{com}.                 
+.                 gsort -ben_ind_plan
+{txt}
+{com}.                 list country_name program_name ben_ind_plan in 1/15 if !missing(ben_ind_plan), table
+{txt}
+     {c TLC}{hline 15}{c -}{hline 88}{c -}{hline 10}{c TRC}
+     {c |} {res} country_name   program_name                                                                             ben_in~n {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 88}{c -}{hline 10}{c RT}
+  1. {c |} {res}  Philippines    Social Amelioration Program (SAP)                                                       84600000 {txt}{c |}
+  2. {c |} {res}     Thailand   No-one left behind                                                                       15000000 {txt}{c |}
+  3. {c |} {res}       Brazil   Auxilio Emergencial 1 (AE1)                                                               6830000 {txt}{c |}
+  4. {c |} {res}Venezuela, RB   Stay at home Bonus                                                                        6000000 {txt}{c |}
+  5. {c |} {res}     Zimbabwe                                                                                             4100000 {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 88}{c -}{hline 10}{c RT}
+  6. {c |} {res}  Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second ..     863667 {txt}{c |}
+  7. {c |} {res}      Ukraine   Guaranteed Minimum Income (GMI) Program                                                    341600 {txt}{c |}
+  8. {c |} {res}  Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First T..     337198 {txt}{c |}
+  9. {c |} {res}      Georgia   One-off for the informal sector and self-employed                                          248282 {txt}{c |}
+ 10. {c |} {res}      Lesotho   Child Grants Programme (CGP) and Old Age Pension (OAP)                                     200000 {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 88}{c -}{hline 10}{c RT}
+ 11. {c |} {res}       Rwanda                                                                                               86000 {txt}{c |}
+ 12. {c |} {res}       Kosovo                                                                                               82000 {txt}{c |}
+ 13. {c |} {res}        Ghana   Covid Relief Fund                                                                           75000 {txt}{c |}
+ 14. {c |} {res}   Cape Verde   Special Regime for Small and Micro Enterprises, Special Regime for Small and Micro E..      30000 {txt}{c |}
+ 15. {c |} {res}      Albania                                                                                                   0 {txt}{c |}
+     {c BLC}{hline 15}{c -}{hline 88}{c -}{hline 10}{c BRC}
+
+{com}. 
+.         
+.         destring ben_ind_actual, replace force
+{txt}ben_ind_actual: all characters numeric; {res}replaced {txt}as {res}double
+{txt}(89 missing values generated)
+{res}{txt}
+{com}.                 label var ben_ind_actual "Beneficiaries actual (ind) (converting hhs into individuals) CALCULATED VARIABLE"
+{txt}
+{com}.                 
+.                 gsort -ben_ind_actual
+{txt}
+{com}.                 list country_name program_name ben_ind_actual in 1/15 if !missing(ben_ind_plan), table
+{txt}
+     {c TLC}{hline 13}{c -}{hline 88}{c -}{hline 10}{c TRC}
+     {c |} {res}country_n~e   program_name                                                                             ben_in~l {txt}{c |}
+     {c LT}{hline 13}{c -}{hline 88}{c -}{hline 10}{c RT}
+  1. {c |} {res}Philippines    Social Amelioration Program (SAP)                                                       82720000 {txt}{c |}
+  2. {c |} {res}   Thailand   No-one left behind                                                                       15000000 {txt}{c |}
+  3. {c |} {res}Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First T..    2600000 {txt}{c |}
+  5. {c |} {res}Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second ..     797222 {txt}{c |}
+ 11. {c |} {res}      Ghana   Covid Relief Fund                                                                               . {txt}{c |}
+     {c BLC}{hline 13}{c -}{hline 88}{c -}{hline 10}{c BRC}
+
+{com}.         
+.         /* actual coverage - how different from ben_ind_actual?
+>         gsort -acualcoverage
+>         list country_name program_name acualcoverage in -15/-1 if !missing(ben_plan), table*/
+.         
+.         * ==========================
+.         * 2) Amount of expenditures
+.         * ==========================
+.         
+.         * exp_plan_USD
+.         destring exp_plan_usd, replace
+{txt}exp_plan_usd already numeric; no {res}replace
+{txt}
+{com}.                 label var exp_plan_usd "Total expenditure (planned) in USD"
+{txt}
+{com}.         
+.                 gsort -exp_plan_usd
+{txt}
+{com}.                 list country_name program_name exp_plan_usd in 1/15 if !missing(exp_plan_usd), table
+{txt}
+     {c TLC}{hline 20}{c -}{hline 76}{c -}{hline 11}{c TRC}
+     {c |} {res}      country_name                                                                 program_name   exp_pla~d {txt}{c |}
+     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
+  1. {c |} {res}           Ukraine                                      Guaranteed Minimum Income (GMI) Program   1.112e+10 {txt}{c |}
+  2. {c |} {res}          Zimbabwe                                                                                6.000e+08 {txt}{c |}
+  3. {c |} {res}           Bolivia                                                               Bono Universal   1.924e+08 {txt}{c |}
+  4. {c |} {res}          Honduras              Unique Bonus. Assistance to Independent Workers or Own Account     68000000 {txt}{c |}
+  5. {c |} {res}           Ecuador   Bono de Protección Familiar por la Emergencia por la presencia de COVID-19    57000000 {txt}{c |}
+     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
+  6. {c |} {res}           Ukraine                                                         Unemployment benefit    47300000 {txt}{c |}
+  7. {c |} {res}          Maldives                                    COVID-19 Emergency Income Support Project    34400000 {txt}{c |}
+  8. {c |} {res}West Bank and Gaza                                                      Emergency cash transfer    13900000 {txt}{c |}
+  9. {c |} {res}         St. Lucia                                                                                6222222.2 {txt}{c |}
+ 10. {c |} {res}      Sierra Leone                                            Informal workers one-off transfer     4000000 {txt}{c |}
+     {c LT}{hline 20}{c -}{hline 76}{c -}{hline 11}{c RT}
+ 11. {c |} {res}            Bhutan           Druk Gyalpo’s Relief Kidu – Income support to affected individuals     1950000 {txt}{c |}
+     {c BLC}{hline 20}{c -}{hline 76}{c -}{hline 11}{c BRC}
+
+{com}.         
+.         * exp_actual_USD
+.         destring exp_actual_usd, replace
+{txt}exp_actual_usd already numeric; no {res}replace
+{txt}
+{com}.                 label var exp_actual_usd "Total expenditure (actual) in USD"
+{txt}
+{com}.                 
+.                 gsort -exp_actual_usd
+{txt}
+{com}.                 list country_name program_name exp_actual_usd in 1/15 if !missing(exp_actual_usd), table
+{txt}
+     {c TLC}{hline 10}{c -}{hline 16}{c -}{hline 11}{c TRC}
+     {c |} {res}count~me     program_name   exp_act~d {txt}{c |}
+     {c LT}{hline 10}{c -}{hline 16}{c -}{hline 11}{c RT}
+  1. {c |} {res} Bolivia   Bono Universal   2.634e+08 {txt}{c |}
+     {c BLC}{hline 10}{c -}{hline 16}{c -}{hline 11}{c BRC}
+
+{com}.                 
+.         
+. ********************************************************************************
+. *                   ===================================
+. *                                      Close Log
+. *                   ===================================
+. ********************************************************************************        
+. 
+.         * save changed dataset
+.         save "$cleaned/4-Cleaned Project-level Data.dta", replace
+{txt}{p 0 4 2}
+file {bf}
+/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/05 clean data/4-Cleaned Project-level Data.dta{rm}
+saved
+{p_end}
+
+{com}.                 notes: project-level data using filtered merged dataset
+{res}{txt}
+{com}.         
+.         * close log
+.         log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using filtered dataset.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}26 Mar 2022, 00:53:11
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
