@@ -13,18 +13,23 @@
 \row
 \trowd\trgaph108\trleft-108\cellx2000\cellx3500\cellx5000\cellx6500
 \ql {Horizontal}\cell
-\qr {85}\cell
-\qr {96.59}\cell
-\qr {96.59}\cell
+\qr {81}\cell
+\qr {85.26}\cell
+\qr {85.26}\cell
 \row
 \ql {Vertical}\cell
 \qr {3}\cell
-\qr {3.41}\cell
+\qr {3.16}\cell
+\qr {88.42}\cell
+\row
+\ql {.}\cell
+\qr {11}\cell
+\qr {11.58}\cell
 \qr {100.00}\cell
 \row
 \trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx2000\clbrdrt\brdrw10\brdrs\cellx3500\clbrdrt\brdrw10\brdrs\cellx5000\clbrdrt\brdrw10\brdrs\cellx6500 
 \ql {Total}\cell
-\qr {88}\cell
+\qr {95}\cell
 \qr {100.00}\cell
 \qr {}\cell
 \row

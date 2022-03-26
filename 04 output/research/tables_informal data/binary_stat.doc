@@ -13,18 +13,18 @@
 \row
 \trowd\trgaph108\trleft-108\cellx5000\cellx6500\cellx8000\cellx9500
 \ql {0. Adaptation or new benefit of a previously existing program}\cell
-\qr {22}\cell
-\qr {21.78}\cell
-\qr {21.78}\cell
+\qr {20}\cell
+\qr {21.05}\cell
+\qr {21.05}\cell
 \row
 \ql {1. New}\cell
-\qr {79}\cell
-\qr {78.22}\cell
+\qr {75}\cell
+\qr {78.95}\cell
 \qr {100.00}\cell
 \row
 \trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx5000\clbrdrt\brdrw10\brdrs\cellx6500\clbrdrt\brdrw10\brdrs\cellx8000\clbrdrt\brdrw10\brdrs\cellx9500 
 \ql {Total}\cell
-\qr {101}\cell
+\qr {95}\cell
 \qr {100.00}\cell
 \qr {}\cell
 \row
@@ -43,18 +43,23 @@
 \row
 \trowd\trgaph108\trleft-108\cellx2800\cellx4300\cellx5800\cellx7300
 \ql {1. Household}\cell
-\qr {28}\cell
-\qr {38.89}\cell
-\qr {38.89}\cell
+\qr {27}\cell
+\qr {28.42}\cell
+\qr {28.42}\cell
 \row
 \ql {2. Individuals}\cell
-\qr {44}\cell
-\qr {61.11}\cell
+\qr {42}\cell
+\qr {44.21}\cell
+\qr {72.63}\cell
+\row
+\ql {.}\cell
+\qr {26}\cell
+\qr {27.37}\cell
 \qr {100.00}\cell
 \row
 \trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx2800\clbrdrt\brdrw10\brdrs\cellx4300\clbrdrt\brdrw10\brdrs\cellx5800\clbrdrt\brdrw10\brdrs\cellx7300 
 \ql {Total}\cell
-\qr {72}\cell
+\qr {95}\cell
 \qr {100.00}\cell
 \qr {}\cell
 \row
