@@ -10,7 +10,6 @@
 				- data set provided by client
 				- manually filtered data set
 
-* Update 1: xxx, Mar 03 - "xxx"
 ********************************************************************************/
 
 
@@ -63,6 +62,8 @@
 	* browse programs that were not included in client's data, not indentified by "informal" in decription
 	br program_id informal_desc informal_targ benefit_desc if _merge == 1 & informal_desc == 0
 	
+	* save the dataset
+	save "$cleaned/3-project-level data.dta", replace
 	
 ********************************************************************************
 *                   ===================================
@@ -74,9 +75,10 @@
 	keep if _merge == 1 
 	
 	* save dataset in dta
-	save "$cleaned/3-Difference in datasets.dta", replace
+	drop _merge
+	save "$cleaned/Difference in datasets.dta", replace
 	
 	* save dataset in Excel
-	export excel "$cleaned/3-Difference in datasets.xlsx", firstrow(varlabels) replace
+	export excel "$cleaned/Difference in datasets.xlsx", firstrow(varlabels) replace
 	
 	

@@ -1,9 +1,9 @@
 {smcl}
-{txt}{sf}{ul off}{.-}
+{com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using filtered dataset.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}26 Mar 2022, 00:53:11
+ {txt}opened on:  {res}26 Mar 2022, 01:08:35
 {txt}
 {com}.         
 .         
@@ -816,27 +816,27 @@ Click to Open File:  {browse "sa_b_type.doc"}
 {txt}
 {com}.                 list country_name program_name ben_ind_plan in 1/15 if !missing(ben_ind_plan), table
 {txt}
-     {c TLC}{hline 15}{c -}{hline 88}{c -}{hline 10}{c TRC}
-     {c |} {res} country_name   program_name                                                                             ben_in~n {txt}{c |}
-     {c LT}{hline 15}{c -}{hline 88}{c -}{hline 10}{c RT}
-  1. {c |} {res}  Philippines    Social Amelioration Program (SAP)                                                       84600000 {txt}{c |}
-  2. {c |} {res}     Thailand   No-one left behind                                                                       15000000 {txt}{c |}
-  3. {c |} {res}       Brazil   Auxilio Emergencial 1 (AE1)                                                               6830000 {txt}{c |}
-  4. {c |} {res}Venezuela, RB   Stay at home Bonus                                                                        6000000 {txt}{c |}
-  5. {c |} {res}     Zimbabwe                                                                                             4100000 {txt}{c |}
-     {c LT}{hline 15}{c -}{hline 88}{c -}{hline 10}{c RT}
-  6. {c |} {res}  Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second ..     863667 {txt}{c |}
-  7. {c |} {res}      Ukraine   Guaranteed Minimum Income (GMI) Program                                                    341600 {txt}{c |}
-  8. {c |} {res}  Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First T..     337198 {txt}{c |}
-  9. {c |} {res}      Georgia   One-off for the informal sector and self-employed                                          248282 {txt}{c |}
- 10. {c |} {res}      Lesotho   Child Grants Programme (CGP) and Old Age Pension (OAP)                                     200000 {txt}{c |}
-     {c LT}{hline 15}{c -}{hline 88}{c -}{hline 10}{c RT}
- 11. {c |} {res}       Rwanda                                                                                               86000 {txt}{c |}
- 12. {c |} {res}       Kosovo                                                                                               82000 {txt}{c |}
- 13. {c |} {res}        Ghana   Covid Relief Fund                                                                           75000 {txt}{c |}
- 14. {c |} {res}   Cape Verde   Special Regime for Small and Micro Enterprises, Special Regime for Small and Micro E..      30000 {txt}{c |}
- 15. {c |} {res}      Albania                                                                                                   0 {txt}{c |}
-     {c BLC}{hline 15}{c -}{hline 88}{c -}{hline 10}{c BRC}
+     {c TLC}{hline 15}{c -}{hline 104}{c -}{hline 10}{c TRC}
+     {c |} {res} country_name                                                                                             program_name   ben_in~n {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 104}{c -}{hline 10}{c RT}
+  1. {c |} {res}  Philippines                                                                        Social Amelioration Program (SAP)   84600000 {txt}{c |}
+  2. {c |} {res}     Thailand                                                                                       No-one left behind   15000000 {txt}{c |}
+  3. {c |} {res}       Brazil                                                                              Auxilio Emergencial 1 (AE1)    6830000 {txt}{c |}
+  4. {c |} {res}Venezuela, RB                                                                                       Stay at home Bonus    6000000 {txt}{c |}
+  5. {c |} {res}     Zimbabwe                                                                                                             4100000 {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 104}{c -}{hline 10}{c RT}
+  6. {c |} {res}  Philippines              Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second Tranche     863667 {txt}{c |}
+  7. {c |} {res}      Ukraine                                                                  Guaranteed Minimum Income (GMI) Program     341600 {txt}{c |}
+  8. {c |} {res}  Philippines               Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First Tranche     337198 {txt}{c |}
+  9. {c |} {res}      Georgia                                                        One-off for the informal sector and self-employed     248282 {txt}{c |}
+ 10. {c |} {res}      Lesotho                                                   Child Grants Programme (CGP) and Old Age Pension (OAP)     200000 {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 104}{c -}{hline 10}{c RT}
+ 11. {c |} {res}       Rwanda                                                                                                               86000 {txt}{c |}
+ 12. {c |} {res}       Kosovo                                                                                                               82000 {txt}{c |}
+ 13. {c |} {res}        Ghana                                                                                        Covid Relief Fund      75000 {txt}{c |}
+ 14. {c |} {res}   Cape Verde   Special Regime for Small and Micro Enterprises, Special Regime for Small and Micro Enterprises (REMPE)      30000 {txt}{c |}
+ 15. {c |} {res}    St. Lucia                                                                                                                   0 {txt}{c |}
+     {c BLC}{hline 15}{c -}{hline 104}{c -}{hline 10}{c BRC}
 
 {com}. 
 .         
@@ -851,15 +851,17 @@ Click to Open File:  {browse "sa_b_type.doc"}
 {txt}
 {com}.                 list country_name program_name ben_ind_actual in 1/15 if !missing(ben_ind_plan), table
 {txt}
-     {c TLC}{hline 13}{c -}{hline 88}{c -}{hline 10}{c TRC}
-     {c |} {res}country_n~e   program_name                                                                             ben_in~l {txt}{c |}
-     {c LT}{hline 13}{c -}{hline 88}{c -}{hline 10}{c RT}
-  1. {c |} {res}Philippines    Social Amelioration Program (SAP)                                                       82720000 {txt}{c |}
-  2. {c |} {res}   Thailand   No-one left behind                                                                       15000000 {txt}{c |}
-  3. {c |} {res}Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First T..    2600000 {txt}{c |}
-  5. {c |} {res}Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second ..     797222 {txt}{c |}
- 11. {c |} {res}      Ghana   Covid Relief Fund                                                                               . {txt}{c |}
-     {c BLC}{hline 13}{c -}{hline 88}{c -}{hline 10}{c BRC}
+     {c TLC}{hline 15}{c -}{hline 93}{c -}{hline 10}{c TRC}
+     {c |} {res} country_name                                                                                  program_name   ben_in~l {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 93}{c -}{hline 10}{c RT}
+  1. {c |} {res}  Philippines                                                             Social Amelioration Program (SAP)   82720000 {txt}{c |}
+  2. {c |} {res}     Thailand                                                                            No-one left behind   15000000 {txt}{c |}
+  3. {c |} {res}  Philippines    Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First Tranche    2600000 {txt}{c |}
+  5. {c |} {res}  Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second Tranche     797222 {txt}{c |}
+ 10. {c |} {res}Venezuela, RB                                                                            Stay at home Bonus          . {txt}{c |}
+     {c LT}{hline 15}{c -}{hline 93}{c -}{hline 10}{c RT}
+ 12. {c |} {res}     Zimbabwe                                                                                                        . {txt}{c |}
+     {c BLC}{hline 15}{c -}{hline 93}{c -}{hline 10}{c BRC}
 
 {com}.         
 .         /* actual coverage - how different from ben_ind_actual?
@@ -925,6 +927,27 @@ Click to Open File:  {browse "sa_b_type.doc"}
 . *                   ===================================
 . ********************************************************************************        
 . 
+.         * rename _merge
+.         rename _merge data_source 
+{res}{txt}
+{com}.                 label var data_source "master-main, matched with informal"
+{txt}
+{com}.                 
+.         * fill the missing country code
+.         list country_name country_code if country_name == "Vietnam"
+{txt}
+     {c TLC}{hline 10}{c -}{hline 10}{c TRC}
+     {c |} {res}count~me   count~de {txt}{c |}
+     {c LT}{hline 10}{c -}{hline 10}{c RT}
+  6. {c |} {res} Vietnam        VNM {txt}{c |}
+ 17. {c |} {res} Vietnam        VNM {txt}{c |}
+ 87. {c |} {res} Vietnam            {txt}{c |}
+     {c BLC}{hline 10}{c -}{hline 10}{c BRC}
+
+{com}.         replace country_code = "VNM" if country_name == "Vietnam"
+{txt}(1 real change made)
+
+{com}.                 
 .         * save changed dataset
 .         save "$cleaned/4-Cleaned Project-level Data.dta", replace
 {txt}{p 0 4 2}
@@ -941,7 +964,7 @@ saved
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using filtered dataset.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}26 Mar 2022, 00:53:11
+ {txt}closed on:  {res}26 Mar 2022, 01:08:35
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

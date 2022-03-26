@@ -43,7 +43,7 @@
 	global  tables_full         "$root/04 output/tables_merged full datat"
 	
 	* using data
-	use "$cleaned/3-project-level data.dta", clear
+	use "$cleaned/3-Project-level data.dta", clear
 	
 	* using log
 	log using "$output/research/Project-level summary stat using filtered dataset.smcl", replace
@@ -357,6 +357,14 @@
 *                   ===================================
 ********************************************************************************	
 
+	* rename _merge
+	rename _merge data_source 
+		label var data_source "master-main, matched with informal"
+		
+	* fill the missing country code
+	list country_name country_code if country_name == "Vietnam"
+	replace country_code = "VNM" if country_name == "Vietnam"
+		
 	* save changed dataset
 	save "$cleaned/4-Cleaned Project-level Data.dta", replace
 		notes: project-level data using filtered merged dataset

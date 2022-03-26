@@ -1,0 +1,83 @@
+{\rtf1\ansi\deff0 {\fonttbl{\f0\fnil Garamond;}}
+{\info {\author .}{\company .}{\title .}}
+\deflang1033\plain\fs20
+{\footer\pard\qc\plain\f0\fs20\chpgn\par}
+{
+{
+{\b\qc\line Tabulation of sp_sub_category  }{\par}
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx5000\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx6500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx8000\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx9500
+\ql {sp_sub_category}\cell
+\qr {Freq.}\cell
+\qr {Percent}\cell
+\qr {Cum.}\cell
+\row
+\trowd\trgaph108\trleft-108\cellx5000\cellx6500\cellx8000\cellx9500
+\ql {1.1.1. Unconditional cash transfers}\cell
+\qr {71}\cell
+\qr {74.74}\cell
+\qr {74.74}\cell
+\row
+\ql {1.2.1. Conditional cash transfers}\cell
+\qr {1}\cell
+\qr {1.05}\cell
+\qr {75.79}\cell
+\row
+\ql {1.4.2. In-kind food distribution}\cell
+\qr {4}\cell
+\qr {4.21}\cell
+\qr {80.00}\cell
+\row
+\ql {1.4.2. In-kind food distribution, 1.4.3. Health kits and other inkind transfers}\cell
+\qr {1}\cell
+\qr {1.05}\cell
+\qr {81.05}\cell
+\row
+\ql {1.4.3. Health kits and other inkind transfers}\cell
+\qr {2}\cell
+\qr {2.11}\cell
+\qr {83.16}\cell
+\row
+\ql {1.6.1. Cash for work}\cell
+\qr {6}\cell
+\qr {6.32}\cell
+\qr {89.47}\cell
+\row
+\ql {2.5.1. Health insurance}\cell
+\qr {1}\cell
+\qr {1.05}\cell
+\qr {90.53}\cell
+\row
+\ql {2.6.1. Out-of-work income support}\cell
+\qr {2}\cell
+\qr {2.11}\cell
+\qr {92.63}\cell
+\row
+\ql {3.2.2. Training (vocational, life skills, cash for training, others)}\cell
+\qr {2}\cell
+\qr {2.11}\cell
+\qr {94.74}\cell
+\row
+\ql {3.4.1. Wage subsidy with reduced work time (including zero working hours)}\cell
+\qr {1}\cell
+\qr {1.05}\cell
+\qr {95.79}\cell
+\row
+\ql {3.4.2. Wage subsidy without reduced work time (include waivers/payments of social security)}\cell
+\qr {4}\cell
+\qr {4.21}\cell
+\qr {100.00}\cell
+\row
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx5000\clbrdrt\brdrw10\brdrs\cellx6500\clbrdrt\brdrw10\brdrs\cellx8000\clbrdrt\brdrw10\brdrs\cellx9500 
+\ql {Total}\cell
+\qr {95}\cell
+\qr {100.00}\cell
+\qr {}\cell
+\row
+}
+{\trowd\trgaph108\trleft-108
+\clbrdrt\brdrw15\brdrs\cellx9500\cell
+\row}
+
+
+\writepositionforappend
+}}

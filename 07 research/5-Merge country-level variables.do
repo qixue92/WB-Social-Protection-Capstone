@@ -46,7 +46,7 @@
 *                   ===================================
 ********************************************************************************
 
-	import excel "$raw/Capstone 2 Macro Data.xlsx", ///
+	/*import excel "$raw/Capstone 2 Macro Data.xlsx", ///
 	sheet("Main") firstrow clear
 	 
 	compress ///save storage space
@@ -57,7 +57,7 @@
 	save "$imported/Macro_Data.dta", replace
 	
 	label data "Country-lavel macro data"
-		notes: Source: country-level macro data agreed in the research plan as of Feb 2022.
+		notes: Source: country-level macro data agreed in the research plan as of Feb 2022.*/
 	
 	
 ********************************************************************************
@@ -67,15 +67,30 @@
 ********************************************************************************
 
 	* use filtered data
-	use "$cleaned/4-Cleaned Project-level Data.dta", clear
-	
-		* fill the missing country code before merging
-		list country_name country_code if country_name == "Vietnam"
-		replace country_code = "VNM" if country_name == "Vietnam"
-
-	* merge country-level variables
-	merge m:1 country_code using "$imported/Macro_Data.dta"
+	use "$imported/Macro_Data.dta", clear
 		
+	* merge country-level variables
+	merge m:m country_code using "$cleaned/4-Cleaned Project-level Data.dta"
+
+********************************************************************************
+*                   ===================================
+*   			           Rename & Label Variables
+*                   ===================================
+********************************************************************************
+	
+	* (var name)
+	rename (oldname) (newname)
+		label var newname "xxxxx"
+	
+	"Gavin please rename variables here"
+	
+	
+********************************************************************************
+*                   	=========================
+*   			                 Save Data
+*                   	=========================
+********************************************************************************
+	
 	* save and label data
 	save "$cleaned/5-Merged_country-level data.dta", replace
 		notes: Merged country-level data using filtered main dataset

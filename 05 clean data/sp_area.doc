@@ -1,0 +1,43 @@
+{\rtf1\ansi\deff0 {\fonttbl{\f0\fnil Garamond;}}
+{\info {\author .}{\company .}{\title .}}
+\deflang1033\plain\fs20
+{\footer\pard\qc\plain\f0\fs20\chpgn\par}
+{
+{
+{\b\qc\line Tabulation of sp_area  }{\par}
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx4800\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx6300\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx7800\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx9300
+\ql {sp_area}\cell
+\qr {Freq.}\cell
+\qr {Percent}\cell
+\qr {Cum.}\cell
+\row
+\trowd\trgaph108\trleft-108\cellx4800\cellx6300\cellx7800\cellx9300
+\ql {1. Social assistance}\cell
+\qr {85}\cell
+\qr {89.47}\cell
+\qr {89.47}\cell
+\row
+\ql {2. Social insurance}\cell
+\qr {3}\cell
+\qr {3.16}\cell
+\qr {92.63}\cell
+\row
+\ql {3. Labor market programs}\cell
+\qr {7}\cell
+\qr {7.37}\cell
+\qr {100.00}\cell
+\row
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx4800\clbrdrt\brdrw10\brdrs\cellx6300\clbrdrt\brdrw10\brdrs\cellx7800\clbrdrt\brdrw10\brdrs\cellx9300 
+\ql {Total}\cell
+\qr {95}\cell
+\qr {100.00}\cell
+\qr {}\cell
+\row
+}
+{\trowd\trgaph108\trleft-108
+\clbrdrt\brdrw15\brdrs\cellx9300\cell
+\row}
+
+
+\writepositionforappend
+}}
