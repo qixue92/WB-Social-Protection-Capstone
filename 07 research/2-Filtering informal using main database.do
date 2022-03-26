@@ -151,22 +151,22 @@
 	drop if program_id == "C19_KEN_0037" //informal settlements
 	drop if program_id == "C19_KEN_0036" //informal settlements
 	drop if program_id == "C19_NAM_0025" //informal settlements
-	drop if program_id == "C19_SLE_0001" //poor and disability ???
+	drop if program_id == "C19_SLE_0001" //poor and disability
 	drop if program_id == "C19_VNM_0013" //medium-sized business
 	
-	* list of ambiguous programs that were not excluded
-	///C19_MYS_0033 - employment insurance
-	///C19_CHN_0003 - employment insurance
-	///C19_PHL_0017 - small business wage subsidy
-	///C19_LKA_0007 - daily wage worker
-	///C19_MMR_0012 - female garment worker
+	* additional programs excluded based on client approval
+	drop if program_id == "C19_CHN_0003" //employment insurance
+	drop if program_id == "C19_CIV_0002" //food assistance
+	drop if program_id == "C19_COL_0022" //universal cash transfer
+	drop if program_id == "C19_DOM_0001" //poor and vulnerable
+	drop if program_id == "C19_MYS_0033" //employment insurance
+	drop if program_id == "C19_PHL_0017" //small business wage subsidy
+	
+	* programs remained based on further research
 	///C19_MDV_0021 - poor and vulnerable
-	///C19_DOM_0001 - poor and vulnerable
 	///C19_VNM_0031 - artists and tour guide
 	///C19_ZAF_0031 - freelance tour guide
 	///C19_EGY_0043 - tourism
-	///C19_CIV_0002 - food assistance for existing benefitiaries
-	///C19_COL_0022 - universal cash transfer
 	
 	
 ********************************************************************************
