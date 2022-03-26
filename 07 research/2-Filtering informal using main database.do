@@ -9,7 +9,7 @@
 * Description: This file is created to filter the main dataset with regard to programs targeted informal sector.
 
 * Update 1: change dataset, Mar 03 - "switch from merged data to main data" 
-* Update 2: add new do-file, Dec 11- "add clean var do-file"
+* Update 2: add new filters, Mar 25 - "remove a few more programs based on feedback"
 ********************************************************************************/
 
 
