@@ -1,9 +1,9 @@
 {smcl}
-{txt}{sf}{ul off}{.-}
+{com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Filtering informal using main database.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 9 Mar 2022, 11:32:24
+ {txt}opened on:  {res}25 Mar 2022, 23:21:23
 {txt}
 {com}.         
 . ********************************************************************************
@@ -223,26 +223,38 @@ saved
 {com}.         drop if program_id == "C19_NAM_0025" //informal settlements
 {txt}(1 observation deleted)
 
-{com}.         drop if program_id == "C19_SLE_0001" //poor and disability ???
+{com}.         drop if program_id == "C19_SLE_0001" //poor and disability
 {txt}(1 observation deleted)
 
 {com}.         drop if program_id == "C19_VNM_0013" //medium-sized business
 {txt}(1 observation deleted)
 
 {com}.         
-.         * list of ambiguous programs that were not excluded
-.         ///C19_MYS_0033 - employment insurance
->         ///C19_CHN_0003 - employment insurance
->         ///C19_PHL_0017 - small business wage subsidy
->         ///C19_LKA_0007 - daily wage worker
->         ///C19_MMR_0012 - female garment worker
->         ///C19_MDV_0021 - poor and vulnerable
->         ///C19_DOM_0001 - poor and vulnerable
+.         * additional programs excluded based on client approval
+.         drop if program_id == "C19_CHN_0003" //employment insurance
+{txt}(1 observation deleted)
+
+{com}.         drop if program_id == "C19_CIV_0002" //food assistance
+{txt}(1 observation deleted)
+
+{com}.         drop if program_id == "C19_COL_0022" //universal cash transfer
+{txt}(1 observation deleted)
+
+{com}.         drop if program_id == "C19_DOM_0001" //poor and vulnerable
+{txt}(1 observation deleted)
+
+{com}.         drop if program_id == "C19_MYS_0033" //employment insurance
+{txt}(1 observation deleted)
+
+{com}.         drop if program_id == "C19_PHL_0017" //small business wage subsidy
+{txt}(1 observation deleted)
+
+{com}.         
+.         * programs remained based on further research
+.         ///C19_MDV_0021 - poor and vulnerable
 >         ///C19_VNM_0031 - artists and tour guide
 >         ///C19_ZAF_0031 - freelance tour guide
 >         ///C19_EGY_0043 - tourism
->         ///C19_CIV_0002 - food assistance for existing benefitiaries
->         ///C19_COL_0022 - universal cash transfer
 >         
 .         
 . ********************************************************************************
@@ -258,13 +270,13 @@ saved
 {txt}start_date: contains nonnumeric characters; no {res}replace
 {txt}extended_date: contains nonnumeric characters; no {res}replace
 {txt}ben_pre_covidben_precovid: all characters numeric; {res}replaced {txt}as {res}long
-{txt}(95 missing values generated)
+{txt}(89 missing values generated)
 {res}{txt}exp_plan: all characters numeric; {res}replaced {txt}as {res}double
-{txt}(57 missing values generated)
+{txt}(52 missing values generated)
 {res}{txt}exp_plan_usd: all characters numeric; {res}replaced {txt}as {res}double
-{txt}(90 missing values generated)
+{txt}(84 missing values generated)
 {res}{txt}exp_actual_usd: all characters numeric; {res}replaced {txt}as {res}long
-{txt}(100 missing values generated)
+{txt}(94 missing values generated)
 {res}{txt}
 {com}.         
 .         save "$cleaned/2-Filtered Informal Programs.dta", replace
@@ -284,7 +296,7 @@ saved
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Filtering informal using main database.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 9 Mar 2022, 11:32:25
+ {txt}closed on:  {res}25 Mar 2022, 23:21:24
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
