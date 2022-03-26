@@ -43,10 +43,10 @@
 	global  tables_full         "$root/04 output/tables_merged full datat"
 	
 	* using data
-	use "$cleaned/2-Filtered Informal Programs.dta", clear
+	use "$cleaned/3-project-level data.dta", clear
 	
 	* using log
-	log using "$output/research/Project-level summary stat using merged full dataset.smcl", replace
+	log using "$output/research/Project-level summary stat using filtered dataset.smcl", replace
 	
 	
 ********************************************************************************
@@ -80,43 +80,37 @@
 		tab region, missing
 
 			* export table
-			asdoc tab region, save(region.doc) replace
+			asdoc tab region, save(region.doc) missing replace
+			
+	* unique countries
+	unique country_name
 	
-	* hhsize
-	destring hh_size, replace force
-	sum hh_size, detail
+	sort region
+	by region: tab country_name
 	
-			* export table
-			asdoc sum hh_size, save(hhsize.doc) replace
+	* sp_area (sa, si or lm)
+	tab sp_area, m
 	
+		* export table
+		asdoc tab sp_area, save(sp_area.doc) missing replace
+			
 	* sp_sub_category
 	tab sp_sub_category, missing
 	
 			* export table
-			asdoc tab sp_sub_category, save(sp_sub_category) replace
-	
-	* updated_status
-	replace updated_status = status if missing(updated_status)
-	tab updated_status, missing
-			
-			* export table
-			asdoc tab updated_status, save(updated_status) replace
-		
-* =====*
-* Binary
-* =====*
+			asdoc tab sp_sub_category, save(sp_sub_category) missing replace
 
 	* benefit_new
 	tab benefit_new, missing
 	
 			* export table
-			asdoc tab benefit_new, save(binary_stat.doc) replace			
+			asdoc tab benefit_new, save(binary_stat.doc) missing replace			
 	
 	* household or individual
 	tab ben_unit_plan, missing
 	
 			* export table
-			asdoc tab ben_unit_plan, save(binary_stat.doc) append
+			asdoc tab ben_unit_plan, save(binary_stat.doc) missing append
 	
 	* benefit temp or one-off
 	tab benefit_temp, missing
@@ -138,33 +132,16 @@
 		* summarize subcategories (including repetitives)
 		fsum benefit_temp_*, label
 		
-	/*** financing_source - not validated"
-		
-		* Initial tab - finding which program used multiple financing sources
-		tab financing_source, missing
-		
-		* generate dummy var for all subcategories
-		forvalues v = 1/4 {
-			gen financing_source_`v' = regexm(financing_source, "`v'") == 1	
-			}
+	 * rename Column3
+	 rename Column3 including_informal
+	 tab including_informal, missing
+			
+			* export table
+			asdoc tab including_informal, save(including_informal) missing replace
 	
-		* label newly created dummy variables
-		label var financing_source_1 "1.Public"
-		label var financing_source_2 "2.Private"
-		label var financing_source_3 "3.Social security"
-		label var financing_source_4 "4.International"
-		
-		* summarize subcategories (including repetitives)
-		fsum financing_source_*, label*/
-	
-	/* policy_Objective
-	rename Policy_Objective policy_objective
-	tab policy_objective, m
-	* not much valuable info */
-	
-	* ====================
-	* 2_Social Assistance
-	* ====================
+	* =====================
+	* 2 - Social Assistance
+	* =====================
 	
 	* sa_policy_adap
 	tab sa_policy_adap, missing
@@ -174,25 +151,25 @@
 		replace expansion_type = "Horizontal" if strmatch(sa_policy_adap, "*Horizontal*")
 		
 		* export table
-		asdoc tab sa_policy_adap, save(sa_policy_adap.doc) replace
+		asdoc tab sa_policy_adap, save(sa_policy_adap.doc) missing replace
 	
 	* tab expansion type
 	tab expansion_type, missing
 	
 		* export table
-		asdoc tab expansion_type, save(expansion_type.doc) replace
+		asdoc tab expansion_type, save(expansion_type.doc) missing replace
 	
 	* rural vs urban
 	tab sa_location, missing
 		
 		* export table
-		asdoc tab sa_location, save(sa_location.doc) replace
+		asdoc tab sa_location, save(sa_location.doc) missing replace
 	
 	* benefit type
 	tab sa_b_type, missing
 	
 		* export table
-		asdoc tab sa_b_type, save(sa_b_type.doc) replace
+		asdoc tab sa_b_type, save(sa_b_type.doc) missing replace
 	
 	*** indentification_instruments
 		
@@ -373,10 +350,6 @@
 		gsort -exp_actual_usd
 		list country_name program_name exp_actual_usd in 1/15 if !missing(exp_actual_usd), table
 		
-	/* benefit amount in local currencies
-	gsort -sa_b_amount_l
-	list country_name program_name acualcoverage in 1/15 if !missing(ben_plan), table*/
-
 	
 ********************************************************************************
 *                   ===================================
