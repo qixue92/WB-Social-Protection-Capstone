@@ -79,10 +79,10 @@
 ********************************************************************************
 	
 	* (var name)
-	rename (oldname) (newname)
-		label var newname "xxxxx"
+	*rename (oldname) (newname)
+	*	label var newname "xxxxx"
 	
-	"Gavin please rename variables here"
+	*"Gavin please rename variables here"
 	
 
 	
