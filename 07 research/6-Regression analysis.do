@@ -77,11 +77,8 @@
 	* PDC per capita
 	tab GDP2020, m
 	
-	* tab population
-	* tab population, m
-	
 	* two-way scatter
-	binscatter SPP_program GDP2020
+	binscatter SPP_program GDP2020, xtitle(GDP per Capita) ytitle(Has an informal SPP program)
 	
 	* graph export
 	graph export "$output/research/binscatter/GDPpc.png"
@@ -89,7 +86,7 @@
 * 2. Informality (JAM) 
 	
 	* two-way scatter
-	binscatter SPP_program JAM
+	binscatter SPP_program JAM, xtitle(JAM Index) ytitle(Has an informal SPP program)
 	
 	* graph export
 	graph export "$output/research/binscatter/JAM.png"
@@ -108,7 +105,7 @@
 	}
 	
 	* two-way scatter
-	binscatter SPP_program IAPop
+	binscatter SPP_program IAPop, xtitle(Access to Internet) ytitle(Has an informal SPP program)
 	
 	* graph export
 	graph export "$output/research/binscatter/internet.png"
@@ -127,7 +124,7 @@
 	}
 	
 	* two-way scatter
-	binscatter SPP_program InfEmp
+	binscatter SPP_program InfEmp, xtitle(roportion of workforce in the informal sector) ytitle(Has an informal SPP program)
 	
 	* graph export
 	graph export "$output/research/binscatter/informal_pc.png"
@@ -146,7 +143,7 @@
 	}
 	
 	* two-way scatter
-	binscatter SPP_program LRPop
+	binscatter SPP_program LRPop, xtitle(Literacy Rate) ytitle(Has an informal SPP program)
 	
 	* graph export
 	graph export "$output/research/binscatter/literacy.png"
