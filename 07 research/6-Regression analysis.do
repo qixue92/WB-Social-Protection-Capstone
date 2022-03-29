@@ -124,7 +124,7 @@
 	}
 	
 	* two-way scatter
-	binscatter SPP_program InfEmp, xtitle(roportion of workforce in the informal sector) ytitle(Has an informal SPP program)
+	binscatter SPP_program InfEmp, xtitle(Proportion of workforce in the informal sector) ytitle(Has an informal SPP program)
 	
 	* graph export
 	graph export "$output/research/binscatter/informal_pc.png", replace
