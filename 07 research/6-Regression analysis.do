@@ -81,7 +81,7 @@
 	binscatter SPP_program GDP2020, xtitle(GDP per Capita) ytitle(Has an informal SPP program)
 	
 	* graph export
-	graph export "$output/research/binscatter/GDPpc.png"
+	graph export "$output/research/binscatter/GDPpc.png", replace
 	
 * 2. Informality (JAM) 
 	
@@ -89,7 +89,7 @@
 	binscatter SPP_program JAM, xtitle(JAM Index) ytitle(Has an informal SPP program)
 	
 	* graph export
-	graph export "$output/research/binscatter/JAM.png"
+	graph export "$output/research/binscatter/JAM.png", replace
 	
 * 3. Access to internet
 	
@@ -108,7 +108,7 @@
 	binscatter SPP_program IAPop, xtitle(Access to Internet) ytitle(Has an informal SPP program)
 	
 	* graph export
-	graph export "$output/research/binscatter/internet.png"
+	graph export "$output/research/binscatter/internet.png", replace
 	
 * 4. Proportion of workforce in the informal sector.
 	
@@ -127,7 +127,7 @@
 	binscatter SPP_program InfEmp, xtitle(roportion of workforce in the informal sector) ytitle(Has an informal SPP program)
 	
 	* graph export
-	graph export "$output/research/binscatter/informal_pc.png"
+	graph export "$output/research/binscatter/informal_pc.png", replace
 
 * 5. Literacy rate
 	
@@ -146,8 +146,6 @@
 	binscatter SPP_program LRPop, xtitle(Literacy Rate) ytitle(Has an informal SPP program)
 	
 	* graph export
-	graph export "$output/research/binscatter/literacy.png"
+	graph export "$output/research/binscatter/literacy.png", replace
 	
-	
-
 		 
