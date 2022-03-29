@@ -59,7 +59,7 @@
 	* rename _merge to understand data source
 	gen SPP_program = _merge
 		label var SPP_program "has a SPP program"
-	replace  SPP_program = 0 if SPP_program == 2
+	replace  SPP_program = 0 if SPP_program == 1
 	replace  SPP_program = 1 if SPP_program == 3
 	
 ********************************************************************************
@@ -67,12 +67,6 @@
 *   			               Research Questions
 *                   ===================================
 ********************************************************************************	
-	
-	* ========================= *
-	* gloabl controls variables
-	* ========================= *
-	 
-	 gloabl control "Neha please add variables here"
  
 	* ================== *
 	* research questions
@@ -81,32 +75,77 @@
 * 1. Real GDP per capita (use the most recent GDP value)
 	
 	* PDC per capita
-	tab GDPpc, m
+	tab GDP2020, m
 	
-	* tab population
-	tab population, m
+	* two-way scatter
+	binscatter SPP_program GDP2020, xtitle(GDP per Capita) ytitle(Has an informal SPP program)
 	
-	* regression
-	reg SPP_program GDPpc control
+	* graph export
+	graph export "$output/research/binscatter/GDPpc.png", replace
 	
 * 2. Informality (JAM) 
 	
-	* regression
-	reg SPP_program JAM control
+	* two-way scatter
+	binscatter SPP_program JAM, xtitle(JAM Index) ytitle(Has an informal SPP program)
+	
+	* graph export
+	graph export "$output/research/binscatter/JAM.png", replace
 	
 * 3. Access to internet
-
-	* regression
-	reg SPP_program (internet) control
+	
+	* recode data - gen missing
+	foreach var of varlist IAPop2015 - IAPop2020 {
+		replace `var' = . if `var' == 0
+	}
+	
+	* use previous year data if missing
+	gen IAPop = IAPop2020
+	foreach var of varlist IAPop2019 IAPop2018 IAPop2017 IAPop2016 IAPop2015 {
+		replace IAPop = `var' if missing(IAPop)
+	}
+	
+	* two-way scatter
+	binscatter SPP_program IAPop, xtitle(Access to Internet) ytitle(Has an informal SPP program)
+	
+	* graph export
+	graph export "$output/research/binscatter/internet.png", replace
 	
 * 4. Proportion of workforce in the informal sector.
-
-	* regression
-	reg SPP_program (proporation) control
+	
+	* recode data - gen missing
+	foreach var of varlist InfEmp2013 - InfEmp2018 {
+		replace `var' = . if `var' == 0
+	}
+	
+	* use previous year data if missing
+	gen InfEmp = InfEmp2018
+	foreach var of varlist InfEmp2017 InfEmp2016 InfEmp2015 InfEmp2014 InfEmp2013 {
+		replace InfEmp = `var' if missing(InfEmp)
+	}
+	
+	* two-way scatter
+	binscatter SPP_program InfEmp, xtitle(Proportion of workforce in the informal sector) ytitle(Has an informal SPP program)
+	
+	* graph export
+	graph export "$output/research/binscatter/informal_pc.png", replace
 
 * 5. Literacy rate
-	reg SPP_program (Literacy rate) control
-
 	
-
+	* recode data - gen missing
+	foreach var of varlist LRPop2010 - LRPop2020 {
+		replace `var' = . if `var' == 0
+	}
+	
+	* create loop to use previous year data if missing
+	gen LRPop = LRPop2020
+	foreach var of varlist LRPop2019 LRPop2018 LRPop2017 LRPop2016 LRPop2015 LRPop2014 LRPop2013 LRPop2012 LRPop2011 LRPop2010{
+		replace LRPop = `var' if missing(LRPop)
+	}
+	
+	* two-way scatter
+	binscatter SPP_program LRPop, xtitle(Literacy Rate) ytitle(Has an informal SPP program)
+	
+	* graph export
+	graph export "$output/research/binscatter/literacy.png", replace
+	
 		 
