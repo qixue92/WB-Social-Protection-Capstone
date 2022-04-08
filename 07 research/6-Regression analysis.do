@@ -8,7 +8,7 @@
 * Date created: Mar 22, 2022
 * Description: This file is created to run regressional analysis for the country-level data.
 
-* Update 1: add new dataset, Dec 9 - "import new dataset" 
+* Update 1: add coef table, April 8 - "run regression with different controls" 
 * Update 2: add new do-file, Dec 11- "add clean var do-file"
 ********************************************************************************/
 
@@ -74,11 +74,14 @@
  
 * 1. Real GDP per capita (use the most recent GDP value)
 	
-	* PDC per capita
-	tab GDP2020, m
+	* GDP per capita
+	tab GDPpc, m
+	
+	* gen log GDPpc
+	gen lGDPpc = log(GDPpc)
 	
 	* two-way scatter
-	binscatter SPP_program GDP2020, xtitle(GDP per Capita) ytitle(Has an informal SPP program)
+	binscatter SPP_program lGDPpc, xtitle(log GDP per capita) ytitle(Has an informal SPP program)
 	
 	* graph export
 	graph export "$output/research/binscatter/GDPpc.png", replace
@@ -148,4 +151,20 @@
 	* graph export
 	graph export "$output/research/binscatter/literacy.png", replace
 	
+	
+********************************************************************************
+*                   ===================================
+*   			             Coefficient Tables
+*                   ===================================
+********************************************************************************	
+	
+foreach var of varlist JAM IAPop InfEmp LRPop {
+	eststo: reg SPP_program `var', robust
+	eststo: reg SPP_program `var' GDPpc, robust
+	
+	esttab using "$output/research/correlation_results.doc", se r2 ar2 scalars(with GDPpc) ///
+			label title(Correlation Regression Results) replace
+	}
+	
+
 		 
