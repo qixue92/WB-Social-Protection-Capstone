@@ -46,19 +46,24 @@
 *                   ===================================
 ********************************************************************************
 
-	/*import excel "$raw/Capstone 2 Macro Data.xlsx", ///
+	import excel "$raw/Capstone 2 Macro Data.xlsx", ///
 	sheet("Main") firstrow clear
 	 
-	compress ///save storage space
+		compress ///save storage space
 	
-	* rename country name preparing merging data
-	rename CountryCode country_code
+		* rename country name preparing merging data
+		rename CountryCode country_code
 	
-	save "$imported/Macro_Data.dta", replace
+		save "$imported/Macro_Data.dta", replace
 	
-	label data "Country-lavel macro data"
-		notes: Source: country-level macro data agreed in the research plan as of Feb 2022.*/
+		label data "Country-lavel macro data"
+		notes: Source: country-level macro data agreed in the research plan as of Feb 2022.
 	
+	
+	/*import excel "$raw/IMF-GDPpc_2020.xls", sheet("Y2020") firstrow clear
+	
+		save "$imported/IMF-GDPpc_2020", replace*/
+
 	
 ********************************************************************************
 *                   ===================================
@@ -68,10 +73,25 @@
 
 	* use filtered data
 	use "$imported/Macro_Data.dta", clear
-		
+	
 	* merge country-level variables
-	merge m:m country_code using "$cleaned/4-Cleaned Project-level Data.dta"
+	merge 1:m country_code using "$cleaned/4-Cleaned Project-level Data.dta"
+	
+	
+********************************************************************************
+*                 ======================================
+*   			    Remove Groups other than Countries
+*                 ======================================
+********************************************************************************
 
+	drop if inlist(country_code,"AFE","AFW","ARB","CSS","EAP","EAR","EAS","ECA")
+	drop if inlist(country_code,"ECS","EUU","FCS","HIC","HPC","IBD","IBT","IDA")
+	drop if inlist(country_code,"IDB","IDX","UMC","CEB","WLD","OSS","TSA","TSS")						 
+	drop if inlist(country_code,"INX","LAC","LCN","LDC","LIC","LMC","LMY","LTE")
+	drop if inlist(country_code,"MIC","MNA","NAC","OED","PRE","PSS","PST","SSA")
+	drop if inlist(country_code,"SST","TEA","TEC","TLA","TMN","SSF","MEA")
+								 
+						 
 ********************************************************************************
 *                   ===================================
 *   			           Rename & Label Variables
@@ -175,7 +195,7 @@
 	
 	la var JAM "Compound indicators - JAM index"
 	
-	
+
 ********************************************************************************
 *                   	=========================
 *   			                 Save Data
