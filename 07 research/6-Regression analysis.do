@@ -74,14 +74,22 @@
  
 * 1. Real GDP per capita (use the most recent GDP value)
 	
-	* GDP per capita
-	tab GDPpc, m
+	* recode data - gen missing
+	foreach var of varlist GDPPC2018 - GDPPC2020 {
+		replace `var' = . if `var' == 0
+	}
+	
+	* use previous year data if missing
+	gen GDPPC = GDPPC2020
+	foreach var of varlist GDPPC2019 GDPPC2018 {
+		replace GDPPC = `var' if missing(GDPPC)
+	}
 	
 	* gen log GDPpc
-	gen lGDPpc = log(GDPpc)
+	gen lGDPPC = log(GDPPC)
 	
 	* two-way scatter
-	binscatter SPP_program lGDPpc, xtitle(log GDP per capita) ytitle(Has an informal SPP program)
+	binscatter SPP_program lGDPPC, xtitle(log GDP per capita) ytitle(Has an informal SPP program)
 	
 	* graph export
 	graph export "$output/research/binscatter/GDPpc.png", replace
@@ -158,13 +166,14 @@
 *                   ===================================
 ********************************************************************************	
 	
-foreach var of varlist JAM IAPop InfEmp LRPop {
-	eststo: reg SPP_program `var', robust
-	eststo: reg SPP_program `var' GDPpc, robust
+	* gen models
+	foreach var of varlist JAM IAPop InfEmp LRPop {
+		eststo: reg SPP_program `var', robust
+		eststo: reg SPP_program `var' lGDPPC, robust
+			}
 	
-	esttab using "$output/research/correlation_results.doc", se r2 ar2 scalars(with GDPpc) ///
-			label title(Correlation Regression Results) replace
-	}
+	esttab using "$output/research/results.rtf", ///
+	se r2 label title(Correlation Regression Results) replace
 	
 
 		 
