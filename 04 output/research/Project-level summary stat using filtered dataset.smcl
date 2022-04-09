@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using filtered dataset.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}26 Mar 2022, 01:08:35
+ {txt}opened on:  {res} 8 Apr 2022, 20:29:23
 {txt}
 {com}.         
 .         
@@ -835,7 +835,7 @@ Click to Open File:  {browse "sa_b_type.doc"}
  12. {c |} {res}       Kosovo                                                                                                               82000 {txt}{c |}
  13. {c |} {res}        Ghana                                                                                        Covid Relief Fund      75000 {txt}{c |}
  14. {c |} {res}   Cape Verde   Special Regime for Small and Micro Enterprises, Special Regime for Small and Micro Enterprises (REMPE)      30000 {txt}{c |}
- 15. {c |} {res}    St. Lucia                                                                                                                   0 {txt}{c |}
+ 15. {c |} {res}Venezuela, RB                                                                          Discipline and Solidarity Bonus          0 {txt}{c |}
      {c BLC}{hline 15}{c -}{hline 104}{c -}{hline 10}{c BRC}
 
 {com}. 
@@ -858,9 +858,9 @@ Click to Open File:  {browse "sa_b_type.doc"}
   2. {c |} {res}     Thailand                                                                            No-one left behind   15000000 {txt}{c |}
   3. {c |} {res}  Philippines    Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) First Tranche    2600000 {txt}{c |}
   5. {c |} {res}  Philippines   Tulong Panghanapbuhay sa Ating Displace/Disadvantaged Workers Program (DOLE) Second Tranche     797222 {txt}{c |}
- 10. {c |} {res}Venezuela, RB                                                                            Stay at home Bonus          . {txt}{c |}
+  9. {c |} {res}       Rwanda                                                                                                        . {txt}{c |}
      {c LT}{hline 15}{c -}{hline 93}{c -}{hline 10}{c RT}
- 12. {c |} {res}     Zimbabwe                                                                                                        . {txt}{c |}
+ 15. {c |} {res}Venezuela, RB                                                                            Stay at home Bonus          . {txt}{c |}
      {c BLC}{hline 15}{c -}{hline 93}{c -}{hline 10}{c BRC}
 
 {com}.         
@@ -921,50 +921,145 @@ Click to Open File:  {browse "sa_b_type.doc"}
 
 {com}.                 
 .         
-. ********************************************************************************
-. *                   ===================================
-. *                                      Close Log
-. *                   ===================================
-. ********************************************************************************        
 . 
-.         * rename _merge
-.         rename _merge data_source 
-{res}{txt}
-{com}.                 label var data_source "master-main, matched with informal"
-{txt}
-{com}.                 
-.         * fill the missing country code
-.         list country_name country_code if country_name == "Vietnam"
-{txt}
-     {c TLC}{hline 10}{c -}{hline 10}{c TRC}
-     {c |} {res}count~me   count~de {txt}{c |}
-     {c LT}{hline 10}{c -}{hline 10}{c RT}
-  6. {c |} {res} Vietnam        VNM {txt}{c |}
- 17. {c |} {res} Vietnam        VNM {txt}{c |}
- 87. {c |} {res} Vietnam            {txt}{c |}
-     {c BLC}{hline 10}{c -}{hline 10}{c BRC}
+{txt}end of do-file
 
-{com}.         replace country_code = "VNM" if country_name == "Vietnam"
-{txt}(1 real change made)
+{com}. tab sa_targ_method
 
-{com}.                 
-.         * save changed dataset
-.         save "$cleaned/4-Cleaned Project-level Data.dta", replace
-{txt}{p 0 4 2}
-file {bf}
-/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/05 clean data/4-Cleaned Project-level Data.dta{rm}
-saved
-{p_end}
+                         {txt}sa_targ_method {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                         1.Geographical {c |}{res}          3        7.14        7.14
+{txt}                          2.Categorical {c |}{res}         23       54.76       61.90
+{txt}          2.Categorical, 4.Means/income {c |}{res}          4        9.52       71.43
+{txt}        2.Categorical, 6.Self-targeting {c |}{res}          1        2.38       73.81
+{txt}                         4.Means/income {c |}{res}          5       11.90       85.71
+{txt}                     5.Proxy means test {c |}{res}          1        2.38       88.10
+{txt}                       6.Self-targeting {c |}{res}          1        2.38       90.48
+{txt}6.Self-targeting, 8.Other targeting m.. {c |}{res}          1        2.38       92.86
+{txt}            7. Food security/nutrition  {c |}{res}          1        2.38       95.24
+{txt}     8.Other targeting method (specify) {c |}{res}          2        4.76      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         42      100.00
 
-{com}.                 notes: project-level data using filtered merged dataset
-{res}{txt}
-{com}.         
-.         * close log
-.         log close
-      {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/Users/qixue/Documents/GitHub/WB-Social-Protection-Capstone/04 output/research/Project-level summary stat using filtered dataset.smcl
-  {txt}log type:  {res}smcl
- {txt}closed on:  {res}26 Mar 2022, 01:08:35
-{txt}{.-}
-{smcl}
-{txt}{sf}{ul off}
+{com}. tab sa_targ_method, m
+
+                         {txt}sa_targ_method {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}         53       55.79       55.79
+{txt}                         1.Geographical {c |}{res}          3        3.16       58.95
+{txt}                          2.Categorical {c |}{res}         23       24.21       83.16
+{txt}          2.Categorical, 4.Means/income {c |}{res}          4        4.21       87.37
+{txt}        2.Categorical, 6.Self-targeting {c |}{res}          1        1.05       88.42
+{txt}                         4.Means/income {c |}{res}          5        5.26       93.68
+{txt}                     5.Proxy means test {c |}{res}          1        1.05       94.74
+{txt}                       6.Self-targeting {c |}{res}          1        1.05       95.79
+{txt}6.Self-targeting, 8.Other targeting m.. {c |}{res}          1        1.05       96.84
+{txt}            7. Food security/nutrition  {c |}{res}          1        1.05       97.89
+{txt}     8.Other targeting method (specify) {c |}{res}          2        2.11      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+
+{com}. tab sa_payment_mecha_1
+
+    {txt}1.Fully {c |}
+ functional {c |}
+    account {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         74       77.89       77.89
+{txt}          1 {c |}{res}         21       22.11      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         95      100.00
+
+{com}. tab sa_payment_mecha, m
+
+                       {txt}sa_payment_mecha {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}         59       62.11       62.11
+{txt}            1. Fully functional account {c |}{res}         12       12.63       74.74
+{txt}   1. Fully functional account
+5. Cash {c |}{res}          1        1.05       75.79
+{txt}1. Fully functional account, 3. Elect.. {c |}{res}          1        1.05       76.84
+{txt}1. Fully functional account, 4. Check.. {c |}{res}          1        1.05       77.89
+{txt}   1. Fully functional account, 5. Cash {c |}{res}          3        3.16       81.05
+{txt}   1. Fully functional account; 5. Cash {c |}{res}          1        1.05       82.11
+{txt}1. Fully functional; 3. Electronic no.. {c |}{res}          1        1.05       83.16
+{txt}           1. Fully functional; 5. Cash {c |}{res}          1        1.05       84.21
+{txt}             2. Limited purpose account {c |}{res}          3        3.16       87.37
+{txt}2. Limited purpose account, 3. Electr.. {c |}{res}          1        1.05       88.42
+{txt}    2. Limited purpose account, 5. Cash {c |}{res}          1        1.05       89.47
+{txt}        3. Electronic non-account based {c |}{res}          3        3.16       92.63
+{txt}                    4. Check or voucher {c |}{res}          1        1.05       93.68
+{txt}                                5. Cash {c |}{res}          6        6.32      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+
+{com}. tab sa_payment_instruments
+
+                 {txt}sa_payment_instruments {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+        1. Debit card (general purpose) {c |}{res}          6       27.27       27.27
+{txt}1. Debit card (general purpose), 3. E.. {c |}{res}          2        9.09       36.36
+{txt}1. Debit card (general purpose), 3. E.. {c |}{res}          1        4.55       40.91
+{txt}1. Debit card (general purpose), 6. O.. {c |}{res}          2        9.09       50.00
+{txt}          3. E-wallet or mobile banking {c |}{res}          8       36.36       86.36
+{txt}3. E-wallet or mobile banking, 4. Uni.. {c |}{res}          1        4.55       90.91
+{txt}3. E-wallet or mobile banking; 4. Uni.. {c |}{res}          1        4.55       95.45
+{txt}   4. Unique-code based payments or OTP {c |}{res}          1        4.55      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         22      100.00
+
+{com}. tab identification_instruments, m
+
+             {txt}identification_instruments {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}         63       66.32       66.32
+{txt}                     1. Social registry {c |}{res}          7        7.37       73.68
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          3        3.16       76.84
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        1.05       77.89
+{txt}3. Civil registry (ID, voting ID, bir.. {c |}{res}          2        2.11       80.00
+{txt}4. Other governoment registry (social.. {c |}{res}          2        2.11       82.11
+{txt}5. Informal workers/self-employed reg.. {c |}{res}          2        2.11       84.21
+{txt}6. Open registration/new enrolment ca.. {c |}{res}         12       12.63       96.84
+{txt}                              7. Others {c |}{res}          3        3.16      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+
+{com}. tab identification_instruments
+
+             {txt}identification_instruments {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     1. Social registry {c |}{res}          7       21.88       21.88
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          3        9.38       31.25
+{txt}2. Existing beneficiary databases (vi.. {c |}{res}          1        3.12       34.38
+{txt}3. Civil registry (ID, voting ID, bir.. {c |}{res}          2        6.25       40.62
+{txt}4. Other governoment registry (social.. {c |}{res}          2        6.25       46.88
+{txt}5. Informal workers/self-employed reg.. {c |}{res}          2        6.25       53.12
+{txt}6. Open registration/new enrolment ca.. {c |}{res}         12       37.50       90.62
+{txt}                              7. Others {c |}{res}          3        9.38      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         32      100.00
+
+{com}. tab benefit_temp
+
+                           {txt}benefit_temp {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                             1. One-off {c |}{res}         32       35.96       35.96
+{txt}             2. Temporary (not one-off) {c |}{res}         53       59.55       95.51
+{txt}                           3. Permanent {c |}{res}          2        2.25       97.75
+{txt}              4. Temporary to Permanent {c |}{res}          2        2.25      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         89      100.00
+
+{com}. tab  benefit_temp, m
+
+                           {txt}benefit_temp {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                        {c |}{res}          6        6.32        6.32
+{txt}                             1. One-off {c |}{res}         32       33.68       40.00
+{txt}             2. Temporary (not one-off) {c |}{res}         53       55.79       95.79
+{txt}                           3. Permanent {c |}{res}          2        2.11       97.89
+{txt}              4. Temporary to Permanent {c |}{res}          2        2.11      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         95      100.00
+
+{com}. 
