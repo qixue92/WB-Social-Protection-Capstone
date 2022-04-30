@@ -105,6 +105,11 @@
 	
 			* export table
 			asdoc tab benefit_new, save(binary_stat.doc) missing replace			
+	* benefit new over income groups
+	by income_group: tab benefit_new, missing
+	
+	
+	
 	
 	* household or individual
 	tab ben_unit_plan, missing
@@ -158,6 +163,10 @@
 	
 		* export table
 		asdoc tab expansion_type, save(expansion_type.doc) missing replace
+		
+	* horizental VS Vertical by income groups
+	sort income_group
+	by income_group: tab expansion_type
 	
 	* rural vs urban
 	tab sa_location, missing
