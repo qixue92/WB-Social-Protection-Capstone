@@ -39,6 +39,20 @@
 	global	cleaning			"$root/03 data cleaning"
 	global  cleaned             "$root/05 clean data"
 
+********************************************************************************
+*                   ===================================
+*   			           Prepare Unique Countries
+*                   ===================================
+********************************************************************************	
+	
+	* Load Data
+	use "$cleaned/4-Cleaned Project-level Data.dta", clear
+	
+	* drop duplicated countries
+	duplicates drop country_name, force
+	
+	* save dataset
+	save "$cleaned/5-Cleaned Project-level data for regression.dta", replace 
 	
 ********************************************************************************
 *                   ===================================
@@ -75,7 +89,7 @@
 	use "$imported/Macro_Data.dta", clear
 	
 	* merge country-level variables
-	merge 1:m country_code using "$cleaned/4-Cleaned Project-level Data.dta"
+	merge 1:m country_code using "$cleaned/5-Cleaned Project-level data for regression.dta"
 	
 	
 ********************************************************************************
@@ -89,8 +103,8 @@
 	drop if inlist(country_code,"IDB","IDX","UMC","CEB","WLD","OSS","TSA","TSS")						 
 	drop if inlist(country_code,"INX","LAC","LCN","LDC","LIC","LMC","LMY","LTE")
 	drop if inlist(country_code,"MIC","MNA","NAC","OED","PRE","PSS","PST","SSA")
-	drop if inlist(country_code,"SST","TEA","TEC","TLA","TMN","SSF","MEA")
-								 
+	drop if inlist(country_code,"SST","TEA","TEC","TLA","TMN","SSF","MEA","SAS")
+	
 						 
 ********************************************************************************
 *                   ===================================
@@ -203,7 +217,7 @@
 ********************************************************************************
 	
 	* save and label data
-	save "$cleaned/5-Merged_country-level data.dta", replace
+	save "$cleaned/6-Merged_country-level data.dta", replace
 		notes: Merged country-level data using filtered main dataset
 	
 	

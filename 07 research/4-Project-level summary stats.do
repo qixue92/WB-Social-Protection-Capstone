@@ -105,11 +105,10 @@
 	
 			* export table
 			asdoc tab benefit_new, save(binary_stat.doc) missing replace			
+	
 	* benefit new over income groups
+	sort income_group
 	by income_group: tab benefit_new, missing
-	
-	
-	
 	
 	* household or individual
 	tab ben_unit_plan, missing
@@ -373,7 +372,7 @@
 	* fill the missing country code
 	list country_name country_code if country_name == "Vietnam"
 	replace country_code = "VNM" if country_name == "Vietnam"
-		
+	
 	* save changed dataset
 	save "$cleaned/4-Cleaned Project-level Data.dta", replace
 		notes: project-level data using filtered merged dataset

@@ -39,7 +39,7 @@
 	global  cleaned             "$root/05 clean data"
 	
 	* load data
-	use "$cleaned/5-Merged_country-level data.dta", clear
+	use "$cleaned/6-Merged_country-level data.dta", clear
 
 ********************************************************************************
 *                   ===================================
@@ -84,6 +84,14 @@
 	foreach var of varlist GDPPC2019 GDPPC2018 {
 		replace GDPPC = `var' if missing(GDPPC)
 	}
+	
+	* replce missing for a few countries
+	list country_code if missing(GDPPC)
+	replace GDPPC = 13231.70 if country_code == "CHI"
+	replace GDPPC = 588 if country_code == "ERI"
+	replace GDPPC = 92843 if country_code == "GIB"
+	replace GDPPC = 595 if country_code == "SSD"
+	replace GDPPC = 1691 if country_code == "VEN"
 	
 	* gen log GDPpc
 	gen lGDPPC = log(GDPPC)
